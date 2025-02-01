@@ -1,0 +1,4 @@
+return {
+    "kovisoft/slimv",
+    ft = { "lisp", "scheme" },
+}
