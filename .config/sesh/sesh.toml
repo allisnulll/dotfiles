@@ -1,0 +1,75 @@
+[default_sessiono]
+startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+
+[[session]]
+name = "🏠 Main"
+path = "~"
+
+[[session]]
+name = "🗒️ Scratch"
+path = "~/Scratch"
+disable_startup_command = true
+
+[[session]]
+name = "🛠️ Dotfiles"
+path = "~/.dotfiles"
+startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
+
+[[session]]
+name = " NeoVim"
+path = "~/.dotfiles/.config/nvim"
+startup_command = "nvim . '+Telescope find_files'; clear"
+
+[[session]]
+name = "⚙️ Sesh"
+path = "~/.dotfiles/.config/sesh"
+startup_command = "nvim sesh.toml; clear"
+
+[[session]]
+name = "🔎 Waybar"
+path = "~/.dotfiles/.config/waybar"
+startup_command = "nvim config.jsonc; clear"
+
+[[session]]
+name = "🪟 Hyprland"
+path = "~/.dotfiles/.config/hypr"
+startup_command = "nvim hyprland.conf; clear"
+
+[[session]]
+name = "⚙️ Zsh"
+path = "~/.dotfiles/.zsh/config"
+startup_command = "nvim .; clear"
+
+[[session]]
+name = "📓 Notes"
+path = "~/Notes"
+
+[[session]]
+name = "🧠 Brain"
+path = "~/Programming/Brain/brain-musik"
+startup_command = "~/.config/sesh/scripts/brain.sh"
+
+[[session]]
+name = "📖 Dictionary"
+path = "/home/allisnull/.cache/nvim/ltex"
+startup_command = "nvim en-US.txt; clear"
+
+[[session]]
+name = "📥 Downloads"
+path = "~/Downloads"
+
+[[session]]
+name = "📄 Documents"
+path = "~/Documents"
+
+[[session]]
+name = "📹 Videos"
+path = "~/Videos"
+
+[[session]]
+name = "🎵 Music"
+path = "~/Music"
+
+[[session]]
+name = "📸 Pictures"
+path = "~/Pictures"

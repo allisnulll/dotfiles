@@ -1,0 +1,58 @@
+# Git
+alias ga="git add"
+alias gaa="git add ."
+alias gau="git add -u"
+alias gb="git branch -a"
+alias gbd="git branch -D"
+alias gsw="git switch -c $1"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gcma="git commit -am"
+alias gcmp"git commit -m $1 && git push"
+alias gcmap="git commit -am $1 && git push"
+alias gca='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty'
+alias gcaa='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty'
+alias gcam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend -m --date="$(git log -n 1 --format=%aD)" --allow-empty'
+alias gcaam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend -m --date="$(git log -n 1 --format=%aD)" --allow-empty'
+alias grn='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" --allow-empty'
+alias gcap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
+alias gcaap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
+alias gcamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
+alias gcaamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
+alias gch="git checkout"
+alias gchf="git checkout --force"
+alias gcl="git clone"
+alias gd="git diff --color=always"
+alias gds="git diff --color=always --staged"
+alias gdsa="git add . && git diff --color=always --staged"
+alias gf="git fetch"
+alias gfa="git fetch --all"
+alias gl="git log --oneline --decorate --graph"
+alias glf="git log -p -- $@"
+alias gls="git ls-files --full-name | awk -F/ "\""{print $1}"\"" | sort -u"
+alias gp="git push"
+alias gpf="git push --force"
+alias gpl="git pull"
+alias gplf="git pull --force"
+alias grm"gir rm -f --cached"
+alias grma"git rm . -r"
+alias gs="git status"
+alias gsh="git show --color=always"
+alias gst="git stash"
+alias gsta="git stash apply"
+alias gstd="git stash drop"
+alias gstl="git stash list"
+alias gstad="git stash apply && git stash drop"
+alias grb="git rebase"
+alias grbi="git rebase -i"
+alias grbc="git rebase --continue"
+alias grbs="git rebase --skip"
+alias grba="git rebase --abort"
+alias grs="git reset"
+alias gdl="gir reset --hard HEAD~1"
+alias gun="git reset --hard HEAD"
+alias grm="git rm --cached -r $@"
+alias grma="git rm --cached -r ."
+# TODO: Figure out local gitignore
+# alias gig="git update-index --assume-unchanged $@"
+# alias gigr="git update-index --no-assume-unchanged $@"
