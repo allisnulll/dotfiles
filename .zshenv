@@ -6,7 +6,7 @@ export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
-export ADB_TRACE="all"
+# export ADB_TRACE="all"
 
 # Go
 export GOBIN="$HOME/go/bin"
