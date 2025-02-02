@@ -41,3 +41,7 @@ alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 
 # Bluetooth Devices
 alias blx="bluetoothctl connect 4F:63:57:C9:FA:58"
+
+# TeamViewer
+alias tvd="sudo teamviewer --daemon start"
+alias tvk="sudo pkill -f 'teamviewerd -d'"
