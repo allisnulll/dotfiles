@@ -23,8 +23,8 @@ alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
 alias v="nvim"
 
 # Flutter
-alias flr="flutter run $@ -d chrome --web-browser-flag='--ozone-platform-hint=wayland'"
-alias flrl="flutter run $@ -d linux --web-browser-flag='--ozone-platform-hint=wayland'"
+alias flr="flutter run -d chrome $@ --web-browser-flag='--ozone-platform-hint=wayland'"
+alias flrl="flutter run -d linux $@ --web-browser-flag='--ozone-platform-hint=wayland'"
 alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 
 # Eza
