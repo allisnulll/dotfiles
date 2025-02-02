@@ -96,8 +96,8 @@ function flw() {
         tmux split-window -h \;\
              send-keys 'pkill -f "firebase"' Enter \;\
              send-keys "c && fle" Enter \;\
-             resize-pane -x 40% -t 1
-             select-pane -t 0 \;
+             resize-pane -x 40% -t 1 \;\
+             select-pane -t 0
     fi
 }
 
@@ -111,4 +111,14 @@ function ftc() {
     else
         echo "Flutter tests failed."
     fi
+}
+
+function wsa() {
+    c
+    adb connect 192.168.1.215:58526 
+    tmux send-keys "flrw" Enter \;\
+         split-window -h \;\
+         send-keys "scrcpy --crop 780:1400:1620:40" Enter \;\
+         resize-pane -x 40% -t 1 \;\
+         select-pane -t 0
 }
