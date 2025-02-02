@@ -39,8 +39,9 @@ eval "$(zoxide init --cmd cd zsh)"
 # Unzip
 alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 
-# Bluetooth Devices
+# Devices
 alias blx="bluetoothctl connect 4F:63:57:C9:FA:58"
+alias pc-sam="wol AC:82:47:C6:DF:13"
 
 # TeamViewer
 alias tvd="sudo teamviewer --daemon start"
