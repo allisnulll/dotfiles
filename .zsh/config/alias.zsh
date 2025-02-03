@@ -28,6 +28,7 @@ alias flrc="flutter run -d chrome $@ --web-browser-flag='--ozone-platform-hint=w
 alias flrl="flutter run -d linux $@ --web-browser-flag='--ozone-platform-hint=wayland'"
 alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-platform-hint=wayland'"
 alias fle="firebase emulators:start --import emulators_data --export-on-exit"
+alias adbr="adb shell settings put system user_rotation 0"
 
 # Eza
 alias ls="eza --icons=always"

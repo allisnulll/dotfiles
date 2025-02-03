@@ -88,7 +88,7 @@ chromium-view() {
 
 # Flutter
 function flw() {
-    tmux send-keys "c && flr --pid-file=/tmp/tf1.pid" Enter \;\
+    tmux send-keys "c && adbr && flr --pid-file=/tmp/tf1.pid" Enter \;\
          split-window -v \;\
          send-keys 'npx -y nodemon -e dart -x "cat /tmp/tf1.pid | xargs kill -s USR1"' Enter \;\
          resize-pane -y 30% -t 1
@@ -115,7 +115,7 @@ function ftc() {
 
 function wsa() {
     adb connect 192.168.1.215:58526 
-    tmux send-keys "c && flrw --pid-file=/tmp/tf1.pid" Enter \;\
+    tmux send-keys "c && adb shell settings put system user_rotation 0 && flrw --pid-file=/tmp/tf1.pid" Enter \;\
          split-window -h \;\
          send-keys "scrcpy --crop 720:1346:1840:34 --max-size 1080" Enter \;\
          resize-pane -x 40% -t 1 \;\
