@@ -116,7 +116,7 @@ function ftc() {
 function wsa() {
     c
     adb connect 192.168.1.215:58526 
-    tmux send-keys "flrw" Enter \;\
+    tmux send-keys "flrw --pid-file=/tmp/tf1.pid" Enter \;\
          split-window -h \;\
          send-keys "scrcpy --crop 720:1346:1840:34 --max-size 1080" Enter \;\
          resize-pane -x 40% -t 1 \;\
