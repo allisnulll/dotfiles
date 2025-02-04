@@ -93,7 +93,7 @@ vim.keymap.set("n", "<Enter>", function()
     local foldlevel = vim.fn.foldlevel(line)
 
     if foldlevel == 0 then
-        vim.notify("No fold found", vim.log.levels.INFO)
+        vim.cmd("normal! <Enter>")
     else
         vim.cmd("normal! za")
     end
