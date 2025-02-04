@@ -5,7 +5,7 @@ source ~/.zsh/config/function.zsh
 tmux new-window \;\
      send-keys "c && git status" Enter \;\
      new-window -n "log" \;\
-     send-keys "c && adb logcat -s flutter" Enter \;\
+     send-keys "c && adb logcat" Enter \;\
      new-window -n "run" \;\
 
 flw
