@@ -9,7 +9,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "compile-mode.nvim": { "branch": "nightly", "commit": "8dff8d8472363e01499a4e8cc02f5f5595ce3922" },
   "conform.nvim": { "branch": "master", "commit": "363243c03102a531a8203311d4f2ae704c620d9b" },
-  "conjure": { "branch": "main", "commit": "4ff479bcb79444103c1905ff4b4777960e0fc742" },
+  "conjure": { "branch": "main", "commit": "95b067e1356fb5b0143c9487ffc9950ddaa7df3a" },
   "dressing.nvim": { "branch": "master", "commit": "56ef6a969a4990d938c5fed40c370f65e125fc97" },
   "flutter-bloc.nvim": { "branch": "main", "commit": "f3a566aa8591cab7e1419667ecf8d65520258689" },
   "flutter-tools.nvim": { "branch": "main", "commit": "234a9d4022d0a17301e85a08660d489bffb7383f" },
