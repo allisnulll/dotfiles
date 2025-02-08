@@ -9,7 +9,7 @@ path = "~/Scratch"
 [[session]]
 name = "🛠️ Dotfiles"
 path = "~/.dotfiles"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
 
 [[session]]
 name = " NeoVim"
