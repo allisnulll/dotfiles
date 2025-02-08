@@ -47,7 +47,8 @@ return {
                 { name = "buffer" },
                 { name = "path" },
                 { name = "render-markdown" },
-                { name = "orgmode" },
+                { name = "obsidian" },
+                -- { name = "orgmode" },
                 { name = "conjure" },
             }),
 
