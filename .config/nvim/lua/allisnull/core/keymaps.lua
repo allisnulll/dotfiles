@@ -19,12 +19,17 @@ local function duplicate_line()
 end
 
 local function to_fold_level()
-    local input = vim.fn.input("Fold Level: ")
+    vim.api.nvim_echo({{"Fold Level: ", "Normal"}}, false, {})
+    local char = vim.fn.getchar()
+    local input = vim.fn.nr2char(char)
     local level = tonumber(input)
 
     if not level then
         vim.notify("Invalid input", vim.log.levels.INFO)
+        return 0
     end
+
+    vim.api.nvim_echo({{"", "Normal"}}, false, {})
     if level == 0 then
         level = 101
     end
