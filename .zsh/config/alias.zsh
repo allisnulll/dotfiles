@@ -22,13 +22,10 @@ alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
 # NeoVim
 alias v="nvim"
 
-# Flutter
-alias flr="flutter run $@ --web-browser-flag='--ozone-platform-hint=wayland'"
-alias flrc="flutter run -d chrome $@ --web-browser-flag='--ozone-platform-hint=wayland'"
-alias flrl="flutter run -d linux $@ --web-browser-flag='--ozone-platform-hint=wayland'"
-alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-platform-hint=wayland'"
-alias fle="firebase emulators:start --import emulators_data --export-on-exit"
-alias adbr="adb shell settings put system user_rotation 0"
+# Tmux
+alias tx="sesh connect 🏠 Main; exec zsh"
+alias txd="tmux detach"
+alias txks="tmux kill-server"
 
 # Eza
 alias ls="eza --icons=always"
@@ -49,3 +46,11 @@ alias pc-sam="wol AC:82:47:C6:DF:13; tvd"
 # TeamViewer
 alias tvd="sudo teamviewer --daemon start"
 alias tvk="sudo pkill -f 'teamviewerd -d'"
+
+# Flutter
+alias flr="flutter run $@ --web-browser-flag='--ozone-platform-hint=wayland'"
+alias flrc="flutter run -d chrome $@ --web-browser-flag='--ozone-platform-hint=wayland'"
+alias flrl="flutter run -d linux $@ --web-browser-flag='--ozone-platform-hint=wayland'"
+alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-platform-hint=wayland'"
+alias fle="firebase emulators:start --import emulators_data --export-on-exit"
+alias adbr="adb shell settings put system user_rotation 0"
