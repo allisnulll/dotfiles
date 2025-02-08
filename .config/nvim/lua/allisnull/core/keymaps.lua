@@ -93,7 +93,7 @@ end
 -- end
 -- vim.keymap.set("v", "<leader>tl", function() to_line() end, { desc = "Move selection to line" })
 
-vim.keymap.set("n", "<Enter>", function()
+vim.keymap.set("n", "<C-Enter>", function()
     local line = vim.fn.line(".")
     local foldlevel = vim.fn.foldlevel(line)
 
