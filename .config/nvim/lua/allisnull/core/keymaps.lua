@@ -120,7 +120,7 @@ vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle r
 vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
 
-vim.keymap.set("i", "<C-Space>", "\u{00A0}", { desc = "Insert nbsp" })
+vim.keymap.set("i", "<S-Space>", "\u{00A0}", { desc = "Insert nbsp" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
