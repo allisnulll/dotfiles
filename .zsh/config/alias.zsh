@@ -56,6 +56,7 @@ alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 alias adbr="adb shell settings put system user_rotation 0"
 
 # Keyd
+alias kd="keyd"
 alias kdr="sudo keyd reload"
-alias kdm="keyd monitor"
-alias kdl="keyd list-keys"
+alias kdm="sudo keyd monitor"
+alias kdl="keyd list-keys | grep -i $1"
