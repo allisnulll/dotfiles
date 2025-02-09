@@ -47,6 +47,12 @@ config.keys = {
         action = wezterm.action.DisableDefaultAssignment,
     },
 
+    {
+        key = "Enter",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F13" }),
+    },
+
     -- {
     --     key = "=",
     --     mods = "CTRL|SHIFT",
