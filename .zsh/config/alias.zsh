@@ -54,3 +54,8 @@ alias flrl="flutter run -d linux $@ --web-browser-flag='--ozone-platform-hint=wa
 alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-platform-hint=wayland'"
 alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 alias adbr="adb shell settings put system user_rotation 0"
+
+# Keyd
+alias kdr="sudo keyd reload"
+alias kdm="keyd monitor"
+alias kdl="keyd list-keys"
