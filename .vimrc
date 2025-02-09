@@ -60,7 +60,7 @@ nnoremap <leader>or :set relativenumber!<CR>
 nnoremap <leader>oh :set hlsearch!<CR>
 nnoremap <leader>ow :set wrap!<CR>
 
-inoremap <C-Space> \u{00A0}
+inoremap <S-Space> \u{00A0}
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
