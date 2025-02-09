@@ -37,6 +37,10 @@ path = "~/.dotfiles/.zsh/config"
 startup_command = "nvim .; clear"
 
 [[session]]
+name = "🏦 Vault"
+path = "~/Vault"
+
+[[session]]
 name = "📓 Notes"
 path = "~/Notes"
 startup_command = "clear && tree -dL 3 && eza -a --icons=always"
