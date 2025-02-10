@@ -1,6 +1,6 @@
 return {
-    'echasnovski/mini.comment',
+    "echasnovski/mini.comment",
     config = function()
-        require('mini.comment').setup()
+        require("mini.comment").setup()
     end,
 }

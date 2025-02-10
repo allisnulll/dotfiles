@@ -1,6 +1,6 @@
 return {
-    'echasnovski/mini.move',
+    "echasnovski/mini.move",
     config = function()
-        require('mini.move').setup()
+        require("mini.move").setup()
     end,
 }
