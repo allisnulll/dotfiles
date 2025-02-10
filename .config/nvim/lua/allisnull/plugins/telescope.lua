@@ -43,6 +43,6 @@ return {
         vim.keymap.set("n", "<leader>fg", ":Telescope git_files<CR>", { desc = "Fuzzy find files tracked by Git" })
         vim.keymap.set("n", "<leader>ft", ":TodoTelescope<CR>", { desc = "Fuzzy find todos" })
         vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", { desc = "Fuzzy find diagnostics" })
-        vim.keymap.set("n", "<leader>fk", require('telescope.builtin').commands, { desc = "Fuzzy find diagnostics" })
+        vim.keymap.set("n", "<leader>fk", require("telescope.builtin").commands, { desc = "Fuzzy find diagnostics" })
     end,
 }

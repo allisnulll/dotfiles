@@ -1,5 +1,5 @@
 local function maximize_status()
-  return vim.t.maximized and '   ' or ''
+  return vim.t.maximized and "   " or ""
 end
 
 -- local function flutter_app_version()

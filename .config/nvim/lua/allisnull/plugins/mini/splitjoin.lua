@@ -1,6 +1,6 @@
 return {
-    'echasnovski/mini.splitjoin',
+    "echasnovski/mini.splitjoin",
     config = function()
-        require('mini.splitjoin').setup()
+        require("mini.splitjoin").setup()
     end,
 }

@@ -2,7 +2,7 @@ return {
     "chrishrb/gx.nvim",
     keys = {{
         "gx",
-        "<cmd>Browse<cr>",
+        ":Browse<CR>",
         mode = { "n", "x" },
         desc = "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)",
     }},
