@@ -50,7 +50,7 @@ config.keys = {
     {
         key = "Enter",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F13" }),
+        action = wezterm.action.SendKey({ key = "F13" }),  -- TODO: For some reason sends f+2
     },
 
     -- {
