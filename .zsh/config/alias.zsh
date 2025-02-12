@@ -55,8 +55,8 @@ alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-pl
 alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 alias adbr="adb shell settings put system user_rotation 0"
 
-# Keyd
-alias kd="keyd"
-alias kdr="sudo keyd reload"
-alias kdm="sudo keyd monitor"
-alias kdl="keyd list-keys | grep -i $1"
+# Kanata
+alias kn="kanata -c ~/kanata/kanata.kdb"
+alias kns="systemctl --user status kanata"
+alias knr="systemctl --user daemon-reload && systemctl --user restart kanata"
+alias knl="journalctl -u kanata"
