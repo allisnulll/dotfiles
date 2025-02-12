@@ -20,7 +20,7 @@
     tab       q    w    e    r    t    y    u    i    o    p    [    ]    \
     @md1      @hr1 @hr2 @hr3 @hr4 g    h    @hr5 @hr6 @hr7 @hr8 apos      @md3
     lsft      z    x    c    v    b    n    m    ,    .    /              rsft
-    lctl wkup lmet @md2           spc            @md4 comp rctl pgup up   pgdn
+    lctl wkup lmet @md2           spc            @md4 prnt rctl pgup up   pgdn
                                                                 lft  down rght
 )
 
@@ -38,7 +38,7 @@
     tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
     caps      n    r    t    s    g    y    h    a    e    i    @g,       ent
     lsft      q    x    m    c    v    k    p    .    @g-  @g/            rsft
-    lctl wkup lmet lalt           spc            ralt comp rctl pgup up   pgdn
+    lctl wkup lmet lalt           spc            ralt prnt rctl pgup up   pgdn
                                                                 lft  down rght
 )
 
@@ -48,7 +48,7 @@
     tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
     @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 @g,       @md3
     lsft      q    x    m    c    v    k    p    .    @g-  @g/            rsft
-    lctl wkup lmet @md2           spc            @md4 comp rctl pgup up   pgdn
+    lctl wkup lmet @md2           spc            @md4 prnt rctl pgup up   pgdn
                                                                 lft  down rght
 )
 
@@ -65,8 +65,8 @@
 
 (deflayer sym
     _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
-    _    _    _    _    _    _    _    _    pp   prev next vold volu      mute
-    _         _    _    _    @!   @$   @#   @~   _    _    _    _    brdn brup
+    _    _    _    _    _    _    _    _    _    _    _    _    _         _
+    _         _    _    _    @!   @$   @#   @~   _    _    _    _    _    _
     _         @<   [    @{   @op  @&   @|   @cp  @}   ]    @>   _         _
     _         _    _    _    @?   @^   @%   @_   _    _    _              _
     _    _    _    _              _              _    _    _    _    _    _
@@ -76,8 +76,8 @@
 ;; TODO: kp= won't work
 (deflayer num
     _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
-    _    _    _    _    _    _    _    _    pp   prev next vold volu      mute
-    _         _    _    _    _    _    @*   kp7  kp8  kp9  kp=  _    brdn brup
+    _    _    _    _    _    _    _    _    _    _    _    _    _         _
+    _         _    _    _    _    _    @*   kp7  kp8  kp9  kp=  _    _    _
     _         _    _    _    _    _    @+   kp4  kp5  kp6  kp0  kprt      _
     _         _    _    _    _    _    @car kp1  kp2  kp3  @.             _
     _    _    _    _              _              _    _    _    _    _    _
@@ -86,8 +86,8 @@
 
 (deflayer fun
     _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
-    _    _    _    _    _    _    _    _    pp   prev next vold volu      mute
-    _         @f12 @f7  @f8  @f9  _    _    _    _    _    _    _    brdn brup
+    _    _    _    _    _    _    _    _    _    _    _    _    _         _
+    _         @f12 @f7  @f8  @f9  _    _    _    _    _    _    _    _    _
     _         @f11 @f4  @f5  @f6  _    _    _    _    _    _    _         _
     _         @f10 @f1  @f2  @f3  _    _    _    _    _    _              _
     _    _    _    _              _              _    _    _    _    _    _
