@@ -22,6 +22,11 @@ path = "~/.dotfiles/.config/sesh"
 startup_command = "nvim sesh.toml; clear"
 
 [[session]]
+name = "⌨️ Kanata"
+path = "~/.dotfiles/kanata"
+startup_command = "nvim kanata.kdb; clear"
+
+[[session]]
 name = "🔎 Waybar"
 path = "~/.dotfiles/.config/waybar"
 startup_command = "nvim config.jsonc; clear"
