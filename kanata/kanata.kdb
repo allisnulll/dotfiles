@@ -1,3 +1,4 @@
+;; Lenovo Thinkpad t480s
 (defcfg
     process-unmapped-keys no
     log-layer-changes     yes
@@ -121,9 +122,9 @@
     ~ (fork S-grv grv (lsft rsft d k))  ;; TODO: Get apostrophe to work
 
     md1 (tap-hold $tap-time $hold-time esc (layer-toggle nav))
-    md2 (tap-hold $tap-time $hold-time rpt-any (layer-toggle sym))
+    md2 (tap-hold $tap-time $hold-time rpt (layer-toggle sym))
     md3 (tap-hold $tap-time $hold-time _ (layer-toggle num))
-    md4 (tap-hold $tap-time $hold-time rpt-any (layer-toggle fun))
+    md4 (tap-hold $tap-time $hold-time rpt (layer-toggle fun))
 
     hr1 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lmet)) _))
     hr2 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lalt)) _))
