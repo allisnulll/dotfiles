@@ -16,7 +16,7 @@
 )
 
 (deflayer qwerty-home-row
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwr @hmr @rst del
+    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
     @~   1    2    3    4    5    6    7    8    9    0    min  eql       bspc
     tab       q    w    e    r    t    y    u    i    o    p    [    ]    \
     @md1      @hr1 @hr2 @hr3 @hr4 g    h    @hr5 @hr6 @hr7 @hr8 apos      @md3
@@ -27,14 +27,14 @@
 
 (deflayermap (qwerty)
     _    use-defsrc
-    home @gra
+    home @lyt
     end  @hmr
     ins  @rst
     grv  @~
 )
 
 (deflayer graphite
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwr @hmr @rst del
+    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
     @~   1    2    3    4    5    6    7    8    9    0    [    ]         bspc
     tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
     caps      n    r    t    s    g    y    h    a    e    i    @g,       ent
@@ -44,7 +44,7 @@
 )
 
 (deflayer graphite-home-row
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwr @hmr @rst del
+    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
     @~   1    2    3    4    5    6    7    8    9    0    [    ]         bspc
     tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
     @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 @g,       @md3
@@ -57,7 +57,7 @@
 (deflayer nav
     _    caps nlck slck _   _   _   _   _   _   _   _   _   _   _    _    _
     _    _    _    _    _    _    _    _    pp   prev next vold volu      mute
-    @tab      ins  _    up   tab  pgup _    _    mwu  mwd  mwl  mwr  brdn brup
+    @tab      ins  _    up   tab  pgup _    mwu  mwd  mwl  mwr  _    brdn brup
     _         ent  lft  down rght pgdn _    _    _    _    _    _         _
     _         _    _    home end  _    _    _    _    _    _              _
     _    _    _    del            bspc           _    _    _    _    _    _
@@ -69,7 +69,7 @@
     _    _    _    _    _    _    _    _    _    _    _    _    _         _
     _         _    _    _    @!   @$   @#   @~   _    _    _    _    _    _
     _         @<   [    @{   @op  @&   @|   @cp  @}   ]    @>   _         _
-    _         _    _    _    @?   @^   @%   @_   _    _    _              _
+    _         _    _    _    @?   @^   @%   @@   _    _    _              _
     _    _    _    _              _              _    _    _    _    _    _
                                                                 _    _    _
 )
@@ -98,42 +98,73 @@
 (defvar
     tap-time  100
     hold-time 150
-    timeout   200
+    timeout   300
 )
 
 (defalias
     ;; TODO: Get tap-dancers to work
-    gra (tap-dance $timeout (_ _ (switch
+    lyt (tap-dance $timeout (_ (switch 
         ((base-layer qwerty)) (layer-switch graphite) break
         ((base-layer qwerty-home-row)) (layer-switch graphite-home-row) break
-    )))
-    qwr (tap-dance $timeout (_ _ (switch 
         ((base-layer graphite)) (layer-switch qwerty) break
         ((base-layer graphite-home-row)) (layer-switch qwerty-home-row) break
     )))
-    hmr (tap-dance $timeout (_ _ (switch 
+    hmr (tap-dance $timeout (_ (switch 
         ((base-layer qwerty)) (layer-switch qwerty-home-row) break
         ((base-layer qwerty-home-row)) (layer-switch qwerty) break
         ((base-layer graphite)) (layer-switch graphite-home-row) break
         ((base-layer graphite-home-row)) (layer-switch graphite) break
     )))
-    rst (tap-dance $timeout (_ _ lrld))
+    rst (tap-dance $timeout (_ lrld))
 
     ~ (fork S-grv grv (lsft rsft d k))  ;; TODO: Get apostrophe to work
 
     md1 (tap-hold $tap-time $hold-time esc (layer-toggle nav))
     md2 (tap-hold $tap-time $hold-time rpt (layer-toggle sym))
-    md3 (tap-hold $tap-time $hold-time _ (layer-toggle num))
+    md3 (tap-hold $tap-time $hold-time _   (layer-toggle num))
     md4 (tap-hold $tap-time $hold-time rpt (layer-toggle fun))
 
-    hr1 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lmet)) _))
-    hr2 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lalt)) _))
-    hr3 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lsft)) _))
-    hr4 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ lctl)) _))
-    hr5 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ rctl)) _))
-    hr6 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ rsft)) _))
-    hr7 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ ralt)) _))
-    hr8 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time _ rmet)) _))
+    hrt1 (switch
+        ((base-layer qwerty-home-row))   a break
+        ((base-layer graphite-home-row)) n break
+    )
+    hrt2 (switch
+        ((base-layer qwerty-home-row))   s break
+        ((base-layer graphite-home-row)) r break
+    )
+    hrt3 (switch
+        ((base-layer qwerty-home-row))   d break
+        ((base-layer graphite-home-row)) t break
+    )
+    hrt4 (switch
+        ((base-layer qwerty-home-row))   f break
+        ((base-layer graphite-home-row)) s break
+    )
+    hrt5 (switch
+        ((base-layer qwerty-home-row))   j break
+        ((base-layer graphite-home-row)) h break
+    )
+    hrt6 (switch
+        ((base-layer qwerty-home-row))   k break
+        ((base-layer graphite-home-row)) a break
+    )
+    hrt7 (switch
+        ((base-layer qwerty-home-row))   l break
+        ((base-layer graphite-home-row)) e break
+    )
+    hrt8 (switch
+        ((base-layer qwerty-home-row))   ; break
+        ((base-layer graphite-home-row)) i break
+    )
+
+    hr1 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt1 lmet)) @hrt1))
+    hr2 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt2 lalt)) @hrt2))
+    hr3 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt3 lsft)) @hrt3))
+    hr4 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt4 lctl)) @hrt4))
+    hr5 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt5 rctl)) @hrt5))
+    hr6 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt6 rsft)) @hrt6))
+    hr7 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt7 ralt)) @hrt7))
+    hr8 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt8 rmet)) @hrt8))
 
     tab C-tab
 
@@ -151,6 +182,7 @@
     >  S-.
     ?  S-/
     #  S-3
+    @  S-2
     _  S-min
 
     g' (fork apos S-min  (lsft rsft d k))
