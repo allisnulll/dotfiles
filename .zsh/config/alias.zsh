@@ -57,6 +57,7 @@ alias adbr="adb shell settings put system user_rotation 0"
 
 # Kanata
 alias kn="kanata -c ~/kanata/kanata.kdb"
+alias knd="kanata -dc ~/kanata/kanata.kdb"
 alias kns="systemctl --user stop kanata"
 alias knl="systemctl --user status kanata"
 alias knr="systemctl --user daemon-reload && systemctl --user restart kanata"
