@@ -12,21 +12,20 @@
     caps      a    s    d    f    g    h    j    k    l    ;    apos      ent
     lsft      z    x    c    v    b    n    m    ,    .    /              rsft
     lctl wkup lmet lalt           spc            ralt prnt rctl pgup up   pgdn
-                                                                lft  down rght
+                                                                left down rght
 )
 
 (deflayer qwerty-home-row
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
-    @~   1    2    3    4    5    6    7    8    9    0    min  eql       bspc
-    tab       q    w    e    r    t    y    u    i    o    p    [    ]    \
-    @md1      @hr1 @hr2 @hr3 @hr4 g    h    @hr5 @hr6 @hr7 @hr8 apos      @md3
-    lsft      z    x    c    v    b    n    m    ,    .    /              rsft
-    lctl wkup lmet @md2           spc            @md4 prnt rctl pgup up   pgdn
-                                                                lft  down rght
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    @~   _    _    _    _    _    _    _    _    _    _    _    _         _
+    _         _    _    _    _    _    _    _    _    _    _    _    _    _
+    @md1      @hr1 @hr2 @hr3 @hr4 _    _    @hr5 @hr6 @hr7 @hr8 _         @md3
+    @lsf      _    _    _    _    _    _    _    _    _    _              @rsf
+    _    _    _    @md2           _              @md4 _    _    _    _    _
+                                                                _    _    _
 )
 
 (deflayermap (qwerty)
-    _    use-defsrc
     home @lyt
     end  @hmr
     ins  @rst
@@ -34,31 +33,31 @@
 )
 
 (deflayer graphite
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
-    @~   1    2    3    4    5    6    7    8    9    0    [    ]         bspc
-    tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
-    caps      n    r    t    s    g    y    h    a    e    i    @g,       ent
-    lsft      q    x    m    c    v    k    p    .    @g-  @g/            rsft
-    lctl wkup lmet lalt           spc            ralt prnt rctl pgup up   pgdn
-                                                                lft  down rght
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    @~   _    _    _    _    _    _    _    _    _    _    [    ]         _
+    _         b    l    d    w    z    @g'  f    o    u    j    ;    eql  _
+    _         n    r    t    s    g    y    h    a    e    i    @g,       _
+    _         q    x    m    c    v    k    p    .    @g-  @g/            _
+    _    _    _    _              _              _    _    _    _    _    _
+                                                                _    _    _
 )
 
 (deflayer graphite-home-row
-    esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @lyt @hmr @rst del
-    @~   1    2    3    4    5    6    7    8    9    0    [    ]         bspc
-    tab       b    l    d    w    z    @g'  f    o    u    j    ;    eql  \
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    @~   _    _    _    _    _    _    _    _    _    _    [    ]         _
+    _         b    l    d    w    z    @g'  f    o    u    j    ;    eql  _
     @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 @g,       @md3
-    lsft      q    x    m    c    v    k    p    .    @g-  @g/            rsft
-    lctl wkup lmet @md2           spc            @md4 prnt rctl pgup up   pgdn
-                                                                lft  down rght
+    @lsf      q    x    m    c    v    k    p    .    @g-  @g/            @rsf
+    _    _    _    @md2           _              @md4 _    _    _    _    _
+                                                                _    _    _
 )
 
-;; TODO: Ctrl won't work on left arrow
+;; BUG: Ctrl won't work on left arrow
 (deflayer nav
-    _    caps nlck slck _   _   _   _   _   _   _   _   _   _   _    _    _
-    _    _    _    _    _    _    _    _    pp   prev next vold volu      mute
+    _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
+    @cw  caps nlck slck _    _    _    _    pp   prev next vold volu      mute
     @tab      ins  _    up   tab  pgup _    mwu  mwd  mwl  mwr  _    brdn brup
-    _         ent  lft  down rght pgdn _    _    _    _    _    _         _
+    _         ent  left down rght pgdn _    _    _    _    _    _         _
     _         _    _    home end  _    _    _    _    _    _              _
     _    _    _    del            bspc           _    _    _    _    _    _
                                                                 _    _    _
@@ -76,7 +75,7 @@
 
 (deflayer num
     _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
-    _    _    _    _    _    _    _    _    _    _    _    _    _         _
+    _    @ch8 @ch4 @ch2 @ch1 _    _    _    _    _    _    _    _         _
     _         _    _    _    _    _    @*   kp7  kp8  kp9  eql  _    _    _
     _         _    _    _    _    _    @+   kp4  kp5  kp6  kp0  kprt      _
     _         _    _    _    _    _    @car kp1  kp2  kp3  @.             _
@@ -95,13 +94,13 @@
 )
 
 (defvar
-    tap-time  100
-    hold-time 150
-    timeout   300
+    tap-time     100
+    hold-time    150
+    timeout      300
+    long-timeout 3000
 )
 
 (defalias
-    ;; TODO: Get tap-dancers to work
     lyt (tap-dance $timeout (_ (switch 
         ((base-layer qwerty)) (layer-switch graphite) break
         ((base-layer qwerty-home-row)) (layer-switch graphite-home-row) break
@@ -116,7 +115,9 @@
     )))
     rst (tap-dance $timeout (_ lrld))
 
-    ~ (fork S-grv (unshift grv) (lsft rsft d k))
+    ~   (fork S-grv (unshift grv) (lsft rsft d k))
+    lsf (one-shot-release $long-timeout lsft)
+    rsf (one-shot-release $long-timeout rsft)
 
     md1 (tap-hold $tap-time $hold-time esc (layer-toggle nav))
     md2 (tap-hold $tap-time $hold-time rpt (layer-toggle sym))
@@ -165,6 +166,7 @@
     hr7 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt7 ralt)) @hrt7))
     hr8 (tap-dance $timeout ((multi XX (tap-hold $tap-time $hold-time @hrt8 rmet)) @hrt8))
 
+    cw (caps-word $long-timeout)
     tab C-tab
 
     !  S-1
@@ -206,4 +208,36 @@
     f10 (fork f10 f22 (caps))
     f11 (fork f11 f23 (caps))
     f12 (fork f12 f24 (caps))
+)
+
+(defchords binary $timeout
+    (1      ) 1
+    (  2    ) 2
+    (1 2    ) 3
+    (    4  ) 4
+    (1   4  ) 5
+    (  2 4  ) 6
+    (1 2 4  ) 7
+    (      8) 8
+    (1     8) 9
+    (  2   8) (multi 1 0)
+    (1 2   8) (multi 1 1)
+    (    4 8) (multi 1 2)
+    (1   4 8) (multi 1 3)
+    (  2 4 8) (multi 1 4)
+    (1 2 4 8) (multi 1 5)
+)
+
+(defalias
+    ch1 (chord binary 1)
+    ch2 (chord binary 2)
+    ch4 (chord binary 4)
+    ch8 (chord binary 8)
+)
+
+(defzippy
+    zippy.txt
+    output-character-mappings (
+        @ S-2
+    )
 )
