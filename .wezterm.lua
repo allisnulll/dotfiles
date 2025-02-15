@@ -1,17 +1,14 @@
 local wezterm = require("wezterm")
 
--- TODO: Make this work
--- local function adjust_transparency(window, delta)
---     local overrides = window:get_config_overrides() or {}
---     overrides.window_background_opacity = overrides.window_background_opacity or 1.0
---     overrides.window_background_opacity = overrides.window_background_opacity + delta
---
---     overrides.window_background_opacity = math.max(0.1, math.min(1.0, overrides.window_background_opacity))
---
---     print("Adjusting transparency by " .. delta .. ". New opacity: " .. overrides.window_background_opacity)
---
---     window:set_config_overrides(overrides)
--- end
+local function adjust_transparency(window, delta)
+    local overrides = window:get_config_overrides() or {}
+    overrides.window_background_opacity = overrides.window_background_opacity or 1.0
+    overrides.window_background_opacity = overrides.window_background_opacity + delta
+
+    overrides.window_background_opacity = math.max(0.1, math.min(1.0, overrides.window_background_opacity))
+
+    window:set_config_overrides(overrides)
+end
 
 local config = wezterm.config_builder()
 
@@ -20,7 +17,7 @@ config.default_prog = { "zsh", "-i", "-c", "sesh connect 🏠 Main; exec zsh" }
 
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
--- config.window_background_opacity = .9
+config.window_background_opacity = .9
 config.window_close_confirmation = "NeverPrompt"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
@@ -50,24 +47,24 @@ config.keys = {
     {
         key = "Enter",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F13" }),  -- TODO: For some reason sends f+2
+        action = wezterm.action.SendKey({ key = "F13" }),  -- NOTE: For some reason sends f+2
     },
 
-    -- {
-    --     key = "=",
-    --     mods = "CTRL|SHIFT",
-    --     action = wezterm.action_callback(function(window, _)
-    --         adjust_transparency(window, .1)
-    --     end),
-    -- },
-    -- {
-    --     key = "-",
-    --     mods = "CTRL|SHIFT",
-    --     action = wezterm.action_callback(function(window, _)
-    --         adjust_transparency(window, -.1)
-    --     end),
-    -- },
-    --
+    {
+        key = "=",
+        mods = "ALT",
+        action = wezterm.action_callback(function(window, _)
+            adjust_transparency(window, -.05)
+        end),
+    },
+    {
+        key = "-",
+        mods = "ALT",
+        action = wezterm.action_callback(function(window, _)
+            adjust_transparency(window, .05)
+        end),
+    },
+
 }
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
@@ -76,8 +73,6 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 wezterm.on("user-var-changed", function(window, pane, name, value)
     local overrides = window:get_config_overrides() or {}
     if name == "ZEN_MODE" then
-        print("ZenMode value: " .. value)
-
         local incremental = value:find("+")
         local number_value = tonumber(value)
         if incremental ~= nil then
