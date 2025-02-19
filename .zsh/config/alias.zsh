@@ -59,8 +59,8 @@ alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 alias adbr="adb shell settings put system user_rotation 0"
 
 # Kanata
-alias kn="kanata -c ~/kanata/kanata.kdb"
-alias knd="kanata -dc ~/kanata/kanata.kdb"
+alias kn="kanata -c ~/kanata/kanata.kdb --log-layer-changes"
+alias knd="kanata -dc ~/kanata/kanata.kdb --log-layer-changes"
 alias kns="systemctl --user stop kanata"
 alias knl="systemctl --user status kanata"
 alias knr="systemctl --user daemon-reload && systemctl --user restart kanata"
