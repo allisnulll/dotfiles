@@ -39,6 +39,9 @@ alias lsal="eza -al --icons=always"
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+# Hyprctl
+alias hr="hyprctl reload"
+
 # Unzip
 alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 
