@@ -47,7 +47,7 @@ alias blx="bluetoothctl connect 4F:63:57:C9:FA:58"
 alias pc-sam="wol AC:82:47:C6:DF:13; tvd"
 
 # TeamViewer
-alias tvd="sudo teamviewer --daemon start"
+alias tv="sudo teamviewer --daemon start"
 alias tvk="sudo pkill -f 'teamviewerd -d'"
 
 # Flutter
