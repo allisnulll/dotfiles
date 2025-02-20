@@ -2,10 +2,10 @@ local wezterm = require("wezterm")
 
 local function adjust_transparency(window, delta)
     local overrides = window:get_config_overrides() or {}
-    overrides.window_background_opacity = overrides.window_background_opacity or 1.0
+    overrides.window_background_opacity = overrides.window_background_opacity or .5
     overrides.window_background_opacity = overrides.window_background_opacity + delta
 
-    overrides.window_background_opacity = math.max(0.1, math.min(1.0, overrides.window_background_opacity))
+    overrides.window_background_opacity = math.max(0, math.min(1, overrides.window_background_opacity))
 
     window:set_config_overrides(overrides)
 end
@@ -51,20 +51,19 @@ config.keys = {
     },
 
     {
-        key = "=",
+        key = "-",
         mods = "ALT",
         action = wezterm.action_callback(function(window, _)
             adjust_transparency(window, -.05)
         end),
     },
     {
-        key = "-",
+        key = "=",
         mods = "ALT",
         action = wezterm.action_callback(function(window, _)
             adjust_transparency(window, .05)
         end),
     },
-
 }
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
