@@ -89,14 +89,12 @@
                                                                 _    _    _
 )
 
-(deflayer vim
-    _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
-    _    _    _    _    _    _    _    _    _    _    _    _    _         _
-    _         _    _    _    _    _    _    _    _    _    _    _    _    _
-    _         _    _    _    _    _    h    j    k    l    _    _         _
-    _         _    _    _    _    _    _    _    _    _    _              _
-    _    _    _    _              _              _    _    _    _    _    _
-                                                                _    _    _
+(deflayermap (vim)
+    h @lft
+    j @dwn
+    k @up
+    l @rgt
+    ; ;
 )
 
 (defvar
@@ -208,6 +206,23 @@
     f10 (fork f10 f22 (lsft rsft d k))
     f11 (fork f11 f23 (lsft rsft d k))
     f12 (fork f12 f24 (lsft rsft d k))
+
+    lft (switch
+        ((or (base-layer graphite) (base-layer graphite-home-row))) h break
+        ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   y break
+    )
+    dwn (switch
+        ((or (base-layer graphite) (base-layer graphite-home-row))) j break
+        ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   h break
+    )
+    up (switch
+        ((or (base-layer graphite) (base-layer graphite-home-row))) k break
+        ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   a break
+    )
+    rgt (switch
+        ((or (base-layer graphite) (base-layer graphite-home-row))) l break
+        ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   e break
+    )
 )
 
 (defchords binary $timeout
