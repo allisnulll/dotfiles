@@ -104,8 +104,7 @@ vim.keymap.set("n", "<F15>", function()
     end
 end, { desc = "Toggle fold" })
 
-vim.keymap.set("n", "<leader>n", "", { desc = "nohl" })
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
