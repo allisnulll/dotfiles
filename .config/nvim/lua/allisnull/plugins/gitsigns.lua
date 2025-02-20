@@ -2,6 +2,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
+        { "<leader>h", "", desc = "Git/Hunks", mode = { "n", "v" }},
         { "<leader>hq", ":Gitsign setqflist all<CR>", desc = "Add Repository Hunks to Quickfix List" }
     },
     opts = {
@@ -11,7 +12,6 @@ return {
             vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
             vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Previous hunk" })
 
-            vim.keymap.set({ "n", "v" }, "<leader>h", "", { desc = "Hunk" })
             vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })
             vim.keymap.set("n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk" })
             vim.keymap.set("v", "<leader>hs", function()
