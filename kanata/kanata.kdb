@@ -12,7 +12,7 @@
 )
 
 (deflayer graphite-home-row
-    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @hmr @lyt @rst _
     @~   _    _    _    _    _    _    _    _    _    _    _    _         _
     _         b    l    d    w    z    apos f    o    u    j    _    _    _
     @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 ;         @md2
@@ -22,7 +22,7 @@
 )
 
 (deflayer graphite
-    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @hmr @lyt @rst _
     @~   _    _    _    _    _    _    _    _    _    _    _    _         _
     _         b    l    d    w    z    apos f    o    u    j    _    _    _
     _         n    r    t    s    g    y    h    a    e    i    ;         _
@@ -32,7 +32,7 @@
 )
 
 (deflayer qwerty-home-row
-    _    _   _   _   _   _   _   _   _   _   _    _    _   @lyt @hmr @rst _
+    _    _   _   _   _   _   _   _   _   _   _    _    _   @hmr @lyt @rst _
     @~   _    _    _    _    _    _    _    _    _    _    _    _         _
     _         _    _    _    _    _    _    _    _    _    _    _    _    _
     @md1      @hr1 @hr2 @hr3 @hr4 _    _    @hr5 @hr6 @hr7 @hr8 _         @md2
@@ -42,8 +42,8 @@
 )
 
 (deflayermap (qwerty)
-    home @lyt
-    end  @hmr
+    home @hmr
+    end  @lyt
     ins  @rst
     grv  @~
 )
@@ -54,7 +54,7 @@
     @cw  _    ins  up   tab  _    _    _    pp   prev next vold volu      mute
     @tb1      tab  left down rght _    _    mwu  mwd  mwl  mwr  _    brdn brup
     _         ent  _    home end  _    _    _    _    _    _    _         _
-    @md5      _    _    pgup pgdn _    _    _    _    _    _              _
+    _         _    _    pgup pgdn _    _    _    _    _    _              _
     _    _    _    del            bspc           _    _    _    _    _    _
                                                                 _    _    _
 )
@@ -131,11 +131,13 @@
 
     ~ (fork S-grv (unshift grv) (lsft rsft d k))
 
-    md1 (tap-hold $tap-time $hold-time esc (layer-toggle nav))
+    md1 (tap-dance $timeout (
+        (tap-hold $tap-time $hold-time esc (layer-toggle nav))
+        (layer-toggle navyt)
+    ))
     md2 (tap-hold $tap-time $hold-time _   (layer-toggle num))
     md3 (tap-hold $tap-time $hold-time rpt (layer-toggle fun))
     md4 (tap-hold $tap-time $hold-time rpt (layer-toggle vim))
-    md5 (layer-toggle navyt)
 
     lsf (tap-hold $tap-time $hold-time (one-shot-release $long-timeout lsft) (layer-toggle sym))
     rsf (tap-hold $tap-time $hold-time (one-shot-release $long-timeout rsft) (layer-toggle sym))
