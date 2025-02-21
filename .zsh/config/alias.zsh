@@ -35,6 +35,7 @@ alias ls="eza --icons=always"
 alias lsa="eza -a --icons=always"
 alias lsl="eza -l --icons=always"
 alias lsal="eza -al --icons=always"
+alias lst="eza --icons=always --tree"
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
@@ -67,3 +68,9 @@ alias knd="kanata -dc ~/kanata/kanata.kdb --log-layer-changes"
 alias kns="systemctl --user stop kanata"
 alias knl="systemctl --user status kanata"
 alias knr="systemctl --user daemon-reload && systemctl --user restart kanata"
+
+# GhostScript
+alias rd="\\gs"
+
+# XDG
+alias op="xdg-open"
