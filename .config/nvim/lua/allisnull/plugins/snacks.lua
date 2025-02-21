@@ -1,0 +1,15 @@
+return {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+        image = {
+            enabled = true,
+            doc = {
+                inline = false,
+                float = true,
+                max_width = 60,
+                max_height = 30,
+            },
+        },
+    },
+}
