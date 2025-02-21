@@ -1,6 +1,7 @@
 [[session]]
 name = "🏠 Main"
 path = "~"
+startup_command = "clear && fastfetch"
 
 [[session]]
 name = "🗒️ Scratch"
@@ -9,7 +10,8 @@ path = "~/Scratch"
 [[session]]
 name = "🛠️ Dotfiles"
 path = "~/.dotfiles"
-startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
+# startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = " NeoVim"
@@ -48,7 +50,7 @@ path = "~/Vault"
 [[session]]
 name = "📓 Notes"
 path = "~/Notes"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "🧠 Brain"
@@ -63,24 +65,24 @@ startup_command = "nvim en-US.txt; clear"
 [[session]]
 name = "📥 Downloads"
 path = "~/Downloads"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "📄 Documents"
 path = "~/Documents"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "📹 Videos"
 path = "~/Videos"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "🎵 Music"
 path = "~/Music"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "📸 Pictures"
 path = "~/Pictures"
-startup_command = "clear && tree -dL 3 && eza -a --icons=always"
+startup_command = "clear && eza -a --icons=always"
