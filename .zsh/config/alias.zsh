@@ -23,7 +23,7 @@ alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
 alias v="nvim"
 
 # NeoFetch
-alias neo="c && neofetch"
+alias neo="c && fastfetch"
 
 # Tmux
 alias tx="sesh connect 🏠 Main; exec zsh"
