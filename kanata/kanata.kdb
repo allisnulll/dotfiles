@@ -15,7 +15,7 @@
     _    _   _   _   _   _   _   _   _   _   _    _    _   @hmr @lyt @rst _
     @~   _    _    _    _    _    _    _    _    _    _    _    _         _
     _         b    l    d    w    z    apos f    o    u    j    _    _    _
-    @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 ;         @md2
+    @md1      @hr1 @hr2 @hr3 @hr4 g    y    @hr5 @hr6 @hr7 @hr8 @md2      @md5
     @lsf      q    x    m    c    v    k    p    _    _    _              @rsf
     _    _    _    @md3           _              @md4 _    _    _    _    _
                                                                 _    _    _
@@ -35,7 +35,7 @@
     _    _   _   _   _   _   _   _   _   _   _    _    _   @hmr @lyt @rst _
     @~   _    _    _    _    _    _    _    _    _    _    _    _         _
     _         _    _    _    _    _    _    _    _    _    _    _    _    _
-    @md1      @hr1 @hr2 @hr3 @hr4 _    _    @hr5 @hr6 @hr7 @hr8 _         @md2
+    @md1      @hr1 @hr2 @hr3 @hr4 _    _    @hr5 @hr6 @hr7 @hr8 @md2      @md5
     @lsf      _    _    _    _    _    _    _    _    _    _              @rsf
     _    _    _    @md3           _              @md4 _    _    _    _    _
                                                                 _    _    _
@@ -135,9 +135,16 @@
         (tap-hold $tap-time $hold-time esc (layer-toggle nav))
         (layer-toggle navyt)
     ))
-    md2 (tap-hold $tap-time $hold-time _   (layer-toggle num))
+    md2 (tap-hold $tap-time $hold-time 
+        (switch
+            ((base-layer qwerty-home-row))   apos break
+            ((base-layer graphite-home-row)) ;    break
+        )
+        (layer-toggle num)
+    )
     md3 (tap-hold $tap-time $hold-time rpt (layer-toggle fun))
     md4 (tap-hold $tap-time $hold-time rpt (layer-toggle vim))
+    md5 (tap-hold $tap-time $hold-time _   (layer-toggle nav))
 
     lsf (tap-hold $tap-time $hold-time (one-shot-release $long-timeout lsft) (layer-toggle sym))
     rsf (tap-hold $tap-time $hold-time (one-shot-release $long-timeout rsft) (layer-toggle sym))
