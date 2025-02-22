@@ -24,11 +24,17 @@ return {
                 vim.fn.system([[tmux set status off]])
                 vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z || tmux resize-pane -Z]])
                 vim.diagnostic.enable(false)
+
+                vim.keymap.set("n", "j", "gj", { noremap = true, silent = true, buffer = true })
+                vim.keymap.set("n", "k", "gk", { noremap = true, silent = true, buffer = true })
             end,
             on_close = function(_)
                 vim.fn.system([[tmux set status on]])
                 vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z && tmux resize-pane -Z]])
                 vim.diagnostic.enable()
+
+                vim.api.nvim_buf_del_keymap(0, "n", "j")
+                vim.api.nvim_buf_del_keymap(0, "n", "k")
             end,
         })
 

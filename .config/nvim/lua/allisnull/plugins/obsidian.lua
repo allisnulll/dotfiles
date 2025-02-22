@@ -12,11 +12,11 @@ return {
         "nvim-telescope/telescope.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
-    attachments = { img_folder = "assets" },
     config = function()
         local obsidian = require("obsidian")
 
         obsidian.setup({
+            ui = { enable = false },
             workspaces = {{
                 name = "Vault",
                 path = "~/Vault",
@@ -24,24 +24,61 @@ return {
             mappings = {
                 ["gf"] = {
                     action = function()
-                        return require("obsidian").util.gf_passthrough()
+                        return obsidian.util.gf_passthrough()
                     end,
                     opts = { noremap = false, expr = true, buffer = true },
                 },
                 ["<leader>cb"] = {
                     action = function()
-                        return require("obsidian").util.toggle_checkbox()
+                        return obsidian.util.toggle_checkbox()
                     end,
                     opts = { buffer = true, desc = "Toggle checkbox" },
                 },
                 ["<CR>"] = {
                     action = function()
-                        return require("obsidian").util.smart_action()
+                        return obsidian.util.smart_action()
                     end,
                     opts = { buffer = true, expr = true },
                 },
             },
-            daily_notes = { folder = "dailies" },
+            daily_notes = { folder = "dailies", default_tags = { "daily" } },
+
+            note_id_func = function(title)
+                print('Title received ' .. title or nil)
+
+                local suffix = ""
+                if title ~= nil then
+                    suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+                else
+                    for _ = 1, 4 do
+                        suffix = suffix .. string.char(math.random(65, 90))
+                    end
+                end
+                return tostring(os.time()) .. "-" .. suffix
+            end,
+
+            note_frontmatter_func = function(note)
+                if note.title then
+                    note:add_alias(note.title)
+                    note:add_alias(note.title:lower())
+                end
+
+                local out = {
+                    id = note.id,
+                    aliases = note.aliases,
+                    tags = note.tags,
+                    title = note.title,
+                    created = os.date("%Y-%m-%d"),
+                }
+
+                if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                    for k, v in pairs(note.metadata) do
+                        out[k] = v
+                    end
+                end
+
+                return out
+            end,
         })
 
         vim.keymap.set("n", "<leader>n", "", { desc = "Notes/Obsidian" })

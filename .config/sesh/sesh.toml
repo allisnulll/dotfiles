@@ -6,6 +6,7 @@ startup_command = "clear && fastfetch"
 [[session]]
 name = "🗒️ Scratch"
 path = "~/Scratch"
+startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "🛠️ Dotfiles"
@@ -46,6 +47,7 @@ startup_command = "nvim .; clear"
 [[session]]
 name = "🏦 Vault"
 path = "~/Vault"
+startup_command = "nvim . '+Telescope find_files'; clear"
 
 [[session]]
 name = "📓 Notes"

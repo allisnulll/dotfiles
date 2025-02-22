@@ -4,11 +4,6 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "nvim-tree/nvim-web-devicons",
     },
-    cond = function()
-        return not vim.fn.getcwd():match("/home/allisnull/Vault")
-    end,
-    ---@module "render-markdown"
-    ---@type render.mc.UserConfig
     config = function()
         require("render-markdown").setup({
             debounce = 100,
