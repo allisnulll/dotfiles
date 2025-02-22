@@ -13,23 +13,17 @@ gaps_out_current=$(hyprctl workspacerules -j | jq --arg rid "$rid" '[.[] | selec
 
 windows=$(hyprctl -j clients | jq -r ".[] | select(.workspace.id == ($id | tonumber)) .address")
 
-if [[ ${#windows[@]} -eq 1 ]]; then
-    if [[ ("$gaps_in_current" == "null" && "$gaps_out_current" == "null") || ("$gaps_in_current" == "$gaps_in_default" && "$gaps_out_current" == "$gaps_out_default") ]]; then
-        hyprctl keyword workspace $rid f[1], gapsin:0, gapsout:0
-        hyprctl keyword workspace $rid w[tv1], gapsin:0, gapsout:0
-        hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:f[1]"
-        hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:w[tv1]"
-        hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:f[1]"
-        hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:w[tv1]"
-    else
-        hyprctl keyword workspace $rid f[1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
-        hyprctl keyword workspace $rid w[tv1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
-        hyprctl keyword windowrulev2 "bordersize $border_size, floating:0, onworkspace:f[1]"
-        hyprctl keyword windowrulev2 "bordersize $border_size, floating:0, onworkspace:w[tv1]"
-        hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:f[1]"
-        hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:w[tv1]"
-    fi
-
-    hyprctl dispatch workspace 10
-    hyprctl dispatch workspace $id
+if [[ ("$gaps_in_current" == "null" && "$gaps_out_current" == "null") || ("$gaps_in_current" == "$gaps_in_default" && "$gaps_out_current" == "$gaps_out_default") ]]; then
+    hyprctl keyword workspace $rid f[1], gapsin:0, gapsout:0
+    hyprctl keyword workspace $rid w[tv1], gapsin:0, gapsout:0
+    hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:$id"
+    hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:$id"
+else
+    hyprctl keyword workspace $rid f[1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
+    hyprctl keyword workspace $rid w[tv1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
+    hyprctl keyword windowrulev2 "bordersize $border_size, floating:0, onworkspace:$id"
+    hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:$id"
 fi
+
+hyprctl dispatch workspace 10
+hyprctl dispatch workspace $id
