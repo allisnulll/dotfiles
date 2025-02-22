@@ -80,4 +80,17 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_augroup("Obsidian", { clear = true })
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = vim.fn.expand("~") .. "/Vault/*.md",
+    group = "Obsidian",
+    callback = function()
+        vim.opt.conceallevel = 1
+        vim.opt.wrap = true
+
+        vim.keymap.set("n", "j", "gj", { noremap = true, silent = true, buffer = true })
+        vim.keymap.set("n", "k", "gk", { noremap = true, silent = true, buffer = true })
+    end,
+})
+
 vim.g["conjure#highlight#enabled"] = true
