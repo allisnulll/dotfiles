@@ -33,8 +33,10 @@ return {
                 vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z && tmux resize-pane -Z]])
                 vim.diagnostic.enable()
 
-                vim.api.nvim_buf_del_keymap(0, "n", "j")
-                vim.api.nvim_buf_del_keymap(0, "n", "k")
+                if not vim.fn.getcwd():match("/home/allisnull/Vault") then
+                    vim.api.nvim_buf_del_keymap(0, "n", "j")
+                    vim.api.nvim_buf_del_keymap(0, "n", "k")
+                end
             end,
         })
 
