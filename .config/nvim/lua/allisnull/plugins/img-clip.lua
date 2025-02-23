@@ -20,10 +20,7 @@ return {
             },
         },
         dirs = {
-            ["~/Vault"] = {
-                dir_path = "assets/images",
-                prompt_for_file_name = true,
-            },
+            ["~/Vault"] = { dir_path = "assets/images" },
         },
     },
     keys = {{ "<leader>p", ":PasteImage<CR>", desc = "Paste image from system clipboard" }},
