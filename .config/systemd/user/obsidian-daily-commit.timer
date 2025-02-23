@@ -1,0 +1,8 @@
+[Unit]
+Description=Hourly Obsidian Vault commit
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
