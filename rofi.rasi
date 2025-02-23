@@ -3,18 +3,18 @@ configuration {
     ssh-command: "{terminal} start -- {ssh-client} {host}"; // wezterm
     sidebar-mode: true;
     /* keys have to be unbound before they can be reused */
-    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
-    kb-remove-to-eol: "";
+    kb-accept-entry: "Return,KP_Enter";
     kb-remove-char-back: "BackSpace,Shift+BackSpace";
-    kb-mode-complete: "";
     kb-secondary-copy: "";
     kb-remove-char-forward: "";
     kb-remove-to-sol: "";
+    kb-move-front: "";
+    kb-move-end: "";
     /* better vim controls */
-    kb-mode-previous: "H,Ctrl+h,Alt+h";
-    kb-row-down: "J,Ctrl+j,Alt+j,Down";
-    kb-row-up: "K,Ctrl+k,Alt+k,Up";
-    kb-mode-next: "L,Ctrl+l,Alt+l";
+    kb-mode-previous: "Y,Ctrl+y";
+    kb-row-down: "H,Ctrl+h,Down";
+    kb-row-up: "A,Ctrl+a,Up";
+    kb-mode-next: "E,Ctrl+e";
     kb-cancel: "Ctrl+c,Escape";
     kb-page-next: "Page_Down,Ctrl+d";
     kb-page-prev: "Page_Up,Ctrl+u";
