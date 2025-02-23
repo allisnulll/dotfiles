@@ -1,0 +1,6 @@
+[Unit]
+Description=Daily Obsidian Commit
+
+[Service]
+Type=simple
+ExecStart=/home/allisnull/.dotfiles/scripts/obsidian_commit.sh
