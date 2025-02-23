@@ -105,6 +105,7 @@
     k @up
     l @rgt
     ; @;
+    ' @'
 )
 
 (defvar
@@ -247,6 +248,10 @@
     ; (switch
         ((or (base-layer graphite) (base-layer graphite-home-row))) ; break
         ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   i break
+    )
+    ' (switch
+        ((or (base-layer graphite) (base-layer graphite-home-row))) ' break
+        ((or (base-layer qwerty)   (base-layer qwerty-home-row)))   ; break
     )
 )
 
