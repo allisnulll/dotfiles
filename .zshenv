@@ -30,3 +30,6 @@ MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
+
+# Puppeteer
+export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
