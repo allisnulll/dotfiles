@@ -1,3 +1,1 @@
-return {
-    "bullets-vim/bullets.vim",
-}
+return { "bullets-vim/bullets.vim" }
