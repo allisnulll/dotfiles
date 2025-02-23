@@ -1,4 +1,5 @@
 ^/.git
 ^/.gitignore
-^/patches
 ^/LICENSE
+^/patches
+^/scripts

@@ -1,5 +1,8 @@
 ;; Lenovo Thinkpad t480s
-(defcfg notify-error yes)
+(defcfg
+    notify-error      yes
+    danger-enable-cmd yes
+)
 
 (defsrc
     esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 home end  ins  del
@@ -116,11 +119,14 @@
 )
 
 (defalias
-    lyt (tap-dance $timeout (_ (switch 
-        ((base-layer qwerty)) (layer-switch graphite) break
-        ((base-layer qwerty-home-row)) (layer-switch graphite-home-row) break
-        ((base-layer graphite)) (layer-switch qwerty) break
-        ((base-layer graphite-home-row)) (layer-switch qwerty-home-row) break
+    lyt (tap-dance $timeout (_ (multi
+        (cmd /home/allisnull/.dotfiles/scripts/graphite2qwerty.sh)
+        (switch 
+            ((base-layer qwerty)) (layer-switch graphite) break
+            ((base-layer qwerty-home-row)) (layer-switch graphite-home-row) break
+            ((base-layer graphite)) (layer-switch qwerty) break
+            ((base-layer graphite-home-row)) (layer-switch qwerty-home-row) break
+        )
     )))
     hmr (tap-dance $timeout (_ (switch 
         ((base-layer qwerty)) (layer-switch qwerty-home-row) break

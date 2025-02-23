@@ -1,0 +1,126 @@
+diff --git a/.config/hypr/hyprland.conf b/.config/hypr/hyprland.conf
+index a78cece..965fb6d 100644
+--- a/.config/hypr/hyprland.conf
++++ b/.config/hypr/hyprland.conf
+@@ -157,10 +157,10 @@ bind = $mainMod SHIFT, I, exec, $screenshotArea
+ bind = $mainMod, G, exec, ~/.config/hypr/scripts/toggle-smart-gaps.sh
+ bind = $mainMod, W, togglesplit
+ 
+-bind = $mainMod, Y, movefocus, l
+-bind = $mainMod, H, movefocus, d
+-bind = $mainMod, A, movefocus, u
+-bind = $mainMod, E, movefocus, r
++bind = $mainMod, H, movefocus, l
++bind = $mainMod, J, movefocus, d
++bind = $mainMod, K, movefocus, u
++bind = $mainMod, L, movefocus, r
+ bind = $mainMod, Left, movefocus, l
+ bind = $mainMod, Right, movefocus, r
+ bind = $mainMod, Up, movefocus, u
+@@ -191,25 +191,25 @@ bind = $mainMod SHIFT, 0, movetoworkspace, 10
+ bind = $mainMod, S, togglespecialworkspace, magic
+ bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+ 
+-bind = $mainMod ALT, E, workspace, e+1
+-bind = $mainMod ALT, Y, workspace, e-1
++bind = $mainMod ALT, L, workspace, e+1
++bind = $mainMod ALT, H, workspace, e-1
+ bind = $mainMod ALT, Left, workspace, -1
+ bind = $mainMod ALT, Right, workspace, +1
+ 
+-bind = $mainMod SHIFT, E, movetoworkspace, +1
+-bind = $mainMod SHIFT, Y, movetoworkspace, -1
++bind = $mainMod SHIFT, L, movetoworkspace, +1
++bind = $mainMod SHIFT, H, movetoworkspace, -1
+ 
+ bindm = ALT, mouse:272, movewindow
+ 
+-bind = $mainMod CTRL, Y, resizeactive, -40 0
+-bind = $mainMod CTRL, H, resizeactive, 0 40
+-bind = $mainMod CTRL, A, resizeactive, 0 -40
+-bind = $mainMod CTRL, E, resizeactive, 40 0
++bind = $mainMod CTRL, H, resizeactive, -40 0
++bind = $mainMod CTRL, J, resizeactive, 0 40
++bind = $mainMod CTRL, K, resizeactive, 0 -40
++bind = $mainMod CTRL, L, resizeactive, 40 0
+ 
+-bind = $mainMod SHIFT CTRL, Y, movewindow, l
+-bind = $mainMod SHIFT CTRL, H, movewindow, d
+-bind = $mainMod SHIFT CTRL, A, movewindow, u
+-bind = $mainMod SHIFT CTRL, E, movewindow, r
++bind = $mainMod SHIFT CTRL, H, movewindow, l
++bind = $mainMod SHIFT CTRL, J, movewindow, d
++bind = $mainMod SHIFT CTRL, K, movewindow, u
++bind = $mainMod SHIFT CTRL, L, movewindow, r
+ 
+ bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+ bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+diff --git a/.tmux.conf b/.tmux.conf
+index 23199d9..3c06894 100644
+--- a/.tmux.conf
++++ b/.tmux.conf
+@@ -14,20 +14,20 @@ set-option -g detach-on-destroy off
+ unbind r
+ bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+ 
+-unbind -n M-L
+-unbind -n C-M-h
+-unbind -n C-M-l
+-unbind -n M-J
+-unbind -n M-K
+-unbind -n M-\"
+-bind -n M-Y previous-window
+-bind -n M-E next-window
+-bind -n C-M-y swap-window -t -1 \; previous-window
+-bind -n C-M-e swap-window -t +1 \; next-window
+-bind -n M-H switch-client -n
+-bind -n M-A switch-client -p
+-bind -n M-I switch-client -l
+-bind -n M-: last-window
++unbind -n M-Y
++unbind -n M-E
++unbind -n C-M-y
++unbind -n C-M-e
++unbind -n M-A
++unbind -n M-I
++bind -n M-H previous-window
++bind -n M-L next-window
++bind -n C-M-h swap-window -t -1 \; previous-window
++bind -n C-M-l swap-window -t +1 \; next-window
++bind -n M-J switch-client -n
++bind -n M-K switch-client -p
++bind -n M-: switch-client -l
++bind -n M-\" last-window
+ 
+ bind-key x kill-pane
+ 
+diff --git a/rofi.rasi b/rofi.rasi
+index 4a28d2a..a64e25d 100644
+--- a/rofi.rasi
++++ b/rofi.rasi
+@@ -3,18 +3,18 @@ configuration {
+     ssh-command: "{terminal} start -- {ssh-client} {host}"; // wezterm
+     sidebar-mode: true;
+     /* keys have to be unbound before they can be reused */
+-    kb-accept-entry: "Return,KP_Enter";
++    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
++    kb-remove-to-eol: "";
+     kb-remove-char-back: "BackSpace,Shift+BackSpace";
++    kb-mode-complete: "";
+     kb-secondary-copy: "";
+     kb-remove-char-forward: "";
+     kb-remove-to-sol: "";
+-    kb-move-front: "";
+-    kb-move-end: "";
+     /* better vim controls */
+-    kb-mode-previous: "Y,Ctrl+y";
+-    kb-row-down: "H,Ctrl+h,Down";
+-    kb-row-up: "A,Ctrl+a,Up";
+-    kb-mode-next: "E,Ctrl+e";
++    kb-mode-previous: "H,Ctrl+h,Alt+h";
++    kb-row-down: "J,Ctrl+j,Alt+j,Down";
++    kb-row-up: "K,Ctrl+k,Alt+k,Up";
++    kb-mode-next: "L,Ctrl+l,Alt+l";
+     kb-cancel: "Ctrl+c,Escape";
+     kb-page-next: "Page_Down,Ctrl+d";
+     kb-page-prev: "Page_Up,Ctrl+u";
