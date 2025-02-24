@@ -64,9 +64,23 @@ config.keys = {
             adjust_transparency(window, .05)
         end),
     },
+
+    {
+        key = "L",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.EmitEvent("toggle-ligature"),
+    },
 }
 
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+wezterm.on("toggle-ligature", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    if not overrides.harfbuzz_features then
+        overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+    else
+        overrides.harfbuzz_features = nil
+    end
+    window:set_config_overrides(overrides)
+end)
 
 -- Zenmode Function
 wezterm.on("user-var-changed", function(window, pane, name, value)
