@@ -17,7 +17,7 @@ config.default_prog = { "zsh", "-i", "-c", "sesh connect 🏠 Main; exec zsh" }
 
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
-config.window_background_opacity = .5
+config.window_background_opacity = .75
 config.window_close_confirmation = "NeverPrompt"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
