@@ -7,11 +7,11 @@ if [ ! -d "$REPO_DIR/.git" ]; then
     exit 1
 fi
 
-if git diff --quiet; then
+if git -C "$REPO_DIR" diff --quiet; then
     echo "No changes to commit."
     exit 0
 else
     git -C "$REPO_DIR" add .
     git -C "$REPO_DIR" commit -m "Hourly Commit: $(date '+%Y-%m-%d-%a %H:%M:%S')" && \
-    git -C "$REPO_DIR" push origin main
+        git -C "$REPO_DIR" push origin main
 fi
