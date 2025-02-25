@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local function adjust_transparency(window, delta)
     local overrides = window:get_config_overrides() or {}
-    overrides.window_background_opacity = overrides.window_background_opacity or .5
+    overrides.window_background_opacity = overrides.window_background_opacity or .75
     overrides.window_background_opacity = overrides.window_background_opacity + delta
 
     overrides.window_background_opacity = math.max(0, math.min(1, overrides.window_background_opacity))
