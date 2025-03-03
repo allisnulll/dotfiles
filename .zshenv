@@ -4,9 +4,8 @@ export EDITOR="nvim"
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
-export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
-
 # export ADB_TRACE="all"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # Go
 export GOBIN="$HOME/go/bin"
