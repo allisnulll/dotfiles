@@ -13,16 +13,29 @@ gaps_out_current=$(hyprctl workspacerules -j | jq --arg rid "$rid" '[.[] | selec
 
 windows=$(hyprctl -j clients | jq -r ".[] | select(.workspace.id == ($id | tonumber)) .address")
 
-if [[ ("$gaps_in_current" == "null" && "$gaps_out_current" == "null") || ("$gaps_in_current" == "$gaps_in_default" && "$gaps_out_current" == "$gaps_out_default") ]]; then
+if [[ ("$gaps_in_current" == "null" && "$gaps_out_current" == "null") ||
+      ("$gaps_in_current" == "$gaps_in_default" && "$gaps_out_current" == "$gaps_out_default") ]]; then
     hyprctl keyword workspace $rid f[1], gapsin:0, gapsout:0
     hyprctl keyword workspace $rid w[tv1], gapsin:0, gapsout:0
     hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:$id"
     hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:$id"
+
+    if pgrep waybar; then
+        pkill waybar
+        touch /tmp/state_waybar$id
+    else
+        rm /tmp/state_waybar$id
+    fi
 else
     hyprctl keyword workspace $rid f[1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
     hyprctl keyword workspace $rid w[tv1], gapsin:$gaps_in_default, gapsout:$gaps_out_default
     hyprctl keyword windowrulev2 "bordersize $border_size, floating:0, onworkspace:$id"
     hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:$id"
+
+    if [[ -f /tmp/state_waybar$id ]]; then
+        waybar &
+    fi
+    rm /tmp/state_waybar$id
 fi
 
 hyprctl dispatch workspace 10
