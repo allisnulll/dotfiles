@@ -58,7 +58,7 @@
     @tb1      tab  left down rght _    _    mwu  mwd  mwl  mwr  prev next pp
     _         ent  _    home end  _    _    _    _    _    _    _         _
     _         _    _    pgup pgdn _    _    _    _    _    _              _
-    _    _    _    del            bspc           del  _    _    _    _    _
+    _    _    _    del            bspc           _    _    _    _    _    _
                                                                 _    _    _
 )
 
@@ -76,9 +76,9 @@
     _    _    _    _   _   _   _   _   _   _   _   _   _   _    _    _    _
     _    @ch8 @ch4 @ch2 @ch1 _    _    _    @ch8 @ch4 @ch2 @ch1 _         _
     _         _    _    _    _    _    eql  kp7  kp8  kp9  @+   _    _    _
-    _         _    _    _    _    _    kp0  kp4  kp5  kp6  @*   kprt      _
+    _         _    _    _    _    _    kp0  kp4  kp5  kp6  @*   _         _
     _         _    _    _    _    _    @.   kp1  kp2  kp3  @^             _
-    _    _    _    bspc           _              bspc _    _    _    _    _
+    _    _    _    bspc           _              _    _    _    _    _    _
                                                                 _    _    _
 )
 
@@ -88,7 +88,7 @@
     _         _    _    _    @&   @#   @!   @|   _    _    _    _    _    _
     _         @<   [    @{   @op  -    @_   @cp  @}   ]    @>   _         _
     _         _    _    _    \    @$   @@   @%   _    _    _              _
-    _    _    _    bspc           _              bspc _    _    _    _    _
+    _    _    _    bspc           _              _    _    _    _    _    _
                                                                 _    _    _
 )
 
