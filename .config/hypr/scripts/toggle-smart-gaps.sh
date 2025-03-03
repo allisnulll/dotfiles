@@ -33,7 +33,7 @@ else
     hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:$id"
 
     if [[ -f /tmp/state_waybar$id ]]; then
-        waybar &
+        pgrep waybar || waybar
     fi
     rm /tmp/state_waybar$id
 fi
