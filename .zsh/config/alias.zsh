@@ -36,6 +36,7 @@ alias lsa="eza -a --icons=always"
 alias lsl="eza -l --icons=always"
 alias lsal="eza -al --icons=always"
 alias lst="eza --icons=always --tree"
+alias lsat="eza --icons=always --tree -a"
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
