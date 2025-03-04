@@ -53,6 +53,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.api.nvim_create_augroup("Text", { clear = true})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "text", "markdown" },
+    group = "Text",
+    callback = function()
+        vim.opt.spell = true
+    end,
+})
+
 vim.api.nvim_create_augroup("HelpBuffer", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = "HelpBuffer",

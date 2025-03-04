@@ -81,8 +81,8 @@ startup_command = "clear && eza -a --icons=always"
 
 [[session]]
 name = "📖 Dictionary"
-path = "/home/allisnull/.cache/nvim/ltex"
-startup_command = "nvim en-US.txt; clear"
+path = "/home/allisnull/.config/nvim/spell"
+startup_command = "nvim .; clear"
 
 [[session]]
 name = "📚 Library"

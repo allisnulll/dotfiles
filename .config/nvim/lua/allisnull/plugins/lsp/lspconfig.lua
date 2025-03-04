@@ -137,9 +137,7 @@ return {
                 ltex = {
                     language = "en",
                     enabledRules = { "grammar", "spell" },
-                    additionalRules = {
-                        languageModel = "~/Documents/ngrams/",
-                    },
+                    additionalRules = { languageModel = "~/Documents/ngrams/" },
                 },
             },
         })
