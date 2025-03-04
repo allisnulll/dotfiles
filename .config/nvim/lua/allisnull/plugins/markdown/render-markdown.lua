@@ -7,6 +7,7 @@ return {
     config = function()
         require("render-markdown").setup({
             debounce = 100,
+            heading = { sign = false },
             pipe_table = {
                 preset = "round",
                 alignment_indicator = "┅",
