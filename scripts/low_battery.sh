@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOW_BATTERY_THRESHOLD=2
+LOW_BATTERY_THRESHOLD=20
 BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity)
 CHARGING_STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
