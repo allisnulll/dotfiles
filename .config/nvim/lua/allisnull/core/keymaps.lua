@@ -167,8 +167,8 @@ vim.keymap.set("n", "<C-w>-", "2<C-w>-")
 
 vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
 vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
-vim.keymap.set("n", "<C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
-vim.keymap.set("n", "<C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
+vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
 
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
