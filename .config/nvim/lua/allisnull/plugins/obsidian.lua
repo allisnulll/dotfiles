@@ -94,7 +94,7 @@ return {
                     end
 
                     if not has_source then
-                        out["sources"] = { [1] = "Me" }
+                        out["sources"] = { [1] = "[[1741211268-me|Me]]" }
                     end
                 end
 
