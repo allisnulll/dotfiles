@@ -66,6 +66,36 @@ local function to_column()
     end
 end
 
+local function toggle_quickfix()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then
+            qf_exists = true
+        end
+    end
+    if qf_exists == true then
+        vim.cmd "cclose"
+        return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
+        vim.cmd "copen"
+    end
+end
+
+local function toggle_location()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["loclist"] == 1 then
+            qf_exists = true
+        end
+    end
+    if qf_exists == true then
+        vim.cmd "lclose"
+    else
+        vim.cmd "lopen"
+    end
+end
+
 -- TODO: Finish to_line()
 -- function to_line()
 --     local input = vim.fn.input("Line{j|k}: ")
@@ -118,6 +148,10 @@ vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expand
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
 vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
+
+vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
+vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
+vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
 
 vim.keymap.set("i", "<S-Space>", "\u{00A0}", { desc = "Insert nbsp" })
 
