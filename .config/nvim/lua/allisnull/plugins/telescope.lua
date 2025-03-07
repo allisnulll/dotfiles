@@ -10,27 +10,24 @@ return {
     },
     config = function()
         local telescope = require("telescope")
-        local actions= require("telescope.actions")
-        local builtin= require("telescope.builtin")
+        local builtin = require("telescope.builtin")
+        local actions = require("telescope.actions")
+        local lga_actions = require("telescope-live-grep-args.actions")
 
         telescope.setup({
             defaults = {
                 path_display = { "smart" },
                 mappings = {
                     i = {
-                        -- ["<C-h>"] = "which_key",
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-j>"] = actions.move_selection_next,
-                        ["<C-h>"] = actions.select_all,
+                        ["<C-a>"] = actions.select_all,
+                        ["<C-s>"] = actions.select_horizontal,
                         ["<C-q>"] = actions.send_selected_to_qflist,
+                        ["<C-g>"] = lga_actions.quote_prompt(),
+                        ["<C-x>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                        ["<C-Space>"] = lga_actions.to_fuzzy_refine,
                     },
-                },
-            },
-            pickers = {
-                live_grep = {
-                    additional_args = function(_)
-                        return {"--hidden"}
-                    end
                 },
             },
         })
@@ -40,9 +37,9 @@ return {
 
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
-        vim.keymap.set("n", "<leader>f.", ":Telescope find_files hidden=true<CR>", { desc = "Fuzzy find hidden files in cwd" })
         vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
         vim.keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>", { desc = "Fuzzy find string in cwd" })
+        vim.keymap.set("n", "<leader>fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Fuzzy find string in cwd" })
         vim.keymap.set("n", "<leader>fc", ":Telescope command_history<CR>", { desc = "Fuzzy find command history" })
         vim.keymap.set("n", "<leader>fo", ":Telescope vim_options<CR>", { desc = "Fuzzy find vim options" })
         vim.keymap.set("n", "<leader>fi", ":Telescope man_pages<CR>", { desc = "Fuzzy find man pages" })
