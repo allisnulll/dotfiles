@@ -6,6 +6,7 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-tree/nvim-web-devicons",
         "folke/todo-comments.nvim",
+        { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
     },
     config = function()
         local telescope = require("telescope")
@@ -35,6 +36,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("live_grep_args")
 
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
