@@ -75,3 +75,6 @@ alias rd="\\gs"
 
 # XDG
 alias op="xdg-open"
+
+# Obsidian
+alias ovs="~/.dotfiles/scripts/obsidian_commit.sh"
