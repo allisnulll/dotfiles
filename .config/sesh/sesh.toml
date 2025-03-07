@@ -47,7 +47,7 @@ startup_command = "nvim .; clear"
 [[session]]
 name = "🏦 Vault"
 path = "~/Vault"
-startup_command = "nvim . '+Telescope find_files'; clear"
+startup_command = "nvim 1741211101-main-hub.md '+ObsidianQuickSwitch'; clear"
 
 [[session]]
 name = "📓 Notes"
