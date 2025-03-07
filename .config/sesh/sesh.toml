@@ -92,4 +92,9 @@ startup_command = "clear && eza -a --icons=always"
 [[session]]
 name = "🧠 Brain"
 path = "~/Programming/Brain/brain-musik"
-startup_command = "~/.config/sesh/scripts/brain.sh"
+startup_command = "~/.config/sesh/scripts/flutter.sh"
+
+[[session]]
+name = "🪹 Birds Nest"
+path = "~/Programming/BirdsNest/birds_nest"
+startup_command = "~/.config/sesh/scripts/flutter.sh"
