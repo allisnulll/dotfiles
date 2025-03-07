@@ -84,9 +84,17 @@ return {
                     created = os.date("%Y-%m-%d-%a %H:%M:%S"),
                 }
 
+                local has_source = false
                 if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
                     for k, v in pairs(note.metadata) do
+                        if k == "source" or k == "sources" then
+                            has_source = true
+                        end
                         out[k] = v
+                    end
+
+                    if not has_source then
+                        out["sources"] = { [1] = "Me" }
                     end
                 end
 
