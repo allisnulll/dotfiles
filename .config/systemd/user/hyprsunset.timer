@@ -1,0 +1,8 @@
+[Unit]
+Description=HyprSunset Hourly Check
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target

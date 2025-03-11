@@ -1,0 +1,5 @@
+[Unit]
+Description=Change Screen Temperature
+
+[Service]
+ExecStart=/home/allisnull/.dotfiles/scripts/hyprsunset.sh
