@@ -33,10 +33,23 @@ alias txks="tmux kill-server"
 # Eza
 alias ls="eza --icons=always"
 alias lsa="eza -a --icons=always"
+alias lsA="eza -A"
 alias lsl="eza -l --icons=always"
 alias lsal="eza -al --icons=always"
+alias lsAl="eza -Al"
 alias lst="eza --icons=always --tree"
 alias lsat="eza --icons=always --tree -a"
+alias lsAt="ezA --tree -A"
+
+alias lsi="eza --icons=always --git-ignore"
+alias lsai="eza -a --icons=always --git-ignore"
+alias lsAi="eza -A --git-ignore"
+alias lsli="eza -l --icons=always --git-ignore"
+alias lsali="eza -al --icons=always --git-ignore"
+alias lsAli="eza -Al --git-ignore"
+alias lsti="eza --icons=always --tree --git-ignore"
+alias lsati="eza --icons=always --tree -a --git-ignore"
+alias lsAti="ezA --tree -A --git-ignore"
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
