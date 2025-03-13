@@ -2,4 +2,5 @@
 Description=Change Screen Temperature
 
 [Service]
+Type=simple
 ExecStart=/home/allisnull/.dotfiles/scripts/hyprsunset.sh
