@@ -193,6 +193,7 @@ vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to c
 
 vim.keymap.set({ "n", "v" }, "<C-s>", ":s/\\(\\w.*\\)/", { desc = "Multiline reuse text" })
 vim.keymap.set("n", "<leader>s", ":%s/<C-r><C-w>//g<Left><Left>", { desc = "Substitute current word" })
+vim.keymap.set("n", "<leader>g", ":g/<C-r><C-w>/norm! ", { desc = "Global current word" })
 -- TODO: <leader>s for visual mode
 -- keymap.set("v", "<leader>s", function()
 --     local selected_text = vim.fn.getreg('"')
