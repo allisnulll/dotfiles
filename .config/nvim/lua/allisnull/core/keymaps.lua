@@ -142,7 +142,7 @@ vim.keymap.set("n", "<leader>ml", ":set list!<CR>", { desc = "Toggle listchars" 
 
 vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
 
-vim.keymap.set("n", "<leader>o", "", { desc = "Options" })
+vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
 vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
