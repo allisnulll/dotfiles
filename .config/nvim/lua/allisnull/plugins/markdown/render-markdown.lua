@@ -8,6 +8,7 @@ return {
         require("render-markdown").setup({
             debounce = 100,
             heading = { sign = false },
+            code = { sign = false },
             pipe_table = {
                 preset = "round",
                 alignment_indicator = "┅",
