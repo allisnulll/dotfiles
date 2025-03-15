@@ -1,5 +1,5 @@
 # .dotfiles
-These are the dotfiles stowed in my personal laptop.
+These are the dotfiles stowed on my personal laptop.
 
 ---
 I am running [Hyprland](https://hyprland.org/) on Arch Linux along with the following technologies:
