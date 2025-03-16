@@ -1,5 +1,5 @@
 [[session]]
-name = "🏠 Main"
+name = "🏠 Home"
 path = "~"
 startup_command = "clear && fastfetch"
 
