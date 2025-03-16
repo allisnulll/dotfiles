@@ -27,7 +27,7 @@ alias v="nvim"
 alias neo="c && fastfetch"
 
 # Tmux
-alias tx="sesh connect 🏠 Main; exec zsh"
+alias tx="sesh connect 🏠 Home; exec zsh"
 alias txd="tmux detach"
 alias txks="tmux kill-server"
 

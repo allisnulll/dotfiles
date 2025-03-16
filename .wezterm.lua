@@ -13,7 +13,7 @@ end
 local config = wezterm.config_builder()
 
 config.enable_wayland = true
-config.default_prog = { "zsh", "-i", "-c", "sesh connect 🏠 Main; exec zsh" }
+config.default_prog = { "zsh", "-i", "-c", "sesh connect 🏠 Home; exec zsh" }
 
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
