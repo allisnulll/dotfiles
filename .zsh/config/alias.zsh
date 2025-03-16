@@ -64,6 +64,7 @@ alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 # Devices
 alias blx="bluetoothctl connect 4F:63:57:C9:FA:58"
 alias pc-sam="wol AC:82:47:C6:DF:13; tvd"
+alias nix="tmux rename-session ' NixOS' && ssh allisnull@192.168.1.215"
 
 # TeamViewer
 alias tv="sudo teamviewer --daemon start"
