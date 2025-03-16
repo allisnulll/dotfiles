@@ -51,8 +51,8 @@ startup_command = "nvim 1741211101-main-hub.md '+ObsidianQuickSwitch'; clear"
 
 [[session]]
 name = "📓 Notes"
-path = "~/Notes"
-startup_command = "clear && eza -a --icons=always"
+path = "~/Vault/notes"
+startup_command = "clear && eza --tree --icons=always"
 
 [[session]]
 name = "📥 Downloads"
