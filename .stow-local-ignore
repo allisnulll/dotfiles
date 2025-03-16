@@ -5,3 +5,5 @@
 ^/patches
 ^/scripts
 README.md
+.gitignore
+.gitmodules
