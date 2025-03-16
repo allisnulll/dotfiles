@@ -208,7 +208,8 @@
 		"menu-actions": {
 			"shutdown": "shutdown now",
 			"reboot": "reboot",
-			"suspend": "systemctl suspend"
+			"suspend": "systemctl suspend",
+            "hypr": "hyprctl dispatch exit"
 		}
     }
 }
