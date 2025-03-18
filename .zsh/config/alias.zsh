@@ -17,7 +17,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias so="source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh"
-alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
+alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile ; clear"
 alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 
 # NeoVim
