@@ -68,3 +68,6 @@ linux
 efi
 nixos
 systemd
+cwd
+dir
+cd

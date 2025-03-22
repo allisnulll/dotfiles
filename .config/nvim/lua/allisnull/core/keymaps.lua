@@ -31,7 +31,7 @@ local function to_fold_level()
 
     vim.api.nvim_echo({{"", "Normal"}}, false, {})
     if level == 0 then
-        level = 101
+        level = 100
     end
 
     vim.opt.foldlevel = level - 1
@@ -123,7 +123,7 @@ end
 -- end
 -- vim.keymap.set("v", "<leader>tl", function() to_line() end, { desc = "Move selection to line" })
 
-vim.keymap.set("n", "<F15>", function()
+local function toggle_fold()
     local line = vim.fn.line(".")
     local foldlevel = vim.fn.foldlevel(line)
 
@@ -132,15 +132,39 @@ vim.keymap.set("n", "<F15>", function()
     else
         vim.cmd("normal! za")
     end
-end, { desc = "Toggle fold" })
+end
+
+local function highest_fold()
+    local max_fold = 0
+    for line = 1, vim.api.nvim_buf_line_count(0) do
+        local fold_level = vim.fn.foldlevel(line)
+        if fold_level > max_fold then
+            max_fold = fold_level
+        end
+    end
+
+    return max_fold
+end
+
+local function fold_more()
+    local foldlevel = vim.wo.foldlevel
+    if foldlevel == 0 then
+        return
+    end
+
+    local highestfold = highest_fold()
+    if foldlevel > highestfold then
+        vim.opt.foldlevel = highestfold
+    else
+        vim.opt.foldlevel = foldlevel - 1
+    end
+end
 
 vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>ml", ":set list!<CR>", { desc = "Toggle listchars" })
-
-vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
 
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
@@ -169,6 +193,12 @@ vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
 vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
 vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
 vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+
+vim.keymap.set("n", "<F15>", toggle_fold, { desc = "Toggle fold" })
+vim.keymap.set("n", "<F16>", function() vim.cmd("norm! zr") end, { desc = "- Fold level" })
+vim.keymap.set("n", "<F17>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
+vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
 
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
