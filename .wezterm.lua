@@ -51,6 +51,17 @@ config.keys = {
     },
 
     {
+        key = "9",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F14" }),
+    },
+    {
+        key = "0",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F15" }),
+    },
+
+    {
         key = "-",
         mods = "ALT",
         action = wezterm.action_callback(function(window, _)
