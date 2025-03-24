@@ -9,3 +9,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/plugins/
 git -C ~/.local/share/nvim/lazy/ltex-utils.nvim apply ltex-utils.patch
 
 git -C ~/src/neovim apply nvim-ufo.patch
+
+# Spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
+
+~/.dotfiles/scripts/spicetify-lucid-install.sh
+
+spicetify config marketplace "$(cat ~/.config/spicetify/marketplace.json)"
+spicetify backup apply
