@@ -97,3 +97,8 @@ alias op="xdg-open"
 
 # Obsidian
 alias ovs="~/.dotfiles/scripts/obsidian_commit.sh"
+
+# Pipes
+alias pipes="tmux set status off; pipes-rs; tmux set status on"
+alias pipes1="tmux set status off; pipes-rs -p 1000 -t 0 -r 1 --reset-threshold 0; tmux set status on"
+alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9 -t 0.99; tmux set status on"

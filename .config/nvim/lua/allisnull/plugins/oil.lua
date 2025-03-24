@@ -32,11 +32,6 @@ return {
                     end,
                 },
                 -- TODO: Figure out how to hide desc
-                ["<C-h>"] = {},
-                ["<C-l>"] = {},
-                ["<C-r>"] = "actions.refresh",
-                ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
-                ["<C-v>"] = { "actions.select", opts = { vertical = true } },
                 ["<leader>p"] = function()
                     local oil = require("oil")
                     local filename = oil.get_cursor_entry().name
