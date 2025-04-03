@@ -223,6 +223,13 @@ vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to c
 -- vim.keymap.set("v", "<C-j>", ":move '>+1<CR>gv=gv", { desc = "Move selection down" })
 -- vim.keymap.set("v", "<C-k>", ":move '<-2<CR>gv=gv", { desc = "Move selection up" })
 
+vim.keymap.set(
+    "n",
+    "g/",
+    "/\\v^((.**)@!.)*$<Left><Left><Left><Left><Left><Left><Left><Left>",
+    { desc = "Inverse Search" }
+)
+
 vim.keymap.set({ "n", "v" }, "<C-s>", ":s/\\(\\w.*\\)/", { desc = "Multiline reuse text" })
 vim.keymap.set("n", "<leader>s", ":%s/<C-r><C-w>//g<Left><Left>", { desc = "Substitute current word" })
 vim.keymap.set("n", "<leader>g", ":g/<C-r><C-w>/norm! ", { desc = "Global current word" })
