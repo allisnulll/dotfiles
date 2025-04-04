@@ -22,6 +22,22 @@ config.window_close_confirmation = "NeverPrompt"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 config.keys = {
+    {
+        key = "n",
+        mods = "SUPER",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "n",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "Enter",
+        mods = "ALT",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+
 	{
 		key = "v",
 		mods = "CTRL|SHIFT",
