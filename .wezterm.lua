@@ -97,6 +97,17 @@ config.keys = {
         mods = "CTRL|SHIFT",
         action = wezterm.action.EmitEvent("toggle-ligature"),
     },
+
+    {
+        key = "Enter",
+        mods = "ALT",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "F11",
+        mods = "",
+        action = wezterm.action.ToggleFullScreen,
+    }
 }
 
 wezterm.on("toggle-ligature", function(window, _)
