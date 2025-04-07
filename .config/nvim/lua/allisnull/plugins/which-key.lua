@@ -13,7 +13,11 @@ return {
         end
         whichkey.add(mappings)
 
-        whichkey.setup()
+        whichkey.setup({
+            delay = function(ctx)
+                return ctx.plugin and 0 or 300
+            end,
+        })
 
         vim.keymap.set("n", "?", function()
             whichkey.show()
