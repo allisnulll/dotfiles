@@ -3,7 +3,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     keys = {
         { "<leader>h", "", desc = "Git/Hunks", mode = { "n", "v" }},
-        { "<leader>hq", ":Gitsign setqflist all<CR>", desc = "Add Repository Hunks to Quickfix List" }
+        { "<leader>hq", function()
+            require("gitsigns").setqflist("all")
+            vim.cmd("sleep 1")
+            vim.cmd("resize 20")
+        end, desc = "Add Repository Hunks to Quickfix List" },
     },
     opts = {
         on_attach = function(_)
