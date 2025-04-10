@@ -1,0 +1,45 @@
+/* Custom */
+
+* {
+    rosewater:      #f5e0dc;
+    flamingo:       #f2cdcd;
+    pink:           #f5c2e7;
+    mauve:          #cba6f7;
+    red:            #f38ba8;
+    maroon:         #eba0ac;
+    peach:          #fab387;
+    yellow:         #f9e2af;
+    green:          #a6e3a1;
+    teal:           #94e2d5;
+    sky:            #89dceb;
+    sapphire:       #74c7ec;
+    blue:           #89b4fa;
+    lavender:       #b4befe;
+    text:           #cdd6f4;
+    subtext1:       #ff4d4d;
+    subtext0:       #e63946;
+    overlay2:       #880808;
+    overlay1:       #b22222;
+    overlay0:       #991b1b;
+    surface2:       #551111;
+    surface1:       #2a2a2a;
+    surface0:       #000000;
+    base:           #333333;
+    mantle:         #11111b;
+    crust:          #551111;
+}
+
+/* 
+bg - background
+fg - foreground
+br - border
+*/
+
+* {
+    main-bg:        @crust;
+    main-fg:        @text;
+    main-br:        @overlay2;
+    input-bg:       @mantle;
+    select-bg:      @overlay2;
+    select-fg:      @crust;
+}
