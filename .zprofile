@@ -1,4 +1,6 @@
 if uwsm check may-start; then
-	systemctl --user enable --now waybar.service
     exec uwsm start hyprland.desktop
+
+    systemctl --user enable --now hyprpaper.service
+    systemctl --user enable --now waybar.service
 fi
