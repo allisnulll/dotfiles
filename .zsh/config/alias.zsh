@@ -28,7 +28,7 @@ alias copy="wl-copy"
 alias v="nvim"
 
 # NeoFetch
-alias neo="c && fastfetch"
+alias neo="cd && c && fastfetch"
 
 # Tmux
 alias tx="sesh connect 🏠 Home; exec zsh"
