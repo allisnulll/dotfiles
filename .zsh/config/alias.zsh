@@ -17,7 +17,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias so="source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh"
-alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile ; clear"
+alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
 alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
@@ -98,7 +98,11 @@ alias op="xdg-open"
 # Obsidian
 alias ovs="~/.dotfiles/scripts/obsidian_commit.sh"
 
-# Pipes
+# Screensavers
 alias pipes="tmux set status off; pipes-rs; tmux set status on"
 alias pipes1="tmux set status off; pipes-rs -p 1000 -t 0 -r 1 --reset-threshold 0; tmux set status on"
 alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9 -t 0.99; tmux set status on"
+
+alias matrix="tmux set status off; cmatrix -su 3 -C red; tmux set status on"
+
+alias bonsai="tmux set status off; cbonsai -iS --live; tmux set status on"
