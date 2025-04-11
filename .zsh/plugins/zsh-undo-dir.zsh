@@ -31,7 +31,6 @@ function on_cwd_change() {
     if [[ ${#undo_dir_hist[@]} -gt $max ]]; then
         shift undo_dir_hist
     fi
-    # echo "undo: ${undo_dir_hist[@]}\nredo: ${redo_dir_hist[@]}\n"
 }
 
 function undo_dir() {
@@ -40,7 +39,6 @@ function undo_dir() {
         shift -p undo_dir_hist
         quiet_cd ${undo_dir_hist[-1]}
     fi
-    # echo "undo: ${undo_dir_hist[@]}\nredo: ${redo_dir_hist[@]}\n"
 }
 
 function redo_dir() {
@@ -49,7 +47,6 @@ function redo_dir() {
         shift -p redo_dir_hist
         quiet_cd ${undo_dir_hist[-1]}
     fi
-    # echo "undo: ${undo_dir_hist[@]}\nredo: ${redo_dir_hist[@]}\n"
 }
 
 zle -N undo_dir
