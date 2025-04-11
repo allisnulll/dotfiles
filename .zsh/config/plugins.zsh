@@ -3,4 +3,4 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/plugins/zsh-dir-undo.zsh
+source ~/.zsh/plugins/zsh-undo-dir.zsh
