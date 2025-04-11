@@ -26,6 +26,11 @@ path = "~/.dotfiles/.config/nvim"
 startup_command = "nvim . '+Telescope find_files'; clear"
 
 [[session]]
+name = " Emacs"
+path = "~/.dotfiles/.doom.d"
+startup_command = "nvim config.el; clear"
+
+[[session]]
 name = "⌨️ Kanata"
 path = "~/.dotfiles/kanata"
 startup_command = "nvim kanata.kdb; clear"
