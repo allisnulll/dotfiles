@@ -37,4 +37,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
 
 # Doom Emacs
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.emacs.doom/bin:$PATH"
