@@ -1,7 +1,24 @@
 /* Power menu */
 
 configuration {
-  font:                     "JetBrainsMono Nerd Font 8";
+    font:                     "JetBrainsMono Nerd Font 8";
+
+    /* keys have to be unbound before they can be reused */
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-secondary-copy: "";
+    kb-remove-char-forward: "";
+    kb-remove-to-sol: "";
+    kb-move-front: "";
+    kb-move-end: "";
+    /* better vim controls */
+    kb-mode-previous: "Y,Ctrl+y";
+    kb-row-down: "H,Ctrl+h,Down";
+    kb-row-up: "A,Ctrl+a,Up";
+    kb-mode-next: "E,Ctrl+e";
+    kb-cancel: "Ctrl+c,Escape";
+    kb-page-next: "Page_Down,Ctrl+d";
+    kb-page-prev: "Page_Up,Ctrl+u";
 }
 
 @theme "~/.config/rofi/theme.rasi"
@@ -9,46 +26,46 @@ configuration {
 /* Window */
 
 window {
-  location:                 northeast;
-  anchor:                   north;
-  x-offset:                 -3px;
-  y-offset:                 3px;
-  width:                    150px;
-  border:                   2px;
-  border-radius:            10px;
-  border-color:             @main-br;
-  background-color:         @main-bg;
-  children:                 [ mainbox ];
+    location:                 northeast;
+    anchor:                   north;
+    x-offset:                 -3px;
+    y-offset:                 3px;
+    width:                    150px;
+    border:                   2px;
+    border-radius:            10px;
+    border-color:             @main-br;
+    background-color:         @main-bg;
+    children:                 [ mainbox ];
 }
 
 mainbox {
-  background-color:         inherit;
-  text-color:               @main-fg;
-  children:                 [ listview ];
+    background-color:         inherit;
+    text-color:               @main-fg;
+    children:                 [ listview ];
 }
 
 /* List */
 
 listview {
-  lines:                    6;
-  padding:                  6px;
-  background-color:         inherit;
+    lines:                    6;
+    padding:                  6px;
+    background-color:         inherit;
 }
 
 element {
-  padding:                  6px;
-  cursor:                   pointer;
-  background-color:         inherit;
-  text-color:               @main-fg;
+    padding:                  6px;
+    cursor:                   pointer;
+    background-color:         inherit;
+    text-color:               @main-fg;
 }
 element selected.normal {
-  border-radius:            6px;
-  background-color:         @select-bg;
-  text-color:               @select-fg;
+    border-radius:            6px;
+    background-color:         @select-bg;
+    text-color:               @select-fg;
 }
 element-text {
-  padding:                  0 6px;
-  cursor:                   inherit;
-  background-color:         inherit;
-  text-color:               inherit;
+    padding:                  0 6px;
+    cursor:                   inherit;
+    background-color:         inherit;
+    text-color:               inherit;
 }

@@ -1,4 +1,5 @@
 configuration {
+    font: "JetBrainsMono Nerd Font 12";
     ssh-command: "{terminal} start -- {ssh-client} {host}"; // wezterm
     sidebar-mode: true;
 
@@ -21,178 +22,159 @@ configuration {
 }
 
 * {
-    // base: #3c3445;
-    // foreground: #f5eff3;
-    // background: #9c6b80;
-    // highlight: #9ccbdd;
-    // cursor: #604c60;
-    // attention: #9ccbdd;
-
-    // background-color: @background;
-
-    // normal-foreground: @foreground;
-    // normal-background: @background;
-
-    // active-foreground: @attention;
-    // active-background: @background;
-
-    // urgent-foreground: @attention;
-    // urgent-background: @background;
-
-    // alternate-normal-foreground: @foreground;
-    // alternate-normal-background: @background;
-
-    // alternate-active-foreground: @foreground;
-    // alternate-active-background: @background;
-
-    // alternate-urgent-foreground: @attention;
-    // alternate-urgent-background: @background;
-
-    // selected-normal-foreground: @foreground;
-    // selected-normal-background: @cursor;
-
-    // selected-active-foreground: @attention;
-    // selected-active-background: @cursor;
-
-    // selected-urgent-foreground: @attention;
-    // selected-urgent-background: @cursor;
-
-    spacing: 2;
-    sidebar-mode: true;
+    selected-normal-foreground:  #000000;
+    foreground:                  #C4CBD4;
+    normal-foreground:           @foreground;
+    alternate-normal-background: #11111b;
+    red:                         #DC322F;
+    selected-urgent-foreground:  #F9F9F9;
+    blue:                        #268BD2;
+    urgent-foreground:           #CC6666;
+    alternate-urgent-background: #4B5160E6;
+    active-foreground:           #DC8CA0;
+    lightbg:                     #EEE8D5;
+    selected-active-foreground:  #F9F9F9;
+    alternate-active-background: #4B5160E3;
+    background:                  #000000;
+    alternate-normal-foreground: @foreground;
+    normal-background:           @background;
+    lightfg:                     #586875;
+    selected-normal-background:  #880808;
+    border-color:                #FF0000;
+    spacing:                     2;
+    separatorcolor:              #1D1F21;
+    urgent-background:           #1D1F2130;
+    selected-urgent-background:  #A54242;
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            #00000000;
+    alternate-active-foreground: @active-foreground;
+    active-background:           #1D1F2130;
+    selected-active-background:  #CC575D;
 }
 
 #window {
-    // background-color: @background;
-    border: 0;
+    background-color: @background;
+    padding:          5;
+    border-radius: 10px;
 }
 
 #mainbox {
     border:  0;
     padding: 0;
-    margin: 0;
-    spacing: 0;
+}
+
+#message {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#listview {
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      2px ;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+}
+
+#element {
+    border:  0;
+    padding: 1px ;
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+
+#mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+}
+
+#button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
 }
 
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
     spacing:    0;
-    // text-color: @normal-foreground;
-    padding:    6px 1px 6px 10px;
-}
-
-#prompt {
-    spacing:    0;
-    // text-color: @foreground;
-}
-
-#entry {
-    spacing:    0;
-    // text-color: @normal-foreground;
-    placeholder: "type to filter";
-    // placeholder-color: @cursor;
+    text-color: @normal-foreground;
+    padding:    1px ;
 }
 
 #case-indicator {
     spacing:    0;
-    // text-color: @normal-foreground;
+    text-color: @normal-foreground;
+}
+
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 #textbox-prompt-colon {
     expand:     false;
     str:        ":";
-    margin:     0px 0.3em 0em 0em;
-    // text-color: @foreground;
-}
-
-#message {
-    border:       1px 0px 0px 0px;
-    // border-color: @cursor;
-    padding:      6px 0px 6px 26px;
-}
-
-#textbox {
-    // text-color: @foreground;
-}
-
-#listview {
-    border:       1px 0px 0px 0px;
-    // border-color: @cursor;
-    scrollbar:    true;
-    fixed-height: 0;
-    spacing:      1px;
-    padding:      0;
-}
-
-#element {
-    border:  0;
-    padding: 2px 1px 2px 11px;
-}
-
-#element.normal.normal {
-    // background-color: @normal-background;
-    // text-color:       @normal-foreground;
-}
-
-#element.normal.urgent {
-    // background-color: @urgent-background;
-    // text-color:       @urgent-foreground;
-}
-
-#element.normal.active {
-    // background-color: @active-background;
-    // text-color:       @active-foreground;
-}
-
-#element.selected.normal {
-    // background-color: @selected-normal-background;
-    // text-color:       @selected-normal-foreground;
-}
-
-#element.selected.urgent {
-    // background-color: @selected-urgent-background;
-    // text-color:       @selected-urgent-foreground;
-}
-
-#element.selected.active {
-    // background-color: @selected-active-background;
-    // text-color:       @selected-active-foreground;
-}
-
-#element.alternate.normal {
-    // background-color: @alternate-normal-background;
-    // text-color:       @alternate-normal-foreground;
-}
-
-#element.alternate.urgent {
-    // background-color: @alternate-urgent-background;
-    // text-color:       @alternate-urgent-foreground;
-}
-
-#element.alternate.active {
-    // background-color: @alternate-active-background;
-    // text-color:       @alternate-active-foreground;
-}
-
-#scrollbar {
-    // handle-color: @background;
-    // background-color: @cursor;
-    handle-width: 30px;
-}
-
-#mode-switcher {
-    border: 1px 0px 0px 0px;
-    // border-color: @foreground;
-    margin: 0;
-}
-
-#button {
-    // background-color: @background;
-    // text-color:       @normal-foreground;
-    padding: 4px 10px;
-    margin: 0;
-}
-
-#button.selected {
-    // background-color: @foreground;
-    // text-color:       @base;
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
 }
