@@ -1,7 +1,24 @@
 /* WiFi menu */
 
 configuration {
-  font:                     "JetBrainsMono Nerd Font 8";
+    font:                     "JetBrainsMono Nerd Font 8";
+
+    /* keys have to be unbound before they can be reused */
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-secondary-copy: "";
+    kb-remove-char-forward: "";
+    kb-remove-to-sol: "";
+    kb-move-front: "";
+    kb-move-end: "";
+    /* better vim controls */
+    kb-mode-previous: "Y,Ctrl+y";
+    kb-row-down: "H,Ctrl+h,Down";
+    kb-row-up: "A,Ctrl+a,Up";
+    kb-mode-next: "E,Ctrl+e";
+    kb-cancel: "Ctrl+c,Escape";
+    kb-page-next: "Page_Down,Ctrl+d";
+    kb-page-prev: "Page_Up,Ctrl+u";
 }
 
 @theme "~/.config/rofi/theme.rasi"
@@ -9,71 +26,71 @@ configuration {
 /* Window */
 
 window {
-  location:                 north;
-  anchor:                   south;
-  y-offset:                 3px;
-  width:                    240px;
-  border:                   2px;
-  border-radius:            10px;
-  border-color:             @main-br;
-  background-color:         @main-bg;
-  children:                 [ mainbox ];
+    location:                 north;
+    anchor:                   south;
+    y-offset:                 3px;
+    width:                    240px;
+    border:                   2px;
+    border-radius:            10px;
+    border-color:             @main-br;
+    background-color:         @main-bg;
+    children:                 [ mainbox ];
 }
 
 mainbox {
-  spacing:                  0;
-  background-color:         inherit;
-  text-color:               @main-fg;
-  children:                 [ inputbar, listview ];
+    spacing:                  0;
+    background-color:         inherit;
+    text-color:               @main-fg;
+    children:                 [ inputbar, listview ];
 }
 
 /* Input */
 
 inputbar {
-  margin:                   6px;
-  border-radius:            6px;
-  spacing:                  inherit;
-  background-color:         @input-bg;
-  text-color:               inherit;
-  children:                 [ prompt, entry ];
+    margin:                   6px;
+    border-radius:            6px;
+    spacing:                  inherit;
+    background-color:         @input-bg;
+    text-color:               inherit;
+    children:                 [ prompt, entry ];
 }
 prompt {
-  padding:                  6px 6px 6px 12px;
-  background-color:         inherit;
-  text-color:               inherit;
+    padding:                  6px 6px 6px 12px;
+    background-color:         inherit;
+    text-color:               inherit;
 }
 entry {
-  placeholder:              "Search";
-  padding:                  6px 0;
-  cursor:                   text;
-  background-color:         inherit;
-  text-color:               inherit;
+    placeholder:              "Search";
+    padding:                  6px 0;
+    cursor:                   text;
+    background-color:         inherit;
+    text-color:               inherit;
 }
 
 /* List */
 
 listview {
-  lines:                    6;
-  cycle:                    false;
-  padding:                  0 6px 6px 6px;
-  background-color:         inherit;
+    lines:                    6;
+    cycle:                    false;
+    padding:                  0 6px 6px 6px;
+    background-color:         inherit;
 }
 
 element {
-  padding:                  6px;
-  cursor:                   pointer;
-  background-color:         inherit;
-  text-color:               @main-fg;
+    padding:                  6px;
+    cursor:                   pointer;
+    background-color:         inherit;
+    text-color:               @main-fg;
 }
 element selected active,
 element selected normal {
-  border-radius:            6px;
-  background-color:         @select-bg;
-  text-color:               @select-fg;
+    border-radius:            6px;
+    background-color:         @select-bg;
+    text-color:               @select-fg;
 }
 element-text {
-  padding:                  0 6px;
-  cursor:                   inherit;
-  background-color:         inherit;
-  text-color:               inherit;
+    padding:                  0 6px;
+    cursor:                   inherit;
+    background-color:         inherit;
+    text-color:               inherit;
 }
