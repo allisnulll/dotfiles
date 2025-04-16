@@ -61,11 +61,10 @@ config.keys = {
     },
 
     {
-        key = "Enter",
+        key = "i",
         mods = "CTRL",
         action = wezterm.action.SendKey({ key = "F13" }),  -- NOTE: For some reason sends f+2
     },
-
     {
         key = "9",
         mods = "CTRL",
