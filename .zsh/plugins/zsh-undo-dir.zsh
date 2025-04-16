@@ -55,6 +55,6 @@ zle -N redo_dir
 bindkey -M emacs "^o" undo_dir
 bindkey -M vicmd "^o" undo_dir
 bindkey -M viins "^o" undo_dir
-bindkey -M emacs "^i" redo_dir
-bindkey -M vicmd "^i" redo_dir
-bindkey -M viins "^i" redo_dir
+bindkey -M emacs "^[[1;2R" redo_dir
+bindkey -M vicmd "^[[1;2R" redo_dir
+bindkey -M viins "^[[1;2R" redo_dir
