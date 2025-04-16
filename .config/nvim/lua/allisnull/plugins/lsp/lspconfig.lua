@@ -126,12 +126,13 @@ return {
             },
         })
 
+        local ltex_cmd = vim.fn.stdpath("data") .. "/mason/bin/ltex-ls"
+
         lspconfig.ltex.setup({
             capabilities = capabilities,
             on_attach = function(_, bufnr)
                 require("ltex-utils").on_attach(bufnr)
             end,
-
             flags = { debounce_text_changes = 300 },
             settings = {
                 ltex = {
@@ -139,6 +140,11 @@ return {
                     enabledRules = { "grammar", "spell" },
                     additionalRules = { languageModel = "~/Documents/ngrams/" },
                 },
+            },
+
+            cmd = vim.fn.has("win32") == 1 and nil or {
+                "bash", "-c",
+                ltex_cmd .. " 2>&1 | grep -v 'no common words file.'"
             },
         })
     end,
