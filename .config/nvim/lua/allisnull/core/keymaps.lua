@@ -184,8 +184,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Better n" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Better N" })
 
-vim.keymap.set("n", "<C-w><", "5<C-w>>")
-vim.keymap.set("n", "<C-w>>", "5<C-w><")
+vim.keymap.set("n", "<C-w><", "5<C-w><")
+vim.keymap.set("n", "<C-w>>", "5<C-w>>")
 vim.keymap.set("n", "<C-w>+", "2<C-w>+")
 vim.keymap.set("n", "<C-w>-", "2<C-w>-")
 
