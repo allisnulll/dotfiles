@@ -48,7 +48,7 @@ startup_command = "nvim config.rasi; clear"
 
 [[session]]
 # TODO: Fix  not working
-name = " Sesh"
+name = "🪟 Sesh"
 path = "~/.dotfiles/.config/sesh"
 startup_command = "nvim sesh.toml; clear"
 
