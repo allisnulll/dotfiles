@@ -17,7 +17,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias so="source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh"
-alias soa="source ~/.zshrc && source ~/.zshenv && source ~/.zprofile"
+alias soa="source ~/.zsh/config/plugins.zsh && source ~/.zsh/config/p10k.zsh && source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh && source ~/.zsh/config/history.zsh && source ~/.zshenv && source ~/.zprofile"
 alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
