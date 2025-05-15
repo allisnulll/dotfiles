@@ -111,3 +111,8 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 name = "🪹 Birds Nest"
 path = "~/Programming/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
+
+[[session]]
+name = "󰕍 Zsh-Undo-Dir"
+path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
+startup_command = "nvim zsh-undo-dir.plugin.zsh; clear"
