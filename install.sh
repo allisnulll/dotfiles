@@ -1,6 +1,8 @@
 clear
 bck_created=1
 
+sudo usermod -c "AllIsNull" allisnull
+
 if [[ -d ~/src/neovim ]]; then
     mv ~/src/neovim/ ~/src/neovim.bck
     bck_created=0
