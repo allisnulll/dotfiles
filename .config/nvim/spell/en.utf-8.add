@@ -94,3 +94,5 @@ ExecStart
 jumplists
 notetaking
 Remapper
+GtkLock
+zsh
