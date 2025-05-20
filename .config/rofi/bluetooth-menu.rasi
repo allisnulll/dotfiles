@@ -1,7 +1,7 @@
 /* Bluetooth menu */
 
 configuration {
-    font:                     "JetBrainsMono Nerd Font 8";
+    font: "JetBrainsMono Nerd Font 10";
 
     /* keys have to be unbound before they can be reused */
     kb-accept-entry: "Return,KP_Enter";
@@ -26,7 +26,7 @@ configuration {
 /* Window */
 
 window {
-    location:                 north;
+    location:                 center;
     anchor:                   south;
     y-offset:                 3px;
     width:                    240px;
