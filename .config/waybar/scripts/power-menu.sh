@@ -2,7 +2,7 @@
 
 config="$HOME/.config/rofi/power-menu.rasi"
 
-actions=$(echo -e "  Lock\n  Shutdown\n  Reboot\n  Suspend\n  Hibernate\n  Logout")
+actions=$(echo -e "  Lock\n  Shutdown\n  Restart\n  Sleep\n  Logout")
 
 # Display logout menu
 selected_option=$(echo -e "$actions" | rofi -dmenu -i -config "${config}" || pkill -x rofi)
@@ -10,19 +10,16 @@ selected_option=$(echo -e "$actions" | rofi -dmenu -i -config "${config}" || pki
 # Perform actions based on the selected option
 case "$selected_option" in
 *Lock)
-  loginctl lock-session
+  ~/.config/gtklock/lock.sh
   ;;
 *Shutdown)
   systemctl poweroff
   ;;
-*Reboot)
+*Restart)
   systemctl reboot
   ;;
-*Suspend)
+*Sleep)
   systemctl suspend
-  ;;
-*Hibernate)
-  systemctl hibernate
   ;;
 *Logout)
   loginctl kill-session "$XDG_SESSION_ID"
