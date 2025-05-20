@@ -16,13 +16,14 @@ alias fgrep="fgrep --color=auto"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
 alias so="source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh"
 alias soa="source ~/.zsh/config/plugins.zsh && source ~/.zsh/config/p10k.zsh && source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh && source ~/.zsh/config/history.zsh && source ~/.zshenv && source ~/.zprofile"
-alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 
+alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
-alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
 alias copy="wl-copy"
+alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
 
 # NeoVim
 alias v="nvim"
@@ -95,8 +96,11 @@ alias rd="\\gs"
 # XDG
 alias op="xdg-open"
 
+# GtkLock
+alias lock="~/.config/gtklock/lock.sh"
+
 # Obsidian
-alias ovs="~/.dotfiles/scripts/obsidian_commit.sh"
+alias ob="~/.dotfiles/scripts/obsidian_commit.sh"
 
 # Screensavers
 alias pipes="tmux set status off; pipes-rs; tmux set status on"
@@ -104,5 +108,4 @@ alias pipes1="tmux set status off; pipes-rs -p 1000 -t 0 -r 1 --reset-threshold 
 alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9 -t 0.99; tmux set status on"
 
 alias matrix="tmux set status off; cmatrix -su 3 -C red; tmux set status on"
-
 alias bonsai="tmux set status off; cbonsai -iS --live; tmux set status on"
