@@ -15,6 +15,8 @@ if git -C "$REPO_DIR" diff --quiet "$TARGET_FILE"; then
     exit 0
 else
     git -C "$REPO_DIR" add "$TARGET_FILE"
-    git -C "$REPO_DIR" commit -m "Lazy.nvim update at $(date '+%Y-%m-%d-%a %H:%M:%S')" && \
+    git -C "$REPO_DIR" commit -m "Lazy.nvim update at $(date '+%Y-%m-%d-%a %H:%M:%S')"
+    if [($nmcli networking connectivity) = "full"]; then
         git -C "$REPO_DIR" push origin main
+    fi
 fi
