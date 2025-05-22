@@ -1,10 +1,10 @@
 diff --git a/.config/hypr/hyprland.conf b/.config/hypr/hyprland.conf
-index a78cece..965fb6d 100644
+index 3d5fdd6..0dab2cb 100644
 --- a/.config/hypr/hyprland.conf
 +++ b/.config/hypr/hyprland.conf
-@@ -157,10 +157,10 @@ bind = $mainMod SHIFT, I, exec, $screenshotArea
- bind = $mainMod, G, exec, ~/.config/hypr/scripts/toggle-smart-gaps.sh
- bind = $mainMod, W, togglesplit
+@@ -178,10 +178,10 @@ bind = $mainMod, Q, killactive,
+ bind = $mainMod, F, togglefloating,
+ bind = $mainMod, O, togglesplit
  
 -bind = $mainMod, Y, movefocus, l
 -bind = $mainMod, H, movefocus, d
@@ -17,9 +17,9 @@ index a78cece..965fb6d 100644
  bind = $mainMod, Left, movefocus, l
  bind = $mainMod, Right, movefocus, r
  bind = $mainMod, Up, movefocus, u
-@@ -191,25 +191,25 @@ bind = $mainMod SHIFT, 0, movetoworkspace, 10
- bind = $mainMod, S, togglespecialworkspace, magic
- bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+@@ -214,23 +214,23 @@ bind = $mainMod SHIFT, S, movetoworkspace, special:scratch
+ bind = $mainMod, C, togglespecialworkspace, note
+ bind = $mainMod SHIFT, C, movetoworkspace, special:note
  
 -bind = $mainMod ALT, E, workspace, e+1
 -bind = $mainMod ALT, Y, workspace, e-1
@@ -32,8 +32,6 @@ index a78cece..965fb6d 100644
 -bind = $mainMod SHIFT, Y, movetoworkspace, -1
 +bind = $mainMod SHIFT, L, movetoworkspace, +1
 +bind = $mainMod SHIFT, H, movetoworkspace, -1
- 
- bindm = ALT, mouse:272, movewindow
  
 -bind = $mainMod CTRL, Y, resizeactive, -40 0
 -bind = $mainMod CTRL, H, resizeactive, 0 40
@@ -53,13 +51,148 @@ index a78cece..965fb6d 100644
 +bind = $mainMod SHIFT CTRL, K, movewindow, u
 +bind = $mainMod SHIFT CTRL, L, movewindow, r
  
+ bindm = ALT, mouse:272, movewindow
+ 
+@@ -240,10 +240,10 @@ bind = $mainMod SHIFT, TAB, changegroupactive, b
+ bind = $mainMod CTRL, TAB, movegroupwindow
+ bind = $mainMod CTRL SHIFT, TAB, movegroupwindow, b
+ 
+-bind = $mainMod ALT CTRL, Y, movewindoworgroup, l
+-bind = $mainMod ALT CTRL, H, movewindoworgroup, d
+-bind = $mainMod ALT CTRL, A, movewindoworgroup, u
+-bind = $mainMod ALT CTRL, E, movewindoworgroup, r
++bind = $mainMod ALT CTRL, H, movewindoworgroup, l
++bind = $mainMod ALT CTRL, J, movewindoworgroup, d
++bind = $mainMod ALT CTRL, K, movewindoworgroup, u
++bind = $mainMod ALT CTRL, L, movewindoworgroup, r
+ 
  bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
  bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+diff --git a/.config/rofi/bluetooth-menu.rasi b/.config/rofi/bluetooth-menu.rasi
+index 99e3ea4..d76f3c9 100644
+--- a/.config/rofi/bluetooth-menu.rasi
++++ b/.config/rofi/bluetooth-menu.rasi
+@@ -4,18 +4,18 @@ configuration {
+     font: "JetBrainsMono Nerd Font 10";
+ 
+     /* keys have to be unbound before they can be reused */
+-    kb-accept-entry: "Return,KP_Enter";
++    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
++    kb-remove-to-eol: "";
+     kb-remove-char-back: "BackSpace,Shift+BackSpace";
++    kb-mode-complete: "";
+     kb-secondary-copy: "";
+     kb-remove-char-forward: "";
+     kb-remove-to-sol: "";
+-    kb-move-front: "";
+-    kb-move-end: "";
+     /* better vim controls */
+-    kb-mode-previous: "Y,Ctrl+y";
+-    kb-row-down: "H,Ctrl+h,Down";
+-    kb-row-up: "A,Ctrl+a,Up";
+-    kb-mode-next: "E,Ctrl+e";
++    kb-mode-previous: "H,Ctrl+h";
++    kb-row-down: "J,Ctrl+j,Down";
++    kb-row-up: "K,Ctrl+k,Up";
++    kb-mode-next: "L,Ctrl+l";
+     kb-cancel: "Ctrl+c,Escape";
+     kb-page-next: "Page_Down,Ctrl+d";
+     kb-page-prev: "Page_Up,Ctrl+u";
+diff --git a/.config/rofi/config.rasi b/.config/rofi/config.rasi
+index 8541caa..379293e 100644
+--- a/.config/rofi/config.rasi
++++ b/.config/rofi/config.rasi
+@@ -4,18 +4,18 @@ configuration {
+     sidebar-mode: true;
+ 
+     /* keys have to be unbound before they can be reused */
+-    kb-accept-entry: "Return,KP_Enter";
++    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
++    kb-remove-to-eol: "";
+     kb-remove-char-back: "BackSpace,Shift+BackSpace";
++    kb-mode-complete: "";
+     kb-secondary-copy: "";
+     kb-remove-char-forward: "";
+     kb-remove-to-sol: "";
+-    kb-move-front: "";
+-    kb-move-end: "";
+     /* better vim controls */
+-    kb-mode-previous: "Y,Ctrl+y";
+-    kb-row-down: "H,Ctrl+h,Down";
+-    kb-row-up: "A,Ctrl+a,Up";
+-    kb-mode-next: "E,Ctrl+e";
++    kb-mode-previous: "H,Ctrl+h";
++    kb-row-down: "J,Ctrl+j,Down";
++    kb-row-up: "K,Ctrl+k,Up";
++    kb-mode-next: "L,Ctrl+l";
+     kb-cancel: "Ctrl+c,Escape";
+     kb-page-next: "Page_Down,Ctrl+d";
+     kb-page-prev: "Page_Up,Ctrl+u";
+diff --git a/.config/rofi/power-menu.rasi b/.config/rofi/power-menu.rasi
+index 7242af6..e075d8c 100644
+--- a/.config/rofi/power-menu.rasi
++++ b/.config/rofi/power-menu.rasi
+@@ -4,18 +4,18 @@ configuration {
+     font: "JetBrainsMono Nerd Font 10";
+ 
+     /* keys have to be unbound before they can be reused */
+-    kb-accept-entry: "Return,KP_Enter";
++    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
++    kb-remove-to-eol: "";
+     kb-remove-char-back: "BackSpace,Shift+BackSpace";
++    kb-mode-complete: "";
+     kb-secondary-copy: "";
+     kb-remove-char-forward: "";
+     kb-remove-to-sol: "";
+-    kb-move-front: "";
+-    kb-move-end: "";
+     /* better vim controls */
+-    kb-mode-previous: "Y,Ctrl+y";
+-    kb-row-down: "H,Ctrl+h,Down";
+-    kb-row-up: "A,Ctrl+a,Up";
+-    kb-mode-next: "E,Ctrl+e";
++    kb-mode-previous: "H,Ctrl+h";
++    kb-row-down: "J,Ctrl+j,Down";
++    kb-row-up: "K,Ctrl+k,Up";
++    kb-mode-next: "L,Ctrl+l";
+     kb-cancel: "Ctrl+c,Escape";
+     kb-page-next: "Page_Down,Ctrl+d";
+     kb-page-prev: "Page_Up,Ctrl+u";
+diff --git a/.config/rofi/wifi-menu.rasi b/.config/rofi/wifi-menu.rasi
+index 9587778..092dc64 100644
+--- a/.config/rofi/wifi-menu.rasi
++++ b/.config/rofi/wifi-menu.rasi
+@@ -4,18 +4,18 @@ configuration {
+     font: "JetBrainsMono Nerd Font 10";
+ 
+     /* keys have to be unbound before they can be reused */
+-    kb-accept-entry: "Return,KP_Enter";
++    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
++    kb-remove-to-eol: "";
+     kb-remove-char-back: "BackSpace,Shift+BackSpace";
++    kb-mode-complete: "";
+     kb-secondary-copy: "";
+     kb-remove-char-forward: "";
+     kb-remove-to-sol: "";
+-    kb-move-front: "";
+-    kb-move-end: "";
+     /* better vim controls */
+-    kb-mode-previous: "Y,Ctrl+y";
+-    kb-row-down: "H,Ctrl+h,Down";
+-    kb-row-up: "A,Ctrl+a,Up";
+-    kb-mode-next: "E,Ctrl+e";
++    kb-mode-previous: "H,Ctrl+h";
++    kb-row-down: "J,Ctrl+j,Down";
++    kb-row-up: "K,Ctrl+k,Up";
++    kb-mode-next: "L,Ctrl+l";
+     kb-cancel: "Ctrl+c,Escape";
+     kb-page-next: "Page_Down,Ctrl+d";
+     kb-page-prev: "Page_Up,Ctrl+u";
 diff --git a/.tmux.conf b/.tmux.conf
-index 23199d9..3c06894 100644
+index 7df4966..7a75472 100644
 --- a/.tmux.conf
 +++ b/.tmux.conf
-@@ -14,20 +14,20 @@ set-option -g detach-on-destroy off
+@@ -20,20 +20,20 @@ set-option -g detach-on-destroy off
  unbind r
  bind r source-file ~/.tmux.conf \; display "Config reloaded!"
  
@@ -93,34 +226,4 @@ index 23199d9..3c06894 100644
 +bind -n M-\" last-window
  
  bind-key x kill-pane
- 
-diff --git a/rofi.rasi b/rofi.rasi
-index 4a28d2a..a64e25d 100644
---- a/rofi.rasi
-+++ b/rofi.rasi
-@@ -3,18 +3,18 @@ configuration {
-     ssh-command: "{terminal} start -- {ssh-client} {host}"; // wezterm
-     sidebar-mode: true;
-     /* keys have to be unbound before they can be reused */
--    kb-accept-entry: "Return,KP_Enter";
-+    kb-accept-entry: "Ctrl+m,Return,KP_Enter";
-+    kb-remove-to-eol: "";
-     kb-remove-char-back: "BackSpace,Shift+BackSpace";
-+    kb-mode-complete: "";
-     kb-secondary-copy: "";
-     kb-remove-char-forward: "";
-     kb-remove-to-sol: "";
--    kb-move-front: "";
--    kb-move-end: "";
-     /* better vim controls */
--    kb-mode-previous: "Y,Ctrl+y";
--    kb-row-down: "H,Ctrl+h,Down";
--    kb-row-up: "A,Ctrl+a,Up";
--    kb-mode-next: "E,Ctrl+e";
-+    kb-mode-previous: "H,Ctrl+h,Alt+h";
-+    kb-row-down: "J,Ctrl+j,Alt+j,Down";
-+    kb-row-up: "K,Ctrl+k,Alt+k,Up";
-+    kb-mode-next: "L,Ctrl+l,Alt+l";
-     kb-cancel: "Ctrl+c,Escape";
-     kb-page-next: "Page_Down,Ctrl+d";
-     kb-page-prev: "Page_Up,Ctrl+u";
+ bind-key X kill-session
