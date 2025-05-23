@@ -128,7 +128,7 @@ local function toggle_fold()
     local foldlevel = vim.fn.foldlevel(line)
 
     if foldlevel == 0 then
-        vim.cmd("normal! <Enter>")
+        vim.cmd("normal! <CR>")
     else
         vim.cmd("normal! za")
     end
