@@ -33,7 +33,7 @@ startup_command = "nvim config.el; clear"
 [[session]]
 name = "⌨️ Kanata"
 path = "~/.dotfiles/kanata"
-startup_command = "nvim kanata.kdb; clear"
+startup_command = "nvim kanata.kbd; clear"
 
 [[session]]
 # TODO: Change Waybar session to "\e[38;2;255;190;8m\e[0m Waybar"
