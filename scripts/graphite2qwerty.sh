@@ -9,4 +9,5 @@ else
     git -C "$REPO_DIR" apply "$PATCH_FILE"
 fi
 
+hyprctl reload
 tmux source-file "$HOME/.tmux.conf" && tmux display-message "Config reloaded!"
