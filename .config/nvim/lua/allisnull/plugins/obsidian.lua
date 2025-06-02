@@ -103,7 +103,7 @@ return {
         })
 
         vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
-        vim.keymap.set("n", "<localleader>h", ":e ~/Vault/1741211101-main-hub.md<CR>", { desc = "Obsidian Main Hub" })
+        vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/1741211101-main-hub.md<CR>", { desc = "Obsidian Main Hub" })
         vim.keymap.set("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "Obsidian New Note" })
         vim.keymap.set("n", "<localleader>w", function()
             title = vim.fn.input("Enter title or path: ")
