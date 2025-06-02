@@ -85,36 +85,6 @@ return {
         -- end
         -- require("ufo").setup()
 
-        require("mason-lspconfig").setup_handlers({
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-
-            ["lua_ls"] = function()
-                lspconfig["lua_ls"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = { callSnippet = "Replace" },
-                        },
-                    },
-                })
-            end,
-            -- ["dartls"] = function()
-            --     lspconfig["dartls"].setup({
-            --         capabilities = capabilities,
-            --         dart = {
-            --
-            --         }
-            --     })
-            -- end,
-        })
-
         lspconfig.pyright.setup({
             settings = {
                 python = {
