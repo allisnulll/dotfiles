@@ -28,6 +28,9 @@ alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(
 # NeoVim
 alias v="nvim"
 
+# Paru
+alias p="paru"
+
 # NeoFetch
 alias neo="cd && c && fastfetch"
 
