@@ -51,7 +51,7 @@ index 3d5fdd6..0dab2cb 100644
 +bind = $mainMod SHIFT CTRL, K, movewindow, u
 +bind = $mainMod SHIFT CTRL, L, movewindow, r
  
- bindm = ALT, mouse:272, movewindow
+ bindm = $mainMod, mouse:272, movewindow
  
 @@ -240,10 +240,10 @@ bind = $mainMod SHIFT, TAB, changegroupactive, b
  bind = $mainMod CTRL, TAB, movegroupwindow
