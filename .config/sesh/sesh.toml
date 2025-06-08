@@ -1,106 +1,106 @@
 [[session]]
 name = "🏠 Home"
 path = "~"
-startup_command = "clear && fastfetch"
+startup_command = "neo"
 
 [[session]]
 name = "🗒️ Scratch"
 path = "~/Scratch"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "🛠️ Dotfiles"
 path = "~/.dotfiles"
 # startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
-startup_command = "clear && eza -a --icons=always && git status"
+startup_command = "c && lsa && gs"
 
 [[session]]
 # TODO Change Hyprland session to "\e[38;2;35;88;100m\e[0m Hyprland"
 name = " Hyprland"
 path = "~/.dotfiles/.config/hypr"
-startup_command = "nvim hyprland.conf; clear"
+startup_command = "v hyprland.conf; c"
 
 [[session]]
 name = " NeoVim"
 path = "~/.dotfiles/.config/nvim"
-startup_command = "nvim . '+Telescope find_files'; clear"
+startup_command = "v . '+Telescope find_files'; c"
 
 [[session]]
 name = " Emacs"
 path = "~/.dotfiles/.doom.d"
-startup_command = "nvim config.el; clear"
+startup_command = "v config.el; c"
 
 [[session]]
 name = "⌨️ Kanata"
 path = "~/.dotfiles/kanata"
-startup_command = "nvim kanata.kbd; clear"
+startup_command = "v kanata.kbd; c"
 
 [[session]]
 # TODO: Change Waybar session to "\e[38;2;255;190;8m\e[0m Waybar"
 name = " Waybar"
 path = "~/.dotfiles/.config/waybar"
-startup_command = "nvim config.jsonc; clear"
+startup_command = "v config.jsonc; c"
 
 [[session]]
 name = "🔎 Rofi"
 path = "~/.dotfiles/.config/rofi"
-startup_command = "nvim config.rasi; clear"
+startup_command = "v config.rasi; c"
 
 [[session]]
 # TODO: Fix  not working
 name = "🪟 Sesh"
 path = "~/.dotfiles/.config/sesh"
-startup_command = "nvim sesh.toml; clear"
+startup_command = "v sesh.toml; c"
 
 [[session]]
 name = "⚙️ Zsh"
 path = "~/.dotfiles/.zsh/config"
-startup_command = "nvim .; clear"
+startup_command = "v .; c"
 
 [[session]]
 name = "🏦 Vault"
 path = "~/Vault"
-startup_command = "nvim 1741211101-main-hub.md '+ObsidianQuickSwitch'; clear"
+startup_command = "v 1741211101-main-hub.md '+ObsidianQuickSwitch'; c"
 
 [[session]]
 name = "📓 Notes"
 path = "~/Vault/notes"
-startup_command = "clear && eza --tree --icons=always"
+startup_command = "c && lst"
 
 [[session]]
 name = "📥 Downloads"
 path = "~/Downloads"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "📄 Documents"
 path = "~/Documents"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "📹 Videos"
 path = "~/Videos"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "🎵 Music"
 path = "~/Music"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "📸 Pictures"
 path = "~/Pictures"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
-startup_command = "nvim .; clear"
+startup_command = "v .; c"
 
 [[session]]
 name = "📚 Library"
 path = "~/Documents/Library"
-startup_command = "clear && eza -a --icons=always"
+startup_command = "c && lsa"
 
 [[session]]
 name = "🧠 Brain"
@@ -115,4 +115,4 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 [[session]]
 name = "󰕍 Zsh-Undo-Dir"
 path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
-startup_command = "nvim zsh-undo-dir.plugin.zsh; clear"
+startup_command = "nvim zsh-undo-dir.plugin.zsh; c"
