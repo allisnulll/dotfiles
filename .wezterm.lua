@@ -19,7 +19,7 @@ config.enable_tab_bar = false
 config.window_decorations = "NONE"
 config.window_background_opacity = .75
 config.window_close_confirmation = "NeverPrompt"
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("Maple Mono NF")
 
 config.keys = {
     {
