@@ -97,7 +97,7 @@ alias knr="systemctl --user daemon-reload && systemctl --user restart kanata"
 alias rd="\\gs"
 
 # XDG
-alias op="xdg-open"
+alias open="xdg-open"
 
 # GtkLock
 alias lock="~/.config/gtklock/lock.sh"
