@@ -13,7 +13,7 @@ if git -C "$REPO_DIR" diff --quiet; then
 else
     git -C "$REPO_DIR" add .
     git -C "$REPO_DIR" commit -m "Hourly Commit: $(date '+%Y-%m-%d-%a %H:%M:%S')"
-    if [($nmcli networking connectivity) = "full"]; then
-        git -C "$REPO_DIR" push origin main
+    if [[ "$(nmcli networking connectivity)" == "full" ]]; then
+        git -C "$REPO_DIR" push
     fi
 fi
