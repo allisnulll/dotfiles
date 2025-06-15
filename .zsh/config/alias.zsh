@@ -24,6 +24,7 @@ alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || se
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
 alias copy="wl-copy"
 alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
+alias dae="systemctl --user daemon-reload"
 
 # NeoVim
 alias v="nvim"
