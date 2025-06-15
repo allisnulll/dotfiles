@@ -17,7 +17,7 @@
     icon_corner_radius = 0
     icon_corners = all
     indicate_hidden = yes
-    transparency = 50
+    transparency = 0
     separator_height = 0
     padding = 8
     horizontal_padding = 8
@@ -65,18 +65,18 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#555555"
+    background = "#55555566"
     foreground = "#ffffff"
     timeout = 3
     override_pause_level = 30
 
 [urgency_normal]
-    background = "#333333"
+    background = "#33333366"
     foreground = "#ffffff"
     timeout = 5
 
 [urgency_critical]
-    background = "#2204a2"
+    background = "#2204a266"
     foreground = "#ffffff"
     frame_color = "#7708a7"
     timeout = 60
