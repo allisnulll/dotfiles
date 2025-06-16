@@ -26,7 +26,7 @@
     frame_color = "#880808"
     gap_size = 2
     separator_color = frame
-    sort = yes
+    sort = update
     font = JetBrainsMono 8
     line_height = 0
     markup = full
