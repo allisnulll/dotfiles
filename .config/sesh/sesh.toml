@@ -18,49 +18,49 @@ startup_command = "c && lsa && gs"
 # TODO Change Hyprland session to "\e[38;2;35;88;100m\e[0m Hyprland"
 name = " Hyprland"
 path = "~/.dotfiles/.config/hypr"
-startup_command = "v hyprland.conf; c"
+startup_command = "v hyprland.conf;c"
 
 [[session]]
 name = " NeoVim"
 path = "~/.dotfiles/.config/nvim"
-startup_command = "v . '+Telescope find_files'; c"
+startup_command = "v . '+Telescope find_files';c"
 
 [[session]]
 name = " Emacs"
 path = "~/.dotfiles/.doom.d"
-startup_command = "v config.el; c"
+startup_command = "v config.el;c"
 
 [[session]]
 name = "⌨️ Kanata"
 path = "~/.dotfiles/kanata"
-startup_command = "v kanata.kbd; c"
+startup_command = "v kanata.kbd;c"
 
 [[session]]
 # TODO: Change Waybar session to "\e[38;2;255;190;8m\e[0m Waybar"
 name = " Waybar"
 path = "~/.dotfiles/.config/waybar"
-startup_command = "v config.jsonc; c"
+startup_command = "v config.jsonc;c"
 
 [[session]]
 name = "🔎 Rofi"
 path = "~/.dotfiles/.config/rofi"
-startup_command = "v config.rasi; c"
+startup_command = "v config.rasi;c"
 
 [[session]]
 # TODO: Fix  not working
 name = "🪟 Sesh"
 path = "~/.dotfiles/.config/sesh"
-startup_command = "v sesh.toml; c"
+startup_command = "v sesh.toml;c"
 
 [[session]]
 name = "⚙️ Zsh"
 path = "~/.dotfiles/.zsh/config"
-startup_command = "v .; c"
+startup_command = "v .;c"
 
 [[session]]
 name = "🏦 Vault"
 path = "~/Vault"
-startup_command = "v 1741211101-main-hub.md '+ObsidianQuickSwitch'; c"
+startup_command = "v 1741211101-main-hub.md '+ObsidianQuickSwitch';c"
 
 [[session]]
 name = "📓 Notes"
@@ -95,7 +95,7 @@ startup_command = "c && lsa"
 [[session]]
 name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
-startup_command = "v .; c"
+startup_command = "v .;c"
 
 [[session]]
 name = "📚 Library"
@@ -115,4 +115,4 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 [[session]]
 name = "󰕍 Zsh-Undo-Dir"
 path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
-startup_command = "nvim zsh-undo-dir.plugin.zsh; c"
+startup_command = "nvim zsh-undo-dir.plugin.zsh;c"
