@@ -93,14 +93,19 @@ path = "~/Pictures"
 startup_command = "c && lsa"
 
 [[session]]
+name = "📚 Library"
+path = "~/Documents/Library"
+startup_command = "c && lsa"
+
+[[session]]
 name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
 startup_command = "v .;c"
 
 [[session]]
-name = "📚 Library"
-path = "~/Documents/Library"
-startup_command = "c && lsa"
+name = "󰕍 Zsh-Undo-Dir"
+path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
+startup_command = "nvim zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
 name = "🧠 Brain"
@@ -111,8 +116,3 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 name = "🪹 Birds Nest"
 path = "~/Programming/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
-
-[[session]]
-name = "󰕍 Zsh-Undo-Dir"
-path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
-startup_command = "nvim zsh-undo-dir.plugin.zsh;c"
