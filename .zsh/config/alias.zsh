@@ -115,3 +115,6 @@ alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9
 
 alias matrix="tmux set status off; cmatrix -su 3 -C red; tmux set status on"
 alias bonsai="tmux set status off; cbonsai -iS --live; tmux set status on"
+
+# Docker
+alias dk="sudo systemctl start docker"
