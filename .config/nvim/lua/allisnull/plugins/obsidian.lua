@@ -113,7 +113,7 @@ return {
                 vim.notify("No title provided. Note creation canceled.")
             end
         end, { desc = "Obsidian New Note From Template" })
-        vim.keymap.set("n", "<localleader>q", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
+        vim.keymap.set("n", "<localleader><localleader>", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
         vim.keymap.set("n", "<localleader>b", ":ObsidianBacklinks<CR>", { desc = "Obsidian Backlinks" })
         vim.keymap.set("n", "<localleader>t", ":ObsidianTags<CR>", { desc = "Obsidian Find Tags" })
         vim.keymap.set("n", "<localleader>d", ":ObsidianToday<CR>", { desc = "Obsidian Today" })
