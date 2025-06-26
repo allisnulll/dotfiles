@@ -72,10 +72,11 @@ alias hr="hyprctl reload"
 alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 
 # Devices
+alias bl="bluetoothctl"
 alias xbox="bluetoothctl connect 98:7A:14:19:73:89"
 alias blx="bluetoothctl connect 4F:63:57:C9:FA:58"
 alias pc-sam="wol AC:82:47:C6:DF:13; tvd"
-alias nix="tmux rename-session ' NixOS' && ssh allisnull@192.168.1.215"
+alias nix="ssh allisnull@192.168.1.215 && tmux rename-session ' NixOS'"
 
 # TeamViewer
 alias tv="sudo teamviewer --daemon start"
