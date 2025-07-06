@@ -21,6 +21,7 @@ return {
 
             -- Disable Tmux statusline and LSP Diagnostics
             on_open = function(_)
+                -- NOTE: Figure out how to toggle which-key https://github.com/folke/which-key.nvim/discussions/510
                 vim.fn.system([[tmux set status off]])
                 vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z || tmux resize-pane -Z]])
                 vim.diagnostic.enable(false)
