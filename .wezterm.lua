@@ -75,6 +75,11 @@ config.keys = {
         mods = "CTRL",
         action = wezterm.action.SendKey({ key = "F15" }),
     },
+    {
+        key = "Enter",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F16" }),
+    },
 
     {
         key = "-",
