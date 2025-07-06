@@ -11,7 +11,7 @@ startup_command = "c && lsa"
 [[session]]
 name = "🛠️ Dotfiles"
 path = "~/.dotfiles"
-# startup_command = "nvim . '+Telescope find_files hidden=true'; clear"
+# startup_command = "v . '+Telescope find_files hidden=true'; clear"
 startup_command = "c && lsa && gs"
 
 [[session]]
@@ -105,7 +105,7 @@ startup_command = "v .;c"
 [[session]]
 name = "󰕍 Zsh-Undo-Dir"
 path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
-startup_command = "nvim zsh-undo-dir.plugin.zsh;c"
+startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
 name = "🧠 Brain"
