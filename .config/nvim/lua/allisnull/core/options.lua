@@ -96,9 +96,6 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     callback = function()
         vim.opt.conceallevel = 1
         vim.opt.wrap = true
-
-        vim.keymap.set({ "n", "v" }, "j", "gj", { noremap = true, silent = true, buffer = true })
-        vim.keymap.set({ "n", "v" }, "k", "gk", { noremap = true, silent = true, buffer = true })
     end,
 })
 
