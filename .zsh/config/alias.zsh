@@ -27,19 +27,22 @@ alias ntest="sudo pkill dunst;c && notify-send 'TITLE' 'low' -u low && notify-se
 alias copy="wl-copy"
 alias dae="systemctl --user daemon-reload"
 
-# NeoVim
-alias v="nvim"
-
 # Paru
 alias p="paru"
 
 # NeoFetch
 alias neo="cd && c && fastfetch"
 
+# NeoVim
+alias v="nvim"
+
 # Tmux
 alias tx="sesh connect 🏠 Home; exec zsh"
 alias txd="tmux detach"
 alias txks="tmux kill-server"
+
+# Fzf
+alias cdf="cd \$(fd --type d | fzf --preview 'eza -a --icons=always --color=always {}')"
 
 # Eza
 alias ls="eza --icons=always"
