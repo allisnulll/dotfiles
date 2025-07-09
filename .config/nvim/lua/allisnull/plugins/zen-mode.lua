@@ -25,9 +25,6 @@ return {
                 vim.fn.system([[tmux set status off]])
                 vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z || tmux resize-pane -Z]])
                 vim.diagnostic.enable(false)
-
-                vim.keymap.set({ "n", "v" }, "j", "gj", { noremap = true, silent = true, buffer = true })
-                vim.keymap.set({ "n", "v" }, "k", "gk", { noremap = true, silent = true, buffer = true })
             end,
             on_close = function(_)
                 vim.fn.system([[tmux set status on]])
