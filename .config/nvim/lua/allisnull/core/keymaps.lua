@@ -196,8 +196,8 @@ vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Lo
 
 vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
 vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
-vim.keymap.set("n", "<F16>", function() vim.cmd("norm! zr") end, { desc = "- Fold level" })
-vim.keymap.set("n", "<F17>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F17>", function() vim.cmd("norm! zr") end, { desc = "- Fold level" })
 vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
 vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
 
