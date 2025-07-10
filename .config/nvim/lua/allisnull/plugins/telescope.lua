@@ -13,6 +13,7 @@ return {
         local builtin = require("telescope.builtin")
         local actions = require("telescope.actions")
         local lga_actions = require("telescope-live-grep-args.actions")
+        local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 
         telescope.setup({
             defaults = {
@@ -37,16 +38,19 @@ return {
 
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
+        vim.keymap.set("n", "<leader>fs", telescope.extensions.live_grep_args.live_grep_args, { desc = "Fuzzy find string in cwd" })
+        vim.keymap.set("v", "<leader>f", lga_shortcuts.grep_visual_selection, { desc = "Fuzzy find selection in cwd" })
+        vim.keymap.set("n", "<leader>fs", telescope.extensions.live_grep_args.live_grep_args, { desc = "Fuzzy find string in cwd" })
+        vim.keymap.set("n", "<leader>fw", lga_shortcuts.grep_word_under_cursor, { desc = "Fuzzy find word under cursor in cwd" })
+        vim.keymap.set("n", "<leader>fW", function()
+            telescope.extensions.live_grep_args.live_grep_args({
+                default_text = '"' .. string.gsub(vim.fn.expand("<cWORD>"), '"', '\\"') .. '" -F ',
+            })
+        end, { desc = "Fuzzy find WORD under cursor in cwd" })
         vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
-        vim.keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>", { desc = "Fuzzy find string in cwd" })
-        vim.keymap.set("n", "<leader>fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Fuzzy find string in cwd" })
         vim.keymap.set("n", "<leader>fc", ":Telescope command_history<CR>", { desc = "Fuzzy find command history" })
         vim.keymap.set("n", "<leader>fo", ":Telescope vim_options<CR>", { desc = "Fuzzy find vim options" })
         vim.keymap.set("n", "<leader>fi", ":Telescope man_pages<CR>", { desc = "Fuzzy find man pages" })
-        vim.keymap.set("n", "<leader>fw", ":Telescope grep_string<CR>", { desc = "Fuzzy find word under cursor in cwd" })
-        vim.keymap.set("n", "<leader>fW", function()
-            builtin.grep_string({ search = vim.fn.expand("<cWORD>") })
-        end, { desc = "Fuzzy find WORD under cursor in cwd" })
         vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Fuzzy find buffers" })
         vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { desc = "Fuzzy find vim marks" })
         vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Fuzzy find help tags" })
