@@ -8,7 +8,7 @@ return {
         })
 
         vim.keymap.set("n", "<leader>ml", ":IBLToggle<CR><BAR>:set list!<CR>", {
-            desc = "Toggle listchars & Indent Blanklines",
+            desc = "Toggle Indent Blanklines",
         })
     end,
     keys = {

@@ -19,7 +19,7 @@ local function duplicate_line()
 end
 
 local function to_fold_level()
-    vim.api.nvim_echo({{"Fold Level: ", "Normal"}}, false, {})
+    vim.api.nvim_echo({{ "Fold Level: ", "Normal" }}, false, {})
     local char = vim.fn.getchar()
     local input = vim.fn.nr2char(char)
     local level = tonumber(input)
@@ -29,12 +29,29 @@ local function to_fold_level()
         return 0
     end
 
-    vim.api.nvim_echo({{"", "Normal"}}, false, {})
+    vim.api.nvim_echo({{ "Fold Level: " .. tostring(level), "Normal" }}, false, {})
+
     if level == 0 then
         level = 100
     end
 
     vim.opt.foldlevel = level - 1
+end
+
+local function to_heading_level()
+    vim.api.nvim_echo({{ "Heading Level: ", "Normal" }}, false, {})
+    local char = vim.fn.getchar()
+    local input = vim.fn.nr2char(char)
+    local level = tonumber(input)
+
+    if not level then
+        vim.notify("Invalid input", vim.log.levels.INFO)
+        return 0
+    end
+
+    vim.api.nvim_echo({{ "Heading Level: " .. tostring(level), "Normal" }}, false, {})
+
+    vim.cmd("g/^" .. string.rep("#", level) .. " /norm za")
 end
 
 local function to_column()
@@ -164,7 +181,7 @@ vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
-vim.keymap.set("n", "<leader>ml", ":set list!<CR>", { desc = "Toggle listchars" })
+vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
 
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
