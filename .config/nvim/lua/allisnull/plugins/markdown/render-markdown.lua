@@ -6,7 +6,7 @@ return {
     },
     config = function()
         require("render-markdown").setup({
-            debounce = 100,
+            preset = "obsidian",
             heading = { sign = false },
             code = { sign = false },
             pipe_table = {

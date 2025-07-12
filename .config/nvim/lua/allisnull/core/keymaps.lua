@@ -177,13 +177,13 @@ local function fold_more()
     end
 end
 
-vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
 
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
+vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
 vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
