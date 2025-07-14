@@ -1,4 +1,14 @@
 # Functions
+function c() {
+    if [[ -n "$TMUX_POPUP" ]]; then
+        clear && fastfetch --config ~/.config/fastfetch/small.jsonc
+    elif [[ $(tmux display-message -p "#S") == "🏠 Home" ]]; then
+        cd && clear && fastfetch
+    else
+        clear
+    fi
+}
+
 function mkc() {
     mkdir -p $1
     cd $1
