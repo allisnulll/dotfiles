@@ -5,4 +5,10 @@ source ~/.zsh/config/git.zsh
 source ~/.zsh/config/function.zsh
 source ~/.zsh/config/history.zsh
 
-c
+if [[ -n "$TMUX_POPUP" ]]; then
+    sneo
+elif [[ $(tmux display-message -p "#S") == "🏠 Home" ]]; then
+    neo
+else
+    c
+fi

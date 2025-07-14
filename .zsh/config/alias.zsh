@@ -32,6 +32,7 @@ alias p="paru"
 
 # NeoFetch
 alias neo="cd && c && fastfetch"
+alias sneo="c && fastfetch --config ~/.config/fastfetch/small.jsonc"
 
 # NeoVim
 alias v="nvim"
