@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LOW_BATTERY_THRESHOLD=20
 BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity)
