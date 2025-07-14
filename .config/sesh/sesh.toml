@@ -1,7 +1,6 @@
 [[session]]
 name = "🏠 Home"
 path = "~"
-startup_command = "neo"
 
 [[session]]
 name = "🗒️ Scratch"

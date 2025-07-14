@@ -81,7 +81,7 @@ return {
         -- for _, ls in ipairs(language_servers) do
         --     lspconfig[ls].setup({
         --         capabilities = capabilities,
-        --     }),
+        --     })
         -- end
         -- require("ufo").setup()
 
