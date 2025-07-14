@@ -1,5 +1,4 @@
 # Aliases
-alias c="clear"
 alias h="history"
 alias rm="rm -i"
 alias rmd="rm -id"
@@ -23,7 +22,7 @@ alias soa="source ~/.zsh/config/plugins.zsh && source ~/.zsh/config/p10k.zsh && 
 alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
 alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
-alias ntest="sudo pkill dunst;c && notify-send 'TITLE' 'low' -u low && notify-send 'TITLE' 'normal' && notify-send 'TITLE' 'critical' -u critical"
+alias ntest="sudo pkill dunst && c && notify-send 'TITLE' 'low' -u low && notify-send 'TITLE' 'normal' && notify-send 'TITLE' 'critical' -u critical"
 alias copy="wl-copy"
 alias dae="systemctl --user daemon-reload"
 
@@ -31,8 +30,8 @@ alias dae="systemctl --user daemon-reload"
 alias p="paru"
 
 # NeoFetch
-alias neo="cd && c && fastfetch"
-alias sneo="c && fastfetch --config ~/.config/fastfetch/small.jsonc"
+alias neo="cd && clear && fastfetch"
+alias sneo="clear && fastfetch --config ~/.config/fastfetch/small.jsonc"
 
 # NeoVim
 alias v="nvim"
