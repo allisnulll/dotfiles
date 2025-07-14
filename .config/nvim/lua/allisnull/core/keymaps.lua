@@ -227,7 +227,7 @@ vim.keymap.set("x", "<leader>p", "\"_dp", { desc = "Put to void" })
 vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete to void" })
 vim.keymap.set("n", "<leader>D", "\"_D", { desc = "Delete eol to void" })
 
-vim.keymap.set("n", "<C-b>", ":<Up><CR>", { desc = "Run last command" })
+vim.keymap.set({ "n", "v" }, "<C-b>", ":<Up><CR>", { desc = "Run last command" })
 
 vim.keymap.set("n", "<leader>p", put_at_column, { desc = "Put at column" })
 vim.keymap.set("n", "<C-q>", duplicate_line, { desc = "Duplicate Line" })
