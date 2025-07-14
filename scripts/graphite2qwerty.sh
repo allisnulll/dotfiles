@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 PATCH_FILE="$HOME/.dotfiles/patches/graphite2qwerty.patch"
 REPO_DIR="$HOME/.dotfiles"

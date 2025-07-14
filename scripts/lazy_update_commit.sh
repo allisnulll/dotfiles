@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 REPO_DIR="$HOME/.dotfiles"
 TARGET_FILE="$REPO_DIR/.config/nvim/lazy-lock.json"
