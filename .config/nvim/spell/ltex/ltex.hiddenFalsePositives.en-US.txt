@@ -1,0 +1,2 @@
+{"rule":"ADJECTIVE_ADVERB","sentence":"^\\QAs opposed to regular define which names the result of a compound operation, this form of definition names the compound operation itself.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\Q1.1.4 Compound Procedures\nprocedure definition: A means of abstraction in which a compound operation is given a name and referred to as a unit.\\E$"}
