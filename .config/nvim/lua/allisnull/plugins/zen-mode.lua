@@ -19,16 +19,15 @@ return {
             gitsigns = { enabled = false },
             wezterm = { enabled = true },
 
-            -- Disable Tmux statusline and LSP Diagnostics
             on_open = function(_)
                 -- NOTE: Figure out how to toggle which-key https://github.com/folke/which-key.nvim/discussions/510
-                vim.fn.system([[tmux set status off]])
-                vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z || tmux resize-pane -Z]])
+                vim.fn.system('tmux set status off')
+                vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
                 vim.diagnostic.enable(false)
             end,
             on_close = function(_)
-                vim.fn.system([[tmux set status on]])
-                vim.fn.system([[tmux list-panes -F "\#F" | grep -q Z && tmux resize-pane -Z]])
+                vim.fn.system('tmux set status on')
+                vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z && tmux resize-pane -Z')
                 vim.diagnostic.enable()
 
                 if not vim.fn.getcwd():match("/home/allisnull/Vault") then
