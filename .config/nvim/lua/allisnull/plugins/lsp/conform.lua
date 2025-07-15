@@ -20,7 +20,7 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>l", "", { desc = "Lint/Format" })
+        vim.keymap.set({ "n", "v" }, "<leader>l", "", { desc = "Lint/Format" })
         vim.keymap.set({ "n", "v" }, "<leader>lf", function()
             conform.format({
                 lsp_fallback = true,
