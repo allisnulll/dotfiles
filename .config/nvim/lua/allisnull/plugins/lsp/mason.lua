@@ -11,7 +11,7 @@ return {
             function()
                 require("mason-lspconfig").setup({
                     ensure_installed = {
-                        "ltex",
+                        "ltex_plus",
                         "lua_ls",
                         "html",
                         "cssls",

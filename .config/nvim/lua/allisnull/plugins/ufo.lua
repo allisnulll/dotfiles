@@ -20,5 +20,11 @@ return {
                 vim.lsp.buf.hover()
             end
         end, { desc = "UFO Fold Preview" })
-    end,
+
+        ufo.setup({
+            provider_selector = function(bufnr, filetype, buftype)
+                return {"treesitter", "indent"}
+            end
+        })
+    end
 }

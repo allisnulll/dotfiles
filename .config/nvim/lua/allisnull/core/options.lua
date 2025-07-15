@@ -49,7 +49,7 @@ vim.g.maplocalleader = ","
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-        vim.highlight.on_yank({higroup = "Visual", timeout = 100})
+        vim.highlight.on_yank({ higroup = "Visual", timeout = 100 })
     end,
 })
 
@@ -85,12 +85,12 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "txt", "go", "makefile", "haskell" },
     group = "TabGroup",
     callback = function()
-		vim.opt.expandtab = false
+        vim.opt.expandtab = false
     end,
 })
 
 vim.api.nvim_create_augroup("Obsidian", { clear = true })
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = vim.fn.expand("~") .. "/Vault/*.md",
     group = "Obsidian",
     callback = function()

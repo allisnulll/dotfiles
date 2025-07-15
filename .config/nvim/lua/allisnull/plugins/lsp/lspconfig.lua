@@ -2,9 +2,10 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/nvim-cmp",
+        { "folke/lazydev.nvim", opts = {} },
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} },
+        { "barreiroleo/ltex_extra.nvim" },
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -71,19 +72,25 @@ return {
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
             end,
         })
+
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        -- capabilities.textDocument.foldingRange = {
-        --     dynamicRegistration = false,
-        --     lineFoldingOnly = true,
-        -- }
-        -- local language_servers = lspconfig.util.available_servers()
-        -- for _, ls in ipairs(language_servers) do
-        --     lspconfig[ls].setup({
-        --         capabilities = capabilities,
-        --     })
-        -- end
-        -- require("ufo").setup()
+        lspconfig.ltex_plus.setup({
+            capabilities = capabilities,
+            flags = { debounce_text_changes = 300 },
+            on_attach = function()
+                require("ltex_extra").setup({
+                    path = vim.api.nvim_call_function("stdpath", { "config" }) .. "/spell/ltex",
+                })
+            end,
+            settings = {
+                ltex = {
+                    language = "en_US",
+                    enabledRules = { "grammar", "spell" },
+                    additionalRules = { languageModel = "~/Documents/ngrams/" },
+                },
+            },
+        })
 
         lspconfig.pyright.setup({
             settings = {
@@ -93,28 +100,6 @@ return {
                         useLibraryCodeForTypes = true,
                     },
                 },
-            },
-        })
-
-        local ltex_cmd = vim.fn.stdpath("data") .. "/mason/bin/ltex-ls"
-
-        lspconfig.ltex.setup({
-            capabilities = capabilities,
-            on_attach = function(_, bufnr)
-                require("ltex-utils").on_attach(bufnr)
-            end,
-            flags = { debounce_text_changes = 300 },
-            settings = {
-                ltex = {
-                    language = "en",
-                    enabledRules = { "grammar", "spell" },
-                    additionalRules = { languageModel = "~/Documents/ngrams/" },
-                },
-            },
-
-            cmd = vim.fn.has("win32") == 1 and nil or {
-                "bash", "-c",
-                ltex_cmd .. " 2>&1 | grep -v 'no common words file.'"
             },
         })
     end,

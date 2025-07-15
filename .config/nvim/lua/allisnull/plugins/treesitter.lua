@@ -1,16 +1,14 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufreadPre", "BufNewFile" },
+    branch = "master",
+    lazy = false,
     build = ":TSUpdate",
-    dependencies = { "windwp/nvim-ts-autotag" },
     config = function()
         require("nvim-treesitter.configs").setup({
-            highlight = { enable = true },
             indent = {
                 enable = true,
                 disable = { "scheme" },
             },
-            autotag = { enable = true },
             auto_install = true,
             ensure_installed = {
                 "json",
@@ -43,12 +41,6 @@ return {
                     node_decremental = "<bs>",
                 },
             },
-        })
-
-        require("ufo").setup({
-            provider_selector = function(bufnr, filetype, buftype)
-                return {"treesitter", "indent"}
-            end
         })
     end
 }

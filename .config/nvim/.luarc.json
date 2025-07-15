@@ -1,7 +1,0 @@
-{
-    "diagnostics.globals": [
-        "vim",
-        "detail",
-        "whichkey_setup"
-    ]
-}

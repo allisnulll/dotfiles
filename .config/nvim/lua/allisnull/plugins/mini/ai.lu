@@ -1,3 +1,4 @@
+-- TODO: get custom text object working
 local function ai_buffer(ai_type)
     local start_line, end_line = 1, vim.fn.line("$")
     if ai_type == "i" then
