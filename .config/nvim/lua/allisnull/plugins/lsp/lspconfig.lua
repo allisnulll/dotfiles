@@ -16,7 +16,7 @@ return {
                 local opts = { buffer = ev.buf, silent = true }
 
                 opts.desc = "LSP"
-                vim.keymap.set("n", "<leader>c", "", opts)
+                vim.keymap.set({ "n", "v" }, "<leader>c", "", opts)
 
                 opts.desc = "Find LSP references"
                 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts)

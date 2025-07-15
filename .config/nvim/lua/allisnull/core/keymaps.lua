@@ -189,6 +189,7 @@ local function fold_more()
 end
 
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
+vim.keymap.set("v", "<leader>q", ":normal @q", { desc = "Run q macro on selection" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
