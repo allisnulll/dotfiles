@@ -51,7 +51,18 @@ local function to_heading_level()
 
     vim.api.nvim_echo({{ "Heading Level: " .. tostring(level), "Normal" }}, false, {})
 
-    vim.cmd("g/^" .. string.rep("#", level) .. " /norm za")
+    local pattern = "^" .. string.rep("#", level) .. " "
+    local curpos = vim.fn.getpos(".")
+
+    for lnum = 1, vim.fn.line("$") do
+        local line = vim.fn.getline(lnum)
+        if line:match(pattern) then
+            vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+            vim.cmd("normal! za")
+        end
+    end
+
+    vim.fn.setpos(".", curpos)
 end
 
 local function to_column()
@@ -257,9 +268,7 @@ vim.keymap.set("n", "<leader>g", ":g/<C-r><C-w>/norm! ", { desc = "Global curren
 --     vim.cmd(":\b\b\b\b\b%s/" .. selected_text .. "/g<Left><Left>")
 -- end, { desc = "Substitute current word" })
 
-vim.keymap.set("n", "<C-z>", "")
-vim.keymap.set("i", "<C-z>", "")
-vim.keymap.set("v", "<C-z>", "")
+vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
 
 -- Lazy
 vim.keymap.set("n", "<leader>z", "", { desc = "Lazy/Zen" })

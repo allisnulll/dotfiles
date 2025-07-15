@@ -1,7 +1,7 @@
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	ft = { "dart" },
-	main = "ibl",
+    "lukas-reineke/indent-blankline.nvim",
+    ft = { "dart" },
+    main = "ibl",
     config = function()
         require("ibl").setup({
             indent = { char = "┊" },
@@ -12,6 +12,6 @@ return {
         })
     end,
     keys = {
-		{ "<leader>oi", ":IBLToggle<CR>",  desc = "Toggle Indent Blanklines" },
-	},
+        { "<leader>oi", ":IBLToggle<CR>",  desc = "Toggle Indent Blanklines" },
+    },
 }

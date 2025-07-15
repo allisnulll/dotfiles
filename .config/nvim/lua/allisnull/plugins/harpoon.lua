@@ -1,8 +1,8 @@
 return {
-	"thePrimeagen/harpoon",
-	branch = "harpoon2",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
+    "thePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
         local harpoon = require("harpoon")
         harpoon:setup()
 
@@ -25,5 +25,5 @@ return {
         for i = 1, 9 do
             vim.keymap.set("n", "<leader>" .. i, function() harpoon:list():select(i) end)
         end
-	end,
+    end,
 }
