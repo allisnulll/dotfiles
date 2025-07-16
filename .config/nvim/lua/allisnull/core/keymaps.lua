@@ -254,7 +254,7 @@ vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to c
 -- vim.keymap.set("v", "<C-k>", ":move '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 vim.keymap.set(
-    "n",
+    { "n", "v" },
     "g/",
     "/\\v^((.**)@!.)*$<Left><Left><Left><Left><Left><Left><Left><Left>",
     { desc = "Inverse Search" }
