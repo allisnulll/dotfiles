@@ -60,6 +60,7 @@ alias gun="git reset --hard HEAD"
 alias grm="git rm --cached -r $@"
 alias grma="git rm --cached -r ."
 alias greset="git fetch --all & git reset --hard origin/main"
+alias gclean="git clean -f"
 # TODO: Figure out local gitignore
 # alias gig="git update-index --assume-unchanged $@"
 # alias gigr="git update-index --no-assume-unchanged $@"
