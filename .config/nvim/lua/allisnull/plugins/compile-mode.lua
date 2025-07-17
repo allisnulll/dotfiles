@@ -1,12 +1,8 @@
 return {
     "ej-shafran/compile-mode.nvim",
     branch = "nightly",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        { "m00qek/baleia.nvim", tag = "v1.3.0" },
-    },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        ---@type CompileModeOpts
-        vim.g.compile_mode = { baleia_setup = true }
-    end,
+        vim.g.compile_mode = {}
+    end
 }
