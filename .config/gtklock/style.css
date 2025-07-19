@@ -1,4 +1,6 @@
 window {
+    font-family: Hack Nerd Font;
+    font-size: 14px;
     background-image: url("/tmp/lock.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,5 +9,5 @@ window {
 }
 #window-box {
     padding: 24px 36px;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .6);
 }
