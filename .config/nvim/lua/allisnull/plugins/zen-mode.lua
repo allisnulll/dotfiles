@@ -21,12 +21,15 @@ return {
 
             on_open = function(_)
                 -- NOTE: Figure out how to toggle which-key https://github.com/folke/which-key.nvim/discussions/510
-                vim.fn.system('tmux set status off')
+                vim.fn.system("tmux set status off")
                 vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
                 vim.diagnostic.enable(false)
+
+                vim.keymap.set("n", "<M-j>", "gj", { noremap = true, silent = true, buffer = true })
+                vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
             end,
             on_close = function(_)
-                vim.fn.system('tmux set status on')
+                vim.fn.system("tmux set status on")
                 vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z && tmux resize-pane -Z')
                 vim.diagnostic.enable()
 
