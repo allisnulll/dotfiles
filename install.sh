@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 clear
 bck_created=1
 
@@ -8,10 +10,11 @@ if [[ -d ~/src/neovim ]]; then
     bck_created=0
 fi
 
-git clone --depth=1 https://github.com/neovim/neovim.git ~/src/neovim/
+cd ~/.dotfiles
+git clone --depth=1 https://github.com/neovim/neovim.git .
+stow .
 
-cd ~/.dotfiles && stow . && cd ~/src/neovim/
-
+cd ~/src/neovim/
 git apply nvim-ufo.patch
 
 sudo make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -34,3 +37,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/plugins/
 if [[ bck_created ]]; then
     echo "Created copy of old neovim: ~/src/neovim.bck"
 fi
+
+# Git Submodules
+git clone https://github.com/allisnulll/keyboard ~/.dotfiles/kanata
+git clone https://github.com/allisnulll/zsh-undo-dir ~/.dotfiles/.zsh/plugins/zsh-undo-dir
+git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-Icon-Set ~/.dotfiles/.icons
+git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-GTK-Theme ~/.dotfiles/.themes

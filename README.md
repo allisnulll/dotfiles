@@ -6,7 +6,7 @@ I am running **Hyprland** on **Arch Linux** along with the following technologie
 - **NeoVim**
     * [core](https://github.com/allisnulll/dotfiles/tree/main/.config/nvim/lua/allisnull/core)
     * [plugins](https://github.com/allisnulll/dotfiles/tree/main/.config/nvim/lua/allisnull/plugins)
-- Keyboard programmed using *[Kanata](https://github.com/allisnulll/kanata-config)*
+- Keyboard programmed using *[Kanata](https://github.com/allisnulll/keyboard)*
 - **Zsh**
     * *[Zsh-Undo-Dir](https://github.com/allisnulll/zsh-undo-dir)* plugin I created
 - **Waybar**
