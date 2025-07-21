@@ -75,6 +75,22 @@ return {
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+        lspconfig.harper_ls.setup({
+            settings = {
+                ["harper-ls"] = {
+                    userDictPath = vim.api.nvim_call_function("stdpath", { "config" }) .. "/spell/en_utf-8.add",
+                    linters = {
+                        SentenceCapitalization = false,
+                        ToDoHyphen = false,
+                        BoringLanguage = true,
+                        AvoidCurses = false,
+                    },
+                    markdown = { IgnoreLinkTitle = true },
+                    IsolateEnglish = true,
+                },
+            },
+        })
+
         lspconfig.ltex_plus.setup({
             capabilities = capabilities,
             flags = { debounce_text_changes = 300 },
