@@ -6,6 +6,13 @@ return {
         local mappings = {
             { "<leader>1", group = "Harpoon to file (1-9)" },
             { "<C-z>", hidden = true },
+            { "cr", desc = "Coerce" },
+            { "crs", desc = "Coerce to snake_case" },
+            { "crm", desc = "Coerce to MixedCase" },
+            { "crc", desc = "Coerce to CamelCase" },
+            { "cru", desc = "Coerce to UPPER_SNAKE_CASE" },
+            { "cr-", desc = "Coerce to dash-case" },
+            { "cr.", desc = "Coerce to dot.case" },
         }
 
         for i = 2, 9 do
