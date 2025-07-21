@@ -11,6 +11,7 @@ return {
             function()
                 require("mason-lspconfig").setup({
                     ensure_installed = {
+                        "harper_ls",
                         "ltex_plus",
                         "lua_ls",
                         "html",
