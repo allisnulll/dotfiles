@@ -26,8 +26,8 @@ startup_command = "v . '+Telescope find_files';c"
 
 [[session]]
 name = " Emacs"
-path = "~/.dotfiles/.doom.d"
-startup_command = "v config.el;c"
+path = "~/.dotfiles/.emacs.legacy"
+startup_command = "v init.el;c"
 
 [[session]]
 name = "⌨️ Kanata"
