@@ -108,10 +108,10 @@ startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
 name = "🧠 Brain"
-path = "~/Programming/Brain/brain-musik"
+path = "~/Programming/work/flutter/Brain/brain-musik"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
 name = "🪹 Birds Nest"
-path = "~/Programming/BirdsNest/birds_nest"
+path = "~/Programming/work/flutter/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
