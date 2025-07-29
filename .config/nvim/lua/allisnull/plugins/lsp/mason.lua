@@ -22,6 +22,7 @@ return {
                         "jsonls",
                         "gopls",
                         "jdtls",
+                        "tinymist",
                     },
                 })
             end
