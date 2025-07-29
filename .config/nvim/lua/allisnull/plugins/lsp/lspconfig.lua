@@ -8,6 +8,8 @@ return {
         { "barreiroleo/ltex_extra.nvim" },
     },
     config = function()
+        vim.diagnostic.config({ float = { border = "rounded" } })
+
         local lspconfig = require("lspconfig")
 
         vim.api.nvim_create_autocmd("LspAttach", {

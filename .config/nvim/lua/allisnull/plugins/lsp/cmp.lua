@@ -26,7 +26,6 @@ return {
                     luasnip.lsp_expand(args.body)
                 end,
             },
-
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
                 ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -35,7 +34,6 @@ return {
                 ["<C-a>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
             }),
-
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
@@ -45,7 +43,18 @@ return {
                 { name = "obsidian" },
                 { name = "conjure" },
             }),
-
+            window = {
+                completion = {
+                    scrollbar = false,
+                    border = "rounded",
+                    winhighlight = "Normal:CmpNormal",
+                },
+                documentation = {
+                    scrollbar = false,
+                    border = "rounded",
+                    winhighlight = "Normal:CmpNormal",
+                },
+            },
             formatting = {
                 format = lspkind.cmp_format({
                     maxwidth = 50,
