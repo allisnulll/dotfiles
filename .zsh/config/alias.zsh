@@ -1,4 +1,5 @@
 # Aliases
+alias cl="clear"
 alias h="history"
 alias rm="rm -i"
 alias rmd="rm -id"
