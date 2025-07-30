@@ -30,8 +30,23 @@ MODE_CURSOR_SEARCH="#ff00ff steady underline"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
+# Fzf
+eval "$(fzf --zsh)"
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS="--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-v:toggle-preview"
+export FZF_TMUX_OPTS="-p90%,70%"
+
+export FZF_CTRL_C_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --icons=always --color=always --git-ignore {} | head -500'"
+
 # RipGrep
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# Bat
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
 # Puppeteer
 export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
