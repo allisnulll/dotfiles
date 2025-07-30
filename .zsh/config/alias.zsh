@@ -42,7 +42,7 @@ alias txd="tmux detach"
 alias txks="tmux kill-server"
 
 # Fzf
-alias cdf="cd \$(fd --type d | fzf --preview 'eza -a --icons=always --color=always {}' --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)"
+alias manf="print -l ${(k)commands} | fzf --preview 'man {}' --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up | xargs man"
 
 # Eza
 alias ls="eza --icons=always"
