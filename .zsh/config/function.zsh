@@ -57,12 +57,6 @@ function ..() {
     cd $(printf "%0.0s../" $(seq 1 $1));
 }
 
-function vf() {
-    local file
-    file=$(fzf --preview "less {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
-    [ -n "$file" ] && v "$file"
-}
-
 # Sesh Alt-S
 function sesh-sessions() {
     exec </dev/tty
