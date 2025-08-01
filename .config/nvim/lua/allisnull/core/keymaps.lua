@@ -8,14 +8,9 @@ local function g_join_at_column()
     vim.cmd("normal! gJ" .. col .. "|")
 end
 
-local function put_at_column()
-    local col = vim.fn.col(".")
-    vim.cmd("normal p" .. col .. "|")
-end
-
 local function duplicate_line()
-    vim.cmd("normal yy")
-    put_at_column()
+    local col = vim.fn.col(".")
+    vim.cmd("yank | normal p" .. col .. "|")
 end
 
 local function to_fold_level()
@@ -188,78 +183,27 @@ local function fold_more()
     end
 end
 
+vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
+vim.keymap.set({ "n", "v" }, "<C-b>", ":<Up><CR>", { desc = "Run last command" })
+vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
+
+vim.keymap.set("n", "<C-q>", duplicate_line, { desc = "Duplicate Line" })
+vim.keymap.set("i", "<S-Space>", "\u{00A0}", { desc = "Insert nbsp" })
+
+vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
+
 vim.keymap.set("v", "<leader>n", ":normal ", { desc = "Normal on selection" })
 vim.keymap.set("v", "<leader>q", ":normal @q<CR>", { desc = "Run q macro on selection" })
 
-vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
-vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
-
-vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
-vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
-vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
-vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
-vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
-vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
-vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
-
-vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
-vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
-vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
-
-vim.keymap.set("i", "<S-Space>", "\u{00A0}", { desc = "Insert nbsp" })
-
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
-vim.keymap.set("n", "n", "nzzzv", { desc = "Better n" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Better N" })
-
-vim.keymap.set("n", "<C-w><", "5<C-w><")
-vim.keymap.set("n", "<C-w>>", "5<C-w>>")
-vim.keymap.set("n", "<C-w>+", "2<C-w>+")
-vim.keymap.set("n", "<C-w>-", "2<C-w>-")
-
-vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
-vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
-vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
-vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
-
-vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
-vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
-vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
-vim.keymap.set("n", "<F17>", function() vim.cmd("norm! zr") end, { desc = "- Fold level" })
-vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
-vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
-
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
-vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "Yank eol to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+y$', { desc = "Yank eol to clipboard" })
+vim.keymap.set("v", "<leader>p", '"_dp', { desc = "Put to void" })
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete to void" })
+vim.keymap.set("n", "<leader>D", '"_D', { desc = "Delete eol to void" })
 
-vim.keymap.set("x", "<leader>p", "\"_dp", { desc = "Put to void" })
-vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete to void" })
-vim.keymap.set("n", "<leader>D", "\"_D", { desc = "Delete eol to void" })
-
-vim.keymap.set({ "n", "v" }, "<C-b>", ":<Up><CR>", { desc = "Run last command" })
-
-vim.keymap.set("n", "<leader>p", put_at_column, { desc = "Put at column" })
-vim.keymap.set("n", "<C-q>", duplicate_line, { desc = "Duplicate Line" })
-
-vim.keymap.set("n", "J", join_at_column, { desc = "Join at Column" })
-vim.keymap.set("n", "gJ", g_join_at_column, { desc = "Join at Column without space" })
-
-vim.keymap.set("n", "<leader>t", "", { desc = "To" })
-vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
-
--- vim.keymap.set("v", "<C-j>", ":move '>+1<CR>gv=gv", { desc = "Move selection down" })
--- vim.keymap.set("v", "<C-k>", ":move '<-2<CR>gv=gv", { desc = "Move selection up" })
-
-vim.keymap.set(
-    { "n", "v" },
-    "g/",
-    "/\\v^((.**)@!.)*$<Left><Left><Left><Left><Left><Left><Left><Left>",
-    { desc = "Inverse Search" }
-)
-
+vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
 vim.keymap.set({ "n", "v" }, "<C-s>", ":s/\\(\\w.*\\)/", { desc = "Multiline reuse text" })
 vim.keymap.set("n", "<leader>s", ":%s/<C-r><C-w>//g<Left><Left>", { desc = "Substitute current word" })
 vim.keymap.set("n", "<leader>g", ":g/<C-r><C-w>/norm! ", { desc = "Global current word" })
@@ -269,9 +213,47 @@ vim.keymap.set("n", "<leader>g", ":g/<C-r><C-w>/norm! ", { desc = "Global curren
 --     vim.cmd(":\b\b\b\b\b%s/" .. selected_text .. "/g<Left><Left>")
 -- end, { desc = "Substitute current word" })
 
-vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
+vim.keymap.set("n", "<leader>t", "", { desc = "To" })
+vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
 
--- Lazy
+vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
+vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F17>", ":normal! zr<CR>", { desc = "- Fold level" })
+vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
+vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
+
+vim.keymap.set("n", "J", join_at_column, { desc = "Join at Column" })
+vim.keymap.set("n", "gJ", g_join_at_column, { desc = "Join at Column without space" })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
+vim.keymap.set("n", "n", "nzzzv", { desc = 'Repeat the latest "/" or "?"' })
+vim.keymap.set("n", "N", "Nzzzv", { desc = 'Repeat the latest "/" or "?" in reverse' })
+
+vim.keymap.set("n", "<C-w><", "5<C-w><")
+vim.keymap.set("n", "<C-w>>", "5<C-w>>")
+vim.keymap.set("n", "<C-w>+", "2<C-w>+")
+vim.keymap.set("n", "<C-w>-", "2<C-w>-")
+
+vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
+vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
+vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
+vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
+vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
+vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
+vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+
+vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
+vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
+vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
+vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
+vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
+vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
+
+vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
+vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
+
 vim.keymap.set("n", "<leader>z", "", { desc = "Lazy/Zen" })
 vim.keymap.set("n", "<leader>zz", ":Lazy<CR>", { desc = "Lazy" })
 vim.keymap.set("n", "<leader>zu", function()
