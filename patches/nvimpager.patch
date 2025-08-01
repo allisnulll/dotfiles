@@ -1,0 +1,23 @@
+diff --git a/lua/nvimpager/pager.lua b/lua/nvimpager/pager.lua
+index d3a6c3f..2ec56d9 100644
+--- a/lua/nvimpager/pager.lua
++++ b/lua/nvimpager/pager.lua
+@@ -35,13 +35,13 @@ local function set_maps()
+   end
+   map('q', '<CMD>quitall!<CR>')
+   map('q', '<CMD>quitall!<CR>', 'v')
+-  map('<Space>', '<PageDown>')
+-  map('<S-Space>', '<PageUp>')
+-  map('g', 'gg')
++  -- map('<Space>', '<PageDown>')
++  -- map('<S-Space>', '<PageUp>')
++  -- map('g', 'gg')
+   map('<Up>', '<C-Y>')
+   map('<Down>', '<C-E>')
+-  map('k', '<C-Y>')
+-  map('j', '<C-E>')
++  -- map('k', '<C-Y>')
++  -- map('j', '<C-E>')
+   map('F', nvimpager.toggle_follow)
+ end
+ 
