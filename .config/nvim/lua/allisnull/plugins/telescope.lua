@@ -31,6 +31,24 @@ return {
                     },
                 },
             },
+            pickers = {
+                help_tags = {
+                    attach_mappings = function(bufnr, map)
+                        map("i", "<CR>", function()
+                            local entry = actions_state.get_selected_entry()
+                            actions.close(bufnr)
+                            vim.cmd("tab help " .. entry.value)
+                        end)
+                        map("n", "<CR>", function()
+                            local entry = actions_state.get_selected_entry()
+                            actions.close(bufnr)
+                            vim.cmd("tab help " .. entry.value)
+                        end)
+
+                        return true
+                    end,
+                },
+            },
         })
 
         telescope.load_extension("fzf")
