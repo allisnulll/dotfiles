@@ -12,6 +12,7 @@ return {
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
         local actions = require("telescope.actions")
+        local actions_state = require("telescope.actions.state")
         local lga_actions = require("telescope-live-grep-args.actions")
         local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 

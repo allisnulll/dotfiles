@@ -1,6 +1,7 @@
 return {
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
+    ft = { "markdown", "latex", "typst" },
     opts = {
         default = {
             dir_path = function()
@@ -23,5 +24,5 @@ return {
             ["~/Vault"] = { dir_path = "assets/images" },
         },
     },
-    keys = {{ "<leader>p", ":PasteImage<CR>", desc = "Paste image from system clipboard" }},
+    keys = {{ "<leader>P", ":PasteImage<CR>", desc = "Paste image from system clipboard" }},
 }
