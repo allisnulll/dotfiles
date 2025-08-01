@@ -1,5 +1,9 @@
+# Source
+export PATH="$HOME/src/nvimpager:$PATH"
+
 # Environment Variables
 export EDITOR="nvim"
+export PAGER="nvimpager"
 
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
