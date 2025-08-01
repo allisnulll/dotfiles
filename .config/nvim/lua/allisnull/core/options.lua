@@ -1,5 +1,5 @@
-vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -9,8 +9,8 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 vim.opt.hlsearch = false
-vim.opt.scrolloff = 4
 vim.opt.cursorline = true
+-- vim.opt.scrolloff = 4
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
