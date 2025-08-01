@@ -14,21 +14,14 @@ return {
             { "cr-", desc = "Coerce to dash-case" },
             { "cr.", desc = "Coerce to dot.case" },
         }
-
         for i = 2, 9 do
             table.insert(mappings, {"<leader>" .. i, hidden = true })
         end
+
         whichkey.add(mappings)
+        whichkey.setup({ delay = function(ctx) return ctx.plugin and 0 or 300 end })
 
-        whichkey.setup({
-            delay = function(ctx)
-                return ctx.plugin and 0 or 300
-            end,
-        })
-
-        vim.keymap.set("n", "?", function()
-            whichkey.show()
-        end, { desc = "Buffer Glabal Keymaps" })
+        vim.keymap.set("n", "?", whichkey.show, { desc = "Buffer Glabal Keymaps" })
         vim.keymap.set("n", "<leader>?", function()
             whichkey.show({ global = false })
         end, { desc = "Buffer Local Keymaps" })
