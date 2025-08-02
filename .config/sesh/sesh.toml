@@ -25,6 +25,11 @@ path = "~/.dotfiles/.config/nvim"
 startup_command = "v . '+Telescope find_files';c"
 
 [[session]]
+name = " NvimPager"
+path = "~/.dotfiles/.config/nvimpager"
+startup_command = "v init.lua '+loadview';c"
+
+[[session]]
 name = " Emacs"
 path = "~/.dotfiles/.emacs.legacy"
 startup_command = "v init.el;c"
