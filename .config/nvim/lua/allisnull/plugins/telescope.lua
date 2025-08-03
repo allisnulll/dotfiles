@@ -33,6 +33,22 @@ return {
                 },
             },
             pickers = {
+                man_pages = {
+                    attach_mappings = function(bufnr, map)
+                        map("i", "<CR>", function()
+                            local entry = actions_state.get_selected_entry()
+                            actions.close(bufnr)
+                            vim.cmd("tab Man " .. entry.value)
+                        end)
+                        map("n", "<CR>", function()
+                            local entry = actions_state.get_selected_entry()
+                            actions.close(bufnr)
+                            vim.cmd("tab Man " .. entry.value)
+                        end)
+
+                        return true
+                    end,
+                },
                 help_tags = {
                     attach_mappings = function(bufnr, map)
                         map("i", "<CR>", function()
