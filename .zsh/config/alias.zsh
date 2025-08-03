@@ -42,9 +42,6 @@ alias tx="sesh connect 🏠 Home; exec zsh"
 alias txd="tmux detach"
 alias txks="tmux kill-server"
 
-# Fzf
-alias manf="print -l ${(k)commands} | fzf --preview 'man {}' --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up | xargs man"
-
 # Eza
 alias ls="eza --icons=always"
 alias lsa="eza -a --icons=always"

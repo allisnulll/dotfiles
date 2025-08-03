@@ -4,6 +4,7 @@ export PATH="$HOME/src/nvimpager:$PATH"
 # Environment Variables
 export EDITOR="nvim"
 export PAGER="nvimpager"
+export MANPAGER="nvimpager"
 
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
@@ -42,15 +43,12 @@ export FZF_DEFAULT_OPTS="--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,
 export FZF_TMUX_OPTS="-p90%,70%"
 
 export FZF_CTRL_C_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_CTRL_T_OPTS="--preview 'head -500 | nvimpager -c {}'"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --icons=always --color=always --git-ignore {} | head -500'"
 
 # RipGrep
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-
-# Bat
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
 # Puppeteer
 export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
