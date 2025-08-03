@@ -119,6 +119,15 @@ local function toggle_location()
     end
 end
 
+local function toggle_virtualedit()
+    local ve = vim.opt.virtualedit:get()
+    if vim.tbl_contains(ve, "all") then
+        vim.opt.virtualedit = "none"
+    else
+        vim.opt.virtualedit = "all"
+    end
+end
+
 -- TODO: Finish to_line()
 -- function to_line()
 --     local input = vim.fn.input("Line{j|k}: ")
@@ -249,6 +258,7 @@ vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expand
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
 vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
+vim.keymap.set("n", "<leader>ov", toggle_virtualedit, { desc = "Toggle virtualedit" })
 
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
