@@ -78,6 +78,7 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         lspconfig.harper_ls.setup({
+            capabilities = capabilities,
             settings = {
                 ["harper-ls"] = {
                     userDictPath = vim.api.nvim_call_function("stdpath", { "config" }) .. "/spell/en_utf-8.add",
@@ -102,7 +103,7 @@ return {
                 })
             end,
             settings = {
-                ltex = {
+                ["ltex_plus"] = {
                     language = "en_US",
                     enabledRules = { "grammar", "spell" },
                     additionalRules = { languageModel = "~/Documents/ngrams/" },
@@ -110,9 +111,20 @@ return {
             },
         })
 
-        lspconfig.pyright.setup({
+        lspconfig.tinymist.setup({
+            capabilities = capabilities,
             settings = {
-                python = {
+                ["tinymist"] = {
+                    formatterMode = "typstyle",
+                    exportPdf = "never",
+                },
+            },
+        })
+
+        lspconfig.pyright.setup({
+            capabilities = capabilities,
+            settings = {
+                ["pyright"] = {
                     analysis = {
                         autoSearchPaths = true,
                         useLibraryCodeForTypes = true,
