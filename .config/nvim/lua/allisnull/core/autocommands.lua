@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_augroup("TwoSpaceGroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "dart", "yaml", "lisp", "scheme", "nix" },
+    pattern = { "dart", "yaml", "lisp", "scheme", "typst", "nix" },
     group = "TwoSpaceGroup",
     callback = function()
         vim.opt.tabstop = 2
