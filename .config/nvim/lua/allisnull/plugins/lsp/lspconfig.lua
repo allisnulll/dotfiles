@@ -8,7 +8,10 @@ return {
         { "barreiroleo/ltex_extra.nvim" },
     },
     config = function()
-        vim.diagnostic.config({ float = { border = "rounded" } })
+        vim.diagnostic.config({
+            float = { border = "rounded" },
+            signs = false,
+        })
 
         local lspconfig = require("lspconfig")
 
