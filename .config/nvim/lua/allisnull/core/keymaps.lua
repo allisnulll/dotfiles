@@ -49,6 +49,7 @@ local function to_heading_level()
     local pattern = "^" .. string.rep("#", level) .. " "
     local curpos = vim.fn.getpos(".")
 
+    vim.cmd("normal! zR")
     for lnum = 1, vim.fn.line("$") do
         local line = vim.fn.getline(lnum)
         if line:match(pattern) then
