@@ -193,6 +193,8 @@ local function fold_more()
 end
 
 vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
+vim.keymap.set("n", "<F19>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<F20>", "<C-PageDown>", { desc = "Next Tab" })
 vim.keymap.set({ "n", "v" }, "<C-b>", ":<Up><CR>", { desc = "Run last command" })
 vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
 
