@@ -8,6 +8,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.linebreak = true
 vim.opt.hlsearch = false
 vim.opt.cursorline = true
 -- vim.opt.scrolloff = 4
