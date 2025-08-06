@@ -80,6 +80,16 @@ config.keys = {
         mods = "CTRL",
         action = wezterm.action.SendKey({ key = "F16" }),
     },
+    {
+        key = "PageUp",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F17" }),
+    },
+    {
+        key = "PageDown",
+        mods = "CTRL",
+        action = wezterm.action.SendKey({ key = "F18" }),
+    },
 
     {
         key = "-",
