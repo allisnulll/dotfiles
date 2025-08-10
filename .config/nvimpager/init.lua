@@ -168,7 +168,7 @@ vim.pack.add({
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/folke/todo-comments.nvim" },
-    { src = "https://github.com/norcalli/nvim-colorizer.lua" },
+    { src = "https://github.com/norcalli/nvim-colorizer.lua" }, -- NOTE: Checkout 260bc9d2f56ad5333df53938835c69639ef0f452
     { src = "https://github.com/chentoast/marks.nvim" },
     { src = "https://github.com/echasnovski/mini.ai" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -319,6 +319,7 @@ require("colorizer").setup({
 }, { names = false, RRGGBBAA = true })
 
 vim.keymap.set("n", "<leader>mc", ":ColorizerToggle<CR>", { desc = "Toggle Colorizer" })
+
 -- Mini.ai
 local function ai_line(ai_type)
     local lnum = vim.fn.line(".")
