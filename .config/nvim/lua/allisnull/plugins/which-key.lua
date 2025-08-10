@@ -20,7 +20,11 @@ return {
         end
 
         whichkey.add(mappings)
-        whichkey.setup({ delay = function(ctx) return ctx.plugin and 0 or 300 end })
+        whichkey.setup({
+            delay = function(ctx)
+                return ctx.plugin and 0 or 1500
+            end,
+        })
 
         vim.keymap.set("n", "?", whichkey.show, { desc = "Buffer Glabal Keymaps" })
         vim.keymap.set("n", "<leader>?", function()
