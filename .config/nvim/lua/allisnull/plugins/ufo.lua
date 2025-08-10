@@ -1,7 +1,7 @@
 return {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
-    -- TODO: figure out how to unload nvim-ufo on files with mkview
+    -- TODO: figure out alternative to unloading nvim-ufo to disable it on files with mkview
     -- event = "User ufo",
     config = function()
         local ufo = require("ufo")

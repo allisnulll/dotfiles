@@ -7,9 +7,8 @@ return {
                 options = {
                     signcolumn = "no",
                     colorcolumn = "0",
-                    laststatus = 0,
                     wrap = true,
-               },
+                },
             },
             plugins = {
                 enable = true,
@@ -19,7 +18,7 @@ return {
             gitsigns = { enabled = false },
 
             on_open = function(_)
-                -- TODO: Figure out how to unload which-key on zen-mode https://github.com/folke/which-key.nvim/discussions/510
+                -- TODO: Figure out alternative to unloading which-key to disable it on zen-mode https://github.com/folke/which-key.nvim/discussions/510
                 vim.fn.system("tmux set status off")
                 vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
                 vim.fn.system("kitten @ set-font-size +2")
