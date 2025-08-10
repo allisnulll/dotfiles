@@ -4,9 +4,10 @@ return {
     ---@type oil.SetupOpts
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+        local oil = require("oil")
         function _G.get_oil_winbar()
             local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
-            local dir = require("oil").get_current_dir(bufnr)
+            local dir = oil.get_current_dir(bufnr)
             if dir then
                 return vim.fn.fnamemodify(dir, ":~")
             else
@@ -14,7 +15,7 @@ return {
             end
         end
 
-        require("oil").setup({
+        oil.setup({
             view_options = { show_hidden = true },
             win_options = {
                 winbar = "%!v:lua.get_oil_winbar()",
@@ -25,15 +26,14 @@ return {
                     callback = function()
                         detail = not detail
                         if detail then
-                            require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+                            oil.set_columns({ "icon", "permissions", "size", "mtime" })
                         else
-                            require("oil").set_columns({ "icon" })
+                            oil.set_columns({ "icon" })
                         end
                     end,
                 },
                 -- TODO: Figure out how to hide desc
                 ["<leader>p"] = function()
-                    local oil = require("oil")
                     local filename = oil.get_cursor_entry().name
                     local dir = oil.get_current_dir()
                     oil.close()

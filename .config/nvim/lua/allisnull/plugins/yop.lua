@@ -1,9 +1,7 @@
 return {
     "zdcthomas/yop.nvim",
     config = function()
-        local yop = require("yop")
-
-        yop.op_map("n", "dS", function(selections, info)
+        require("yop").op_map("n", "dS", function(selections, info)
             for i, line in ipairs(selections) do
                 local row = info["position"]["first"][1] + i - 1
                 local full_line = vim.api.nvim_buf_get_lines(0, row - 1, row, false)[1]
