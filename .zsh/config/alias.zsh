@@ -37,6 +37,10 @@ alias sneo="clear && fastfetch --config ~/.config/fastfetch/small.jsonc"
 # NeoVim
 alias v="nvim"
 
+# NvimPager
+alias vp="nvimpager -p"
+alias vat="nvimpager -c"
+
 # Tmux
 alias tx="sesh connect 🏠 Home; exec zsh"
 alias txd="tmux detach"
