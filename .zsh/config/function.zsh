@@ -1,6 +1,6 @@
 # Functions
 function c() {
-    if [[ -n "$TMUX_POPUP" ]]; then
+    if [[ -n $TMUX_POPUP ]]; then
         clear && fastfetch --config ~/.config/fastfetch/small.jsonc
     elif [[ $(tmux display-message -p "#S") == "🏠 Home" ]]; then
         cd && clear && fastfetch
@@ -20,37 +20,38 @@ function sw() {
         return 1
     fi
 
-    if [ ! -f "$1" ]; then
-        echo "Error: '$1' does not exist or is not a regular file."
+    if [ ! -f $1 ]; then
+        echo "Error: $1 does not exist or is not a regular file."
         return 1
     fi
-    if [ ! -f "$2" ]; then
-        echo "Error: '$2' does not exist or is not a regular file."
+    if [ ! -f $2 ]; then
+        echo "Error: $2 does not exist or is not a regular file."
         return 1
     fi
+
+    mkdir -p /tmp/sw
 
     local temp_file
-    temp_file=$(mktemp /tmp/sw/swap.XXXXXX)
+    temp_file=$(mktemp /tmp/sw/$(basename $1).XXXXXX)
 
-    /bin/cp -f "$1" "$temp_file"
+    \cp -f $1 $temp_file
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to copy '$1' to temporary file."
+        echo "Error: Failed to copy $1 to temporary file."
         return 1
     fi
 
     mv -f "$2" "$1"
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to move '$2' to '$1'."
+        echo "Error: Failed to move $2 to $1."
         return 1
     fi
-
     mv -f "$temp_file" "$2"
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to move temporary file to '$2'."
+        echo "Error: Failed to move temporary file to $2"
         return 1
     fi
 
-    echo "Successfully swapped '$1' and '$2'."
+    echo "Successfully swapped $1 and $2"
 }
 
 function ..() {
@@ -61,16 +62,16 @@ function ..() {
 function cdf() {
     local dir=$(fd --type d --hidden --strip-cwd-prefix --exclude .git |\
         fzf --preview "eza --icons=always --color=always --git-ignore {} | head -500" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
-    [ -n "$dir" ] && v "$dir"
+    [ -n $dir ] && v $dir
 }
 
 function vf() {
     local file=$(fzf --preview "head -500 | nvimpager -c {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
     local dir=$(dirname $file)
     file=$(basename $file)
-    if [ -n "$dir" ] && [ -n "$file" ];then
+    if [ -n $dir ] && [ -n $file ];then
         cd $dir
-        v "$file"
+        v $file
     fi
 }
 
@@ -92,25 +93,26 @@ bindkey -M viins "\es" sesh-sessions
 # Git
 function ghistory() {
     git log --reverse --format="%H %s" $1 $2 | while read commit_hash commit_message; do
-        echo "------------------------------------------------------------------------------------------"
+        echo "--------------------------------------------------------------------------------"
         echo "    DIFF FOR COMMIT: $commit_hash $commit_message"
-        echo "------------------------------------------------------------------------------------------"
+        echo "--------------------------------------------------------------------------------"
         gsh $commit_hash
     done
 }
 
-# Unzip
-function unz() {
-    unzip "$1" -d "${1%.zip}"
-}
-
 # Aha
 chromium-view() {
+    mkdir -p /tmp/aha
     local temp_file
     temp_file=$(mktemp /tmp/aha/aha_XXXXXX.html)
-    "$@" | aha --black > $temp_file
+    cat | aha --black > $temp_file
     chromium --new-window $temp_file
     echo $temp_file
+}
+
+# Unzip
+function unz() {
+    unzip $1 -d ${1%.zip}
 }
 
 # Flutter
