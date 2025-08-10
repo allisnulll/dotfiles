@@ -16,7 +16,7 @@ return {
                         "lua_ls",
                         "html",
                         "cssls",
-                        "pyright",
+                        "basedpyright",
                         "clangd",
                         "bashls",
                         "jsonls",
