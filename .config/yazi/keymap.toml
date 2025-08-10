@@ -1,0 +1,10 @@
+# [[mgr.prepend_keymap]]
+# on = "<C-o>"
+# run = "back"
+# desc = "Back to previous directory"
+#
+# [[mgr.prepend_keymap]]
+# TODO: Make <C-i> work with yazi
+# on = "<F15>"
+# run = "forward"
+# desc = "Forward to next directory"
