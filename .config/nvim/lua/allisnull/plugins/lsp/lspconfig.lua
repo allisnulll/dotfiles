@@ -106,10 +106,10 @@ return {
                 })
             end,
             settings = {
-                ["ltex_plus"] = {
-                    language = "en_US",
+                ltex = {
+                    language = "en-US",
                     enabledRules = { "grammar", "spell" },
-                    additionalRules = { languageModel = "~/Documents/ngrams/" },
+                    additionalRules = { languageModel = "/Documents/ngrams" },
                 },
             },
         })
@@ -117,21 +117,17 @@ return {
         lspconfig.tinymist.setup({
             capabilities = capabilities,
             settings = {
-                ["tinymist"] = {
-                    formatterMode = "typstyle",
-                    exportPdf = "never",
-                },
+                formatterMode = "typstyle",
+                exportPdf = "never",
             },
         })
 
-        lspconfig.pyright.setup({
+        lspconfig.basedpyright.setup({
             capabilities = capabilities,
             settings = {
-                ["pyright"] = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        useLibraryCodeForTypes = true,
-                    },
+                analysis = {
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
                 },
             },
         })
