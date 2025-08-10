@@ -84,7 +84,7 @@ startup_command = "c && lsa"
 [[session]]
 name = "📹 Videos"
 path = "~/Videos"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "🎵 Music"
@@ -94,18 +94,19 @@ startup_command = "c && lsa"
 [[session]]
 name = "📸 Pictures"
 path = "~/Pictures"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "📚 Library"
 path = "~/Documents/Library"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
 startup_command = "v .;c"
 
+# Projects
 [[session]]
 name = "󰕍 Zsh-Undo-Dir"
 path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
