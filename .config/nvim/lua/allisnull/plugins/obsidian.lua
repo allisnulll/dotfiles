@@ -38,23 +38,17 @@ return {
             },
             mappings = {
                 ["gf"] = {
-                    action = function()
-                        return obsidian.util.gf_passthrough()
-                    end,
+                    action = obsidian.util.gf_passthrough,
                     opts = { noremap = false, expr = true, buffer = true },
                 },
-                ["<leader>cb"] = {
-                    action = function()
-                        return obsidian.util.toggle_checkbox()
-                    end,
+                ["<leader>mb"] = {
+                    action = obsidian.util.toggle_checkbox,
                     opts = { buffer = true, desc = "Toggle checkbox" },
                 },
-                ["<CR>"] = {
-                    action = function()
-                        return obsidian.util.smart_action()
-                    end,
-                    opts = { buffer = true, expr = true },
-                },
+                -- ["<CR>"] = {
+                --     action = obsidian.util.smart_action,
+                --     opts = { buffer = true, expr = true },
+                -- },
             },
             daily_notes = { folder = "dailies", default_tags = { "daily" } },
 
