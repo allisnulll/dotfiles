@@ -60,9 +60,8 @@ function ..() {
 
 # Fzf
 function cdf() {
-    local dir=$(fd --type d --hidden --strip-cwd-prefix --exclude .git |\
-        fzf --preview "eza --icons=always --color=always --git-ignore {} | head -500" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
-    [ -n $dir ] && v $dir
+    local file=$(fzf --preview "head -500 | nvimpager -c {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
+    cd $(dirname $file)
 }
 
 function vf() {
