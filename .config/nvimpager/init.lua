@@ -161,9 +161,10 @@ vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level"
 
 -- Plugins
 vim.pack.add({
+    { src = "https://github.com/christoomey/vim-tmux-navigator" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-    { src = "https://github.com/kevinhwang91/promise-async" },
     { src = "https://github.com/kevinhwang91/nvim-ufo" },
+    { src = "https://github.com/kevinhwang91/promise-async" },
     { src = "https://github.com/folke/tokyonight.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
