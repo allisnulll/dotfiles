@@ -45,10 +45,12 @@ return {
                     action = obsidian.util.toggle_checkbox,
                     opts = { buffer = true, desc = "Toggle checkbox" },
                 },
-                -- ["<CR>"] = {
-                --     action = obsidian.util.smart_action,
-                --     opts = { buffer = true, expr = true },
-                -- },
+                ["<CR>"] = {
+                    action = function()
+                        vim.cmd("ObsidianFollowLink")
+                    end,
+                    opts = { buffer = true, expr = true },
+                },
             },
             daily_notes = { folder = "dailies", default_tags = { "daily" } },
 
