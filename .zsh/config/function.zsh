@@ -68,7 +68,7 @@ function vf() {
     local file=$(fzf --preview "head -500 | nvimpager -c {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
     local dir=$(dirname $file)
     file=$(basename $file)
-    if [ -n $dir ] && [ -n $file ];then
+    if [ -n $dir ] && [ -n $file ]; then
         cd $dir
         v $file
     fi
