@@ -97,6 +97,9 @@ alias flrw="flutter run -d 192.168.1.215:58526 $@ --web-browser-flag='--ozone-pl
 alias fle="firebase emulators:start --import emulators_data --export-on-exit"
 alias adbr="adb shell settings put system user_rotation 0"
 
+# Docker
+alias dk="sudo systemctl start docker"
+
 # Kanata
 alias kn="kanata -c ~/kanata/kanata.kbd --log-layer-changes"
 alias knd="kanata -dc ~/kanata/kanata.kbd --log-layer-changes"
@@ -125,5 +128,5 @@ alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9
 alias matrix="tmux set status off; cmatrix -su 3 -C red; tmux set status on"
 alias bonsai="tmux set status off; cbonsai -iS --live; tmux set status on"
 
-# Docker
-alias dk="sudo systemctl start docker"
+# Imv
+alias imvp="wl-paste > /tmp/clip.png && imv /tmp/clip.png"
