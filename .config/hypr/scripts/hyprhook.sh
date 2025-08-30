@@ -20,13 +20,19 @@ case "$1" in
         pkill -x -SIGUSR1 waybar
         ;;
 
+    last)
+        hyprctl dispatch workspace $(head -n 1 "$LWS_FILE")
+        ;;
+
     start)
         touch "$BWS_FILE"
         echo 1 > "$LWS_FILE"
         ;;
 
-    last)
-        hyprctl dispatch workspace $(head -n 1 "$LWS_FILE")
+    off)
+        systemctl poweroff
+        rm "$BWS_FILE"
+        rm "$LWS_FILE"
         ;;
 
     *)
