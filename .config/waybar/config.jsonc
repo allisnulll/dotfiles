@@ -35,7 +35,6 @@
     "custom/right2",
 
     "custom/rightin1",
-    "idle_inhibitor",       // idle inhibitor
     "clock#time",           // time
     "custom/right3",
 
@@ -222,25 +221,12 @@
     "tooltip": false
   },
 
-  "idle_inhibitor": {
-    "format": "{icon}",
-
-    "format-icons": {
-      "activated": "󰈈 ",
-      "deactivated": "󰈉 "
-    },
-
-    "tooltip-format-activated": "Presentation Mode",
-    "tooltip-format-deactivated": "Idle Mode",
-    "start-activated": false
-  },
-
   "clock#time": {
-    "format": "{:%H:%M}",
+    "format": " {:%H:%M}",
     "tooltip": false,
     // "tooltip-format": "Standard Time: {:%I:%M %p}",
-    "min-length": 6,
-    "max-length": 6
+    "min-length": 9,
+    "max-length": 9
   },
 
   "clock#date": {
