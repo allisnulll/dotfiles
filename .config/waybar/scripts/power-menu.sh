@@ -17,7 +17,7 @@ case "$selected_option" in
   loginctl lock-session
   ;;
 *Shutdown)
-  systemctl poweroff
+  ~/.config/hypr/scripts/hyprhook.sh off
   ;;
 *Restart)
   systemctl reboot
