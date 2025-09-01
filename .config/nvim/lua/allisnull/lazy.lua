@@ -20,7 +20,6 @@ require("lazy").setup({
         { import = "allisnull.plugins.lsp" },
         { import = "allisnull.plugins.markdown" },
         { import = "allisnull.plugins.mini" },
-        { import = "allisnull.plugins.lisp" },
         { import = "allisnull.plugins.flutter" },
     },
     checker = {
