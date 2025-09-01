@@ -45,6 +45,7 @@ return {
             vim.keymap.set("n", "<leader>hD", function()
                 gs.diffthis("~")
             end, { desc = "Diff this ~" })
+            vim.keymap.set("n", "<leader>hf", ":Telescope git_status<CR>", { desc = "Fuzzy find Git Status" })
 
             vim.keymap.set({ "o", "x" }, "ih", ":<C-U}Gitsigns select_hunk<CR>", { desc = "Gitsigns select hunk" })
         end,
