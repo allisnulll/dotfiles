@@ -43,6 +43,7 @@ alias vat="nvimpager -c"
 
 # Tmux
 alias tx="sesh connect 🏠 Home; exec zsh"
+alias txc="sesh connect"
 alias txd="tmux detach"
 alias txks="tmux kill-server"
 
