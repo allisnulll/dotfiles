@@ -1,7 +1,7 @@
 local title
 
 return {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*",
     lazy = true,
     event = {
@@ -18,6 +18,7 @@ return {
         local obsidian = require("obsidian")
 
         obsidian.setup({
+            legacy_commands = false,
             ui = { enable = false },
             attachments = { img_folder = "assets/images" },
             workspaces = {{
@@ -34,22 +35,6 @@ return {
                     title_lower = function()
                         return title:lower()
                     end,
-                },
-            },
-            mappings = {
-                ["gf"] = {
-                    action = obsidian.util.gf_passthrough,
-                    opts = { noremap = false, expr = true, buffer = true },
-                },
-                ["<leader>mb"] = {
-                    action = obsidian.util.toggle_checkbox,
-                    opts = { buffer = true, desc = "Toggle checkbox" },
-                },
-                ["<CR>"] = {
-                    action = function()
-                        vim.cmd("ObsidianFollowLink")
-                    end,
-                    opts = { buffer = true, expr = true },
                 },
             },
             daily_notes = { folder = "dailies", default_tags = { "daily" } },
@@ -98,31 +83,41 @@ return {
             end,
         })
 
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "ObsidianNoteEnter",
+            callback = function(ev)
+                vim.keymap.del("n", "<CR>", { buffer = ev.buf })
+            end,
+        })
+
         vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
         vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
-        vim.keymap.set("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "Obsidian New Note" })
+        vim.keymap.set("n", "<localleader>n", ":Obsidian new<CR>", { desc = "Obsidian New Note" })
         vim.keymap.set("n", "<localleader>w", function()
             title = vim.fn.input("Enter title or path: ")
             if title ~= "" then
-                vim.cmd("ObsidianNewFromTemplate " .. vim.fn.shellescape(title))
+                vim.cmd("Obsidian new_from_template " .. vim.fn.shellescape(title))
             else
                 vim.notify("No title provided. Note creation canceled.")
             end
         end, { desc = "Obsidian New Note From Template" })
-        vim.keymap.set("n", "<localleader><localleader>", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
-        vim.keymap.set("n", "<localleader>b", ":ObsidianBacklinks<CR>", { desc = "Obsidian Backlinks" })
-        vim.keymap.set("n", "<localleader>t", ":ObsidianTags<CR>", { desc = "Obsidian Find Tags" })
-        vim.keymap.set("n", "<localleader>d", ":ObsidianToday<CR>", { desc = "Obsidian Today" })
-        vim.keymap.set("n", "<localleader>m", ":ObsidianToday +1<CR>", { desc = "Obsidian Tomorrow" })
-        vim.keymap.set("n", "<localleader>y", ":ObsidianToday -1<CR>", { desc = "Obsidian Yesterday" })
-        vim.keymap.set("n", "<localleader>fd", ":ObsidianDailies<CR>", { desc = "Obsidian Find Dailies" })
-        vim.keymap.set("n", "<localleader>ft", ":ObsidianTemplate<CR>", { desc = "Obsidian Template" })
-        vim.keymap.set("n", "<localleader>ff", ":ObsidianSearch<CR>", { desc = "Obsidian Find" })
-        vim.keymap.set("v", "<localleader>ol", ":ObsidianLink<CR>", { desc = "Obsidian Link" })
-        vim.keymap.set("v", "<localleader>ow", ":ObsidianLinkNew<CR>", { desc = "Obsidian Link New" })
-        vim.keymap.set("n", "<localleader>fl", ":ObsidianLinks<CR>", { desc = "Obsidian Find Links" })
-        vim.keymap.set("v", "<localleader>e", ":ObsidianExtractNote<CR>", { desc = "Obsidian Extract Note" })
-        vim.keymap.set("n", "<localleader>r", ":ObsidianRename<CR>", { desc = "Obsidian Rename" })
-        vim.keymap.set("n", "<localleader>c", ":ObsidianToc<CR>", { desc = "Obsidian ToC" })
+        vim.keymap.set("n", "<localleader><localleader>", ":Obsidian quick_switch<CR>", { desc = "Obsidian Quick Switch" })
+        vim.keymap.set("n", "<localleader>b", ":Obsidian backlinks<CR>", { desc = "Obsidian Backlinks" })
+        vim.keymap.set("n", "<localleader>t", ":Obsidian tags<CR>", { desc = "Obsidian Find Tags" })
+        vim.keymap.set("n", "<localleader>d", ":Obsidian today<CR>", { desc = "Obsidian Today" })
+        vim.keymap.set("n", "<localleader>m", ":Obsidian today +1<CR>", { desc = "Obsidian Tomorrow" })
+        vim.keymap.set("n", "<localleader>y", ":Obsidian today -1<CR>", { desc = "Obsidian Yesterday" })
+        vim.keymap.set("n", "<localleader>fd", ":Obsidian dailies<CR>", { desc = "Obsidian Find Dailies" })
+        vim.keymap.set("n", "<localleader>ft", ":Obsidian template<CR>", { desc = "Obsidian Template" })
+        vim.keymap.set("n", "<localleader>ff", ":Obsidian search<CR>", { desc = "Obsidian Find" })
+        vim.keymap.set("v", "<localleader>l", ":Obsidian link<CR>", { desc = "Obsidian Link" })
+        vim.keymap.set("v", "<localleader>w", ":Obsidian linkNew<CR>", { desc = "Obsidian Link New" })
+        vim.keymap.set("n", "<localleader>fl", ":Obsidian links<CR>", { desc = "Obsidian Find Links" })
+        vim.keymap.set("v", "<localleader>e", ":Obsidian extract_note<CR>", { desc = "Obsidian Extract Note" })
+        vim.keymap.set("n", "<localleader>r", ":Obsidian rename<CR>", { desc = "Obsidian Rename" })
+        vim.keymap.set("n", "<localleader>c", ":Obsidian toc<CR>", { desc = "Obsidian ToC" })
+
+        vim.keymap.set("n", "<CR>", ":Obsidian follow_link<CR>", { desc = "Obsidian Follow Link", silent = true })
+        vim.keymap.set("n", "<leader>mb", ":Obsidian toggle_checkbox<CR>", { desc = "Obsidian Toggle Checkbox", silent = true })
     end,
 }
