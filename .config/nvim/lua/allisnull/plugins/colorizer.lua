@@ -1,5 +1,6 @@
 return {
     "norcalli/nvim-colorizer.lua",
+    commit = "260bc9d2f56ad5333df53938835c69639ef0f452",
     config = function()
         require("colorizer").setup({
             "*",
