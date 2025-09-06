@@ -30,7 +30,6 @@ case $1 in
         ;;
 
     off)
-        systemctl poweroff
         rm $BWS_FILE $LWS_FILE
         ;;
 

@@ -18,14 +18,17 @@ case "$selected_option" in
   ;;
 *Shutdown)
   ~/.config/hypr/scripts/hyprhook.sh off
+  systemctl poweroff
   ;;
 *Restart)
+  ~/.config/hypr/scripts/hyprhook.sh off
   systemctl reboot
   ;;
 *Sleep)
   systemctl suspend
   ;;
 *Logout)
+  ~/.config/hypr/scripts/hyprhook.sh off
   loginctl kill-session "$XDG_SESSION_ID"
   ;;
 *Stay\ Awake)
