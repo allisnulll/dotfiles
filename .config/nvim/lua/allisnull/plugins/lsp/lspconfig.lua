@@ -13,8 +13,6 @@ return {
             signs = false,
         })
 
-        local lspconfig = require("lspconfig")
-
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
@@ -56,10 +54,14 @@ return {
                 end, opts)
 
                 opts.desc = "Go to previous diagnostic"
-                vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+                vim.keymap.set("n", "[d", function()
+                    vim.diagnostic.jump({ count = -1, float = true })
+                end, opts)
 
                 opts.desc = "Go to next diagnostic"
-                vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+                vim.keymap.set("n", "]d", function()
+                    vim.diagnostic.jump({ count = 1, float = true })
+                end, opts)
 
                 opts.desc = "LSP"
                 vim.keymap.set("n", "<leader>r", "", opts)
@@ -83,7 +85,7 @@ return {
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        lspconfig.harper_ls.setup({
+        vim.lsp.config("harper_ls", {
             capabilities = capabilities,
             settings = {
                 ["harper-ls"] = {
@@ -100,7 +102,7 @@ return {
             },
         })
 
-        lspconfig.ltex_plus.setup({
+        vim.lsp.config("ltex_plus", {
             capabilities = capabilities,
             flags = { debounce_text_changes = 300 },
             on_attach = function()
@@ -117,7 +119,7 @@ return {
             },
         })
 
-        lspconfig.tinymist.setup({
+        vim.lsp.config("tinymist", {
             capabilities = capabilities,
             settings = {
                 formatterMode = "typstyle",
@@ -125,7 +127,7 @@ return {
             },
         })
 
-        lspconfig.basedpyright.setup({
+        vim.lsp.config("basedpyright", {
             capabilities = capabilities,
             settings = {
                 analysis = {
