@@ -11,11 +11,13 @@ configuration {
     kb-remove-to-sol: "";
     kb-move-front: "";
     kb-move-end: "";
+    kb-move-word-back: "";
+    kb-move-word-forward: "";
     /* better vim controls */
-    kb-mode-previous: "Y,Ctrl+y";
+    kb-mode-previous: "Y,Ctrl+y,Ctrl+Left";
     kb-row-down: "H,Ctrl+h,Down";
     kb-row-up: "A,Ctrl+a,Up";
-    kb-mode-next: "E,Ctrl+e";
+    kb-mode-next: "E,Ctrl+e,Ctrl+Right";
     kb-cancel: "Ctrl+c,Escape";
     kb-page-next: "Page_Down,Ctrl+d";
     kb-page-prev: "Page_Up,Ctrl+u";
