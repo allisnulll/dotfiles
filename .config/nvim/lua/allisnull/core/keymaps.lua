@@ -251,8 +251,12 @@ vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix Lis
 vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
 vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
 vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
+vim.keymap.set("n", "<leader><Down>", ":cnext<CR>zz", { desc = "QuickFix next" })
+vim.keymap.set("n", "<leader><Up>", ":cprev<CR>zz", { desc = "QuickFix prev" })
 vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
 vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+vim.keymap.set("n", "<leader><C-Down>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
+vim.keymap.set("n", "<leader><C-Up>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
 
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
 vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
