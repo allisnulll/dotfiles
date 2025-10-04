@@ -129,3 +129,42 @@ index 15f9085..2dcef9b 100644
      kb-cancel: "Ctrl+c,Escape";
      kb-page-next: "Page_Down,Ctrl+d";
      kb-page-prev: "Page_Up,Ctrl+u";
+diff --git a/.tmux.conf b/.tmux.conf
+index 291ab2d..1fa97b7 100644
+--- a/.tmux.conf
++++ b/.tmux.conf
+@@ -39,20 +39,20 @@ bind -n C-M-Right swap-window -t +1 \; next-window
+ bind -n M-Down switch-client -n
+ bind -n M-Up switch-client -p
+ 
+-unbind -n M-L
+-unbind -n C-M-h
+-unbind -n C-M-l
+-unbind -n M-J
+-unbind -n M-K
+-unbind -n M-\"
+-bind -n M-Y previous-window
+-bind -n M-E next-window
+-bind -n C-M-y swap-window -t -1 \; previous-window
+-bind -n C-M-e swap-window -t +1 \; next-window
+-bind -n M-H switch-client -n
+-bind -n M-A switch-client -p
+-bind -n M-I switch-client -l
+-bind -n M-: last-window
++unbind -n M-Y
++unbind -n M-E
++unbind -n C-M-y
++unbind -n C-M-e
++unbind -n M-A
++unbind -n M-I
++bind -n M-H previous-window
++bind -n M-L next-window
++bind -n C-M-h swap-window -t -1 \; previous-window
++bind -n C-M-l swap-window -t +1 \; next-window
++bind -n M-J switch-client -n
++bind -n M-K switch-client -p
++bind -n M-: switch-client -l
++bind -n M-\" last-window
+ 
+ bind-key x kill-pane
+ bind-key X kill-session
