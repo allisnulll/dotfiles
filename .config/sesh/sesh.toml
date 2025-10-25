@@ -106,6 +106,11 @@ name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
 startup_command = "v .;c"
 
+[[session]]
+name = "🔧 Settings"
+path = "~/Settings"
+startup_command = "y;c"
+
 # Projects
 [[session]]
 name = "󰕍 Zsh-Undo-Dir"
