@@ -27,7 +27,7 @@ startup_command = "v . '+Telescope find_files';c"
 [[session]]
 name = " NvimPager"
 path = "~/.dotfiles/.config/nvimpager"
-startup_command = "v init.lua '+loadview';c"
+startup_command = "v init.lua '+lo';c"
 
 [[session]]
 name = " Emacs"
@@ -108,7 +108,7 @@ startup_command = "v .;c"
 
 [[session]]
 name = "🔧 Settings"
-path = "~/Settings"
+path = "~/Documents/Settings"
 startup_command = "y;c"
 
 # Projects
