@@ -26,7 +26,7 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "?", whichkey.show, { desc = "Buffer Glabal Keymaps" })
+        vim.keymap.set("n", "g?", whichkey.show, { desc = "Buffer Glabal Keymaps" })
         vim.keymap.set("n", "<leader>?", function()
             whichkey.show({ global = false })
         end, { desc = "Buffer Local Keymaps" })
