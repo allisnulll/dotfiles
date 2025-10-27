@@ -37,6 +37,11 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "Text",
     callback = function()
         vim.opt.spell = true
+        vim.opt.conceallevel = 1
+        vim.opt.wrap = true
+
+        vim.keymap.set("n", "<M-j>", "gj", { noremap = true, silent = true, buffer = true })
+        vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
     end,
 })
 
@@ -64,18 +69,5 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "TabGroup",
     callback = function()
         vim.opt.expandtab = false
-    end,
-})
-
-vim.api.nvim_create_augroup("Obsidian", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = vim.fn.expand("~") .. "/Vault/*.md",
-    group = "Obsidian",
-    callback = function()
-        vim.opt.conceallevel = 1
-        vim.opt.wrap = true
-
-        vim.keymap.set("n", "<M-j>", "gj", { noremap = true, silent = true, buffer = true })
-        vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
     end,
 })
