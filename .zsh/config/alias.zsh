@@ -23,23 +23,28 @@ alias soa="source ~/.zsh/config/plugins.zsh && source ~/.zsh/config/p10k.zsh && 
 alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
 alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
-alias ntest="sudo pkill dunst && c && notify-send 'TITLE' 'low' -u low && notify-send 'TITLE' 'normal' && notify-send 'TITLE' 'critical' -u critical"
-alias copy="wl-copy"
+alias colors='for i in {0..255}; do echo -e "\e[38;5;${i}mcolor $i"; done'
+alias ntest="sudo pkill dunst && cl && notify-send 'TITLE' 'low' -u low && notify-send 'TITLE' 'normal' && notify-send 'TITLE' 'critical' -u critical"
+
 alias dae="systemctl --user daemon-reload"
+
+alias copy="wl-copy"
+alias paste="wl-paste"
+alias imvp="wl-paste > /tmp/clip.png && imv /tmp/clip.png"
 
 # Paru
 alias p="paru"
-
-# NeoFetch
-alias neo="cd && clear && fastfetch"
-alias sneo="clear && fastfetch --config ~/.config/fastfetch/small.jsonc"
 
 # NeoVim
 alias v="nvim"
 
 # NvimPager
-alias vp="nvimpager -p"
+alias vp="nvimpager"
 alias vat="nvimpager -c"
+
+# NeoFetch
+alias neo="cd && clear && fastfetch"
+alias sneo="clear && fastfetch --config ~/.config/fastfetch/small.jsonc"
 
 # Tmux
 alias tx="sesh connect 🏠 Home; exec zsh"
@@ -122,12 +127,9 @@ alias ob="~/.dotfiles/scripts/obsidian_commit.sh"
 alias vault="v ~/Vault/main-hub.md '+ObsidianQuickSwitch'"
 
 # Screensavers
-alias pipes="tmux set status off; pipes-rs; tmux set status on"
-alias pipes1="tmux set status off; pipes-rs -p 1000 -t 0 -r 1 --reset-threshold 0; tmux set status on"
-alias pipes2="tmux set status off; pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9 -t 0.99; tmux set status on"
+alias pipes="tmux set status off && pipes-rs; tmux set status on"
+alias pipes1="tmux set status off && pipes-rs -p 1000 -t 0 -r 1 --reset-threshold 0; tmux set status on"
+alias pipes2="tmux set status off && pipes-rs -p 100 -k curved -c rgb -d 10 -r 0.9 -t 0.99; tmux set status on"
 
-alias matrix="tmux set status off; cmatrix -su 3 -C red; tmux set status on"
-alias bonsai="tmux set status off; cbonsai -iS --live; tmux set status on"
-
-# Imv
-alias imvp="wl-paste > /tmp/clip.png && imv /tmp/clip.png"
+alias matrix="tmux set status off && cmatrix -su 3 -C red; tmux set status on"
+alias bonsai="tmux set status off && cbonsai -iS --live; tmux set status on"
