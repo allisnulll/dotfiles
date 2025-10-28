@@ -14,49 +14,50 @@ function mkc() {
     cd $1
 }
 
-function sw() {
-    if [ $# -ne 2 ]; then
-        echo "Usage: swap_files <file1> <file2>"
-        return 1
-    fi
-
-    if [ ! -f $1 ]; then
-        echo "Error: $1 does not exist or is not a regular file."
-        return 1
-    fi
-    if [ ! -f $2 ]; then
-        echo "Error: $2 does not exist or is not a regular file."
-        return 1
-    fi
-
-    mkdir -p /tmp/sw
-
-    local temp_file
-    temp_file=$(mktemp /tmp/sw/$(basename $1).XXXXXX)
-
-    \cp -f $1 $temp_file
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to copy $1 to temporary file."
-        return 1
-    fi
-
-    mv -f "$2" "$1"
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to move $2 to $1."
-        return 1
-    fi
-    mv -f "$temp_file" "$2"
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to move temporary file to $2"
-        return 1
-    fi
-
-    echo "Successfully swapped $1 and $2"
-}
-
 function ..() {
     cd $(printf "%0.0s../" $(seq 1 $1));
 }
+
+# TODO: Fix sw()
+# function sw() {
+#     if [ $# -ne 2 ]; then
+#         echo "Usage: swap_files <file1> <file2>"
+#         return 1
+#     fi
+#
+#     if [ ! -f $1 ]; then
+#         echo "Error: $1 does not exist or is not a regular file."
+#         return 1
+#     fi
+#     if [ ! -f $2 ]; then
+#         echo "Error: $2 does not exist or is not a regular file."
+#         return 1
+#     fi
+#
+#     mkdir -p /tmp/sw
+#
+#     local temp_file
+#     temp_file=$(mktemp /tmp/sw/$(basename $1).XXXXXX)
+#
+#     \cp -f $1 $temp_file
+#     if [ $? -ne 0 ]; then
+#         echo "Error: Failed to copy $1 to temporary file."
+#         return 1
+#     fi
+#
+#     mv -f "$2" "$1"
+#     if [ $? -ne 0 ]; then
+#         echo "Error: Failed to move $2 to $1."
+#         return 1
+#     fi
+#     mv -f "$temp_file" "$2"
+#     if [ $? -ne 0 ]; then
+#         echo "Error: Failed to move temporary file to $2"
+#         return 1
+#     fi
+#
+#     echo "Successfully swapped $1 and $2"
+# }
 
 # Fzf
 function cdf() {
