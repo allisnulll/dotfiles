@@ -14,7 +14,7 @@ path = "~/.dotfiles"
 startup_command = "c && lsa && gs"
 
 [[session]]
-# TODO Change Hyprland session to "\e[38;2;35;88;100m\e[0m Hyprland"
+# TODO: Change Hyprland session to "\e[38;2;35;88;100m\e[0m Hyprland"
 name = " Hyprland"
 path = "~/.dotfiles/.config/hypr"
 startup_command = "v hyprland.conf;c"
