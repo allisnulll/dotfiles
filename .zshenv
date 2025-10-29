@@ -39,7 +39,7 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_DEFAULT_OPTS="--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-v:toggle-preview"
+export FZF_DEFAULT_OPTS="--scroll-off=4 --bind ctrl-d:page-down,ctrl-u:page-up,page-down:preview-page-down,page-up:preview-page-up,ctrl-v:toggle-preview"
 export FZF_TMUX_OPTS="-p90%,70%"
 
 export FZF_CTRL_C_COMMAND="$FZF_DEFAULT_COMMAND"
