@@ -126,3 +126,8 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 name = "🪹 Birds Nest"
 path = "~/Programming/work/flutter/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
+
+[[session]]
+name = "🧑🏽‍🌾 TheFarmerWasReplaced"
+path = "~/.steam/steam/steamapps/compatdata/431960/pfx/dosdevices/z:/proc/7625/cwd/.steam/root/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
+startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope find_files';c"
