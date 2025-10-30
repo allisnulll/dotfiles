@@ -102,6 +102,11 @@ path = "~/Documents/Library"
 startup_command = "y;c"
 
 [[session]]
+name = " Documentation"
+path = "/usr/share/doc"
+startup_command = "y;c"
+
+[[session]]
 name = "📖 Dictionary"
 path = "/home/allisnull/.config/nvim/spell"
 startup_command = "v .;c"
