@@ -11,7 +11,6 @@ vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.hlsearch = false
 vim.opt.cursorline = true
--- vim.opt.scrolloff = 4
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
