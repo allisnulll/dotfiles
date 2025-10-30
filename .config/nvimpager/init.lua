@@ -11,6 +11,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.linebreak = true
 vim.opt.hlsearch = false
 vim.opt.cursorline = true
 
@@ -89,6 +90,36 @@ local function to_heading_level()
     vim.fn.setpos(".", curpos)
 end
 
+local function toggle_quickfix()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then
+            qf_exists = true
+        end
+    end
+    if qf_exists == true then
+        vim.cmd("cclose")
+        return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
+        vim.cmd("copen")
+    end
+end
+
+local function toggle_location()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["loclist"] == 1 then
+            qf_exists = true
+        end
+    end
+    if qf_exists == true then
+        vim.cmd("lclose")
+    else
+        vim.cmd("lopen")
+    end
+end
+
 local function toggle_fold()
     local line = vim.fn.line(".")
     local foldlevel = vim.fn.foldlevel(line)
@@ -128,16 +159,6 @@ end
 
 vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
 
-vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
-
-vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
-
-vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
-vim.keymap.set("n", "<F14>", fold_more, { desc = "+ Fold level"})
-vim.keymap.set("n", "<F15>", ":normal! zr<CR>", { desc = "- Fold level" })
-vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
-vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Repeat the latest "/" or "?"' })
@@ -148,7 +169,41 @@ vim.keymap.set("n", "<C-w>>", "5<C-w>>")
 vim.keymap.set("n", "<C-w>+", "2<C-w>+")
 vim.keymap.set("n", "<C-w>-", "2<C-w>-")
 
-vim.keymap.set("n", "<leader>o", "", { desc = "Options" })
+vim.keymap.set({ "n", "v" }, "/", "/\\v", { desc = "Search very magic" })
+vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Reverse Search very magic" })
+vim.keymap.set({ "n", "v" }, "<M-/>", "/\\V", { desc = "Search very nomagic" })
+vim.keymap.set({ "n", "v" }, "<M-?>", "?\\V", { desc = "Reverse Search very nomagic" })
+
+vim.keymap.set({ "n", "v" }, "<M-;>", ",", { desc = "Repeat latest f, t, F, or T in opposite direction" })
+
+vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
+vim.keymap.set("n", "zm", fold_more, { desc = "Fold more"})
+vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
+
+vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+y$', { desc = "Yank eol to clipboard" })
+
+vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
+-- TODO: <leader>s for visual mode
+-- keymap.set("v", "<leader>s", function()
+--     local selected_text = vim.fn.getreg('"')
+--     vim.cmd(":\b\b\b\b\b%s/" .. selected_text .. "/g<Left><Left>")
+-- end, { desc = "Substitute current word" })
+
+vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
+
+vim.keymap.set("n", "<C-Down>", "<C-w>j")
+vim.keymap.set("n", "<C-Up>", "<C-w>k")
+vim.keymap.set("n", "<C-Left>", "<C-w>h")
+vim.keymap.set("n", "<C-Right>", "<C-w>l")
+vim.keymap.set("n", "<C-S-Down>", "<C-w>J")
+vim.keymap.set("n", "<C-S-Up>", "<C-w>K")
+vim.keymap.set("n", "<C-S-Left>", "<C-w>H")
+vim.keymap.set("n", "<C-S-Right>", "<C-w>L")
+
+vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
 vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
 vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
@@ -156,8 +211,26 @@ vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle r
 vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
 
+vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
+vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
+vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
+vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
+vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
+vim.keymap.set("n", "<leader><Down>", ":cnext<CR>zz", { desc = "QuickFix next" })
+vim.keymap.set("n", "<leader><Up>", ":cprev<CR>zz", { desc = "QuickFix prev" })
+vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
+vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+vim.keymap.set("n", "<leader><C-Down>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
+vim.keymap.set("n", "<leader><C-Up>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
+
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
+
+vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
+vim.keymap.set("n", "<F19>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<F20>", "<C-PageDown>", { desc = "Next Tab" })
+vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
 
 -- Plugins
 vim.pack.add({
