@@ -21,6 +21,10 @@ return {
                 path_display = { "smart" },
                 mappings = {
                     i = {
+                        ["<C-d>"] = actions.results_scrolling_down,
+                        ["<C-u>"] = actions.results_scrolling_up,
+                        ["<PageDown>"] = actions.preview_scrolling_down,
+                        ["<PageUp>"] = actions.preview_scrolling_up,
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-a>"] = actions.select_all,
