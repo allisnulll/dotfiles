@@ -41,9 +41,13 @@ return {
             end, { desc = "Blame line" })
             vim.keymap.set("n", "<leader>hB", gs.toggle_current_line_blame, { desc = "Toggle current line blame" })
 
-            vim.keymap.set("n", "<leader>hd", gs.diffthis, { desc = "Diff this" })
+            vim.keymap.set("n", "<leader>hd", function()
+                gs.diffthis()
+                vim.fn.feedkeys("xh")
+            end, { desc = "Diff this" })
             vim.keymap.set("n", "<leader>hD", function()
                 gs.diffthis("~")
+                vim.fn.feedkeys("xh")
             end, { desc = "Diff this ~" })
             vim.keymap.set("n", "<leader>hf", ":Telescope git_status<CR>", { desc = "Fuzzy find Git Status" })
 
