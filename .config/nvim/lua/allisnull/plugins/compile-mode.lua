@@ -9,6 +9,6 @@ return {
             auto_jump_to_first_error = true,
         }
 
-        vim.keymap.set("n", "<F5>", ":10 Compile<CR>", { desc = "Compile Mode" })
+        vim.keymap.set("n", "<F5>", ":5Compile<CR>", { desc = "Compile Mode" })
     end
 }
