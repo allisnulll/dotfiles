@@ -1,4 +1,23 @@
 -- Functions
+local function swap_win(direction)
+    local cur_win = vim.api.nvim_get_current_win()
+    local cur_buf = vim.api.nvim_win_get_buf(cur_win)
+    local cur_cursor = vim.api.nvim_win_get_cursor(cur_win)
+
+    vim.cmd("wincmd " .. direction)
+
+    local target_win = vim.api.nvim_get_current_win()
+    if target_win == cur_win then return end
+    local target_buf = vim.api.nvim_win_get_buf(target_win)
+    local target_cursor = vim.api.nvim_win_get_cursor(target_win)
+
+    vim.api.nvim_win_set_buf(cur_win, target_buf)
+    vim.api.nvim_win_set_buf(target_win, cur_buf)
+
+    vim.api.nvim_win_set_cursor(cur_win, target_cursor)
+    vim.api.nvim_win_set_cursor(target_win, cur_cursor)
+end
+
 local function join_at_column()
     local col = vim.fn.col(".")
     vim.cmd("norm! J" .. col .. "|")
@@ -210,6 +229,11 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Repeat the latest "/" or "?"' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Repeat the latest "/" or "?" in reverse' })
+
+vim.keymap.set("n", "<C-w>H", function() swap_win("h") end, { desc = "Move current window left" })
+vim.keymap.set("n", "<C-w>J", function() swap_win("j") end, { desc = "Move current window down" })
+vim.keymap.set("n", "<C-w>K", function() swap_win("k") end, { desc = "Move current window up" })
+vim.keymap.set("n", "<C-w>L", function() swap_win("l") end, { desc = "Move current window right" })
 
 vim.keymap.set("n", "<C-w><", "5<C-w><")
 vim.keymap.set("n", "<C-w>>", "5<C-w>>")
