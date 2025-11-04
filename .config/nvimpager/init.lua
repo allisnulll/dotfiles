@@ -173,6 +173,11 @@ vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Reverse Search very magic" }
 vim.keymap.set({ "n", "v" }, "<M-/>", "/\\V", { desc = "Search very nomagic" })
 vim.keymap.set({ "n", "v" }, "<M-?>", "?\\V", { desc = "Reverse Search very nomagic" })
 
+vim.keymap.set({ "n", "v" }, "*", "/\\v<<C-r><C-w>><CR>", { desc = "Search current word" })
+vim.keymap.set({ "n", "v" }, "g*", "/\\v<C-r><C-w><CR>", { desc = "Search current word with no word bound" })
+vim.keymap.set({ "n", "v" }, "#", "?\\v<<C-r><C-w>><CR>", { desc = "Search current word backward" })
+vim.keymap.set({ "n", "v" }, "g#", "?\\v<C-r><C-w><CR>", { desc = "Search current word backward with no word bound" })
+
 vim.keymap.set({ "n", "v" }, "<M-;>", ",", { desc = "Repeat latest f, t, F, or T in opposite direction" })
 
 vim.keymap.set("n", "<Tab>", toggle_fold, { desc = "Toggle fold" })
