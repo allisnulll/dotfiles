@@ -219,6 +219,22 @@ local function fold_more()
     end
 end
 
+local function reuse_text()
+    vim.api.nvim_echo({{ "Delimiter: ", "Normal" }}, false, {})
+    local d = vim.fn.nr2char(vim.fn.getchar())
+
+    vim.fn.feedkeys(":s/\\v([^" .. d .. "]+)" .. string.rep("%(" .. d .. "+([^" .. d .. "]+))?", 8) .. "/")
+end
+
+local function swap_words()
+    local w1 = vim.fn.input({ prompt = "Word #1: " })
+    local w2 = vim.fn.input({ prompt = "Word #2: " })
+    local w1_e = vim.fn.escape(w1, '"')
+    local w2_e = vim.fn.escape(w2, '"')
+
+    vim.fn.feedkeys(":s/\\v" .. w1 .. "|" .. w2 .. '\\C/\\=submatch(0)=="' .. w1_e .. '"?"' .. w2_e .. '":"' .. w1_e .. '\"/g\r')
+end
+
 -- Preferences
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
@@ -278,15 +294,14 @@ vim.keymap.set("n", "<leader>G", ":g/\\v<<C-r><C-a>>/norm! ", { desc = "Global c
 vim.keymap.set("n", "<C-b>", "@:", { desc = "Repeat last command" })
 vim.keymap.set("n", "<M-b>", ":.w !sh<CR>", { desc = "Run line as external command" })
 
-vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
-
-vim.keymap.set({ "n", "v" }, "<C-s>", ":s/\\v" .. string.rep("(\\S+)\\s=", 8) .. "(\\S+)/", { desc = "Multiline reuse text" })
 vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
--- TODO: <leader>s for visual mode
--- keymap.set("v", "<leader>s", function()
---     local selected_text = vim.fn.getreg('"')
---     vim.cmd(":\b\b\b\b\b%s/" .. selected_text .. "/g<Left><Left>")
--- end, { desc = "Substitute current word" })
+vim.keymap.set("v", "<leader>s", "y/\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
+vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
+
+vim.keymap.set({ "n", "v" }, "<C-s>", swap_words, { desc = "Swap words" })
+vim.keymap.set({ "n", "v" }, "<C-S-s>", reuse_text, { desc = "Multiline reuse text" })
+
+vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
 
 -- Macro
 vim.keymap.set("v", "<leader>q", "", { desc = "Macro" })
