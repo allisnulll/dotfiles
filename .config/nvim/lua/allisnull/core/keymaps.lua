@@ -28,11 +28,6 @@ local function g_join_at_column()
     vim.cmd("norm! gJ" .. col .. "|")
 end
 
-local function duplicate_line()
-    local col = vim.fn.col(".")
-    vim.cmd("yank | norm p" .. col .. "|")
-end
-
 local function to_fold_level()
     vim.api.nvim_echo({{ "Fold Level: ", "Normal" }}, false, {})
     local char = vim.fn.getchar()
@@ -258,7 +253,7 @@ vim.keymap.set("n", "zl", to_fold_level, { desc = "To fold level" })
 -- Custom Shortcuts
 vim.keymap.set("i", "<S-Space>", "\u{00A0}", { desc = "Insert nbsp" })
 
-vim.keymap.set("n", "<C-q>", duplicate_line, { desc = "Duplicate Line" })
+vim.keymap.set("n", "<C-q>", ":t.<CR>", { desc = "Duplicate Line" })
 
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
