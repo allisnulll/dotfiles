@@ -156,32 +156,6 @@ local function toggle_nrformats_alpha()
     end
 end
 
--- TODO: Finish to_line()
--- function to_line()
---     local input = vim.fn.input("Line{j|k}: ")
---     local num, sign = input:match("(%d+)([jk]?)")
---
---     num = tonumber(num)
---     if not num then
---         vim.notify("Invalid input", vim.log.levels.INFO)
---     end
---
---     local line1 = vim.fn.line("'<")
---     local selection_size = vim.fn.line("'>") - line1
---
---     if sign == "j" then
---         vim.cmd(":'<,'>move +" .. selection_size + num .. "<CR>")
---     elseif sign == "k" then
---         vim.cmd(":'<,'>move -" .. selection_size + num .. "<CR>")
---     else
---         vim.cmd(":'<,'>move " .. num .. "<CR>")
---     end
---     vim.cmd("norm gv=gv")
---
---     -- ":move '<-2<CR>gv=gv"
---     -- ":move '>+1<CR>gv=gv"
--- end
-
 local function toggle_fold()
     local line = vim.fn.line(".")
     local foldlevel = vim.fn.foldlevel(line)
@@ -335,8 +309,6 @@ vim.keymap.set("v", "<leader>qz", ":norm @z<CR>", { desc = "@z" })
 -- To
 vim.keymap.set("n", "<leader>t", "", { desc = "To" })
 vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
--- TODO: Finish To-Line
--- vim.keymap.set("v", "<leader>tl", function() to_line() end, { desc = "Move selection to line" })
 
 -- Tabs
 vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
@@ -366,14 +338,6 @@ vim.keymap.set("n", "<leader>oa", toggle_nrformats_alpha, { desc = "Toggle alpha
 vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
 vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
 vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
-vim.keymap.set("n", "<leader>j", ":cnext<CR>zz", { desc = "QuickFix next" })
-vim.keymap.set("n", "<leader>k", ":cprev<CR>zz", { desc = "QuickFix prev" })
-vim.keymap.set("n", "<leader><Down>", ":cnext<CR>zz", { desc = "QuickFix next" })
-vim.keymap.set("n", "<leader><Up>", ":cprev<CR>zz", { desc = "QuickFix prev" })
-vim.keymap.set("n", "<leader><C-j>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
-vim.keymap.set("n", "<leader><C-k>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
-vim.keymap.set("n", "<leader><C-Down>", ":lnext<CR>zz", { desc = "Current Window Location List next" })
-vim.keymap.set("n", "<leader><C-Up>", ":lprev<CR>zz", { desc = "Current Window Location List prev" })
 
 -- Markup
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
