@@ -240,6 +240,15 @@ vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Reverse Search very magic" }
 vim.keymap.set({ "n", "v" }, "<M-/>", "/\\V", { desc = "Search very nomagic" })
 vim.keymap.set({ "n", "v" }, "<M-?>", "?\\V", { desc = "Reverse Search very nomagic" })
 
+vim.keymap.set({ "n", "v" }, "*", "/\\v<<C-r><C-w>><CR>", { desc = "Search current word" })
+vim.keymap.set({ "n", "v" }, "g*", "/\\v<C-r><C-w><CR>", { desc = "Search current word with no word bound" })
+vim.keymap.set({ "n", "v" }, "#", "?\\v<<C-r><C-w>><CR>", { desc = "Search current word backward" })
+vim.keymap.set({ "n", "v" }, "g#", "?\\v<C-r><C-w><CR>", { desc = "Search current word backward with no word bound" })
+
+vim.keymap.set("n", "&", ":%&&<CR><C-o>", { desc = "Repeat last substitute on all lines" })
+vim.keymap.set("n", "g&", ":&&<CR>", { desc = "Repeat last substitute" })
+vim.keymap.set("v", "&", ":'<,'>&&<CR>", { desc = "Repeat last substitute on selection" })
+
 vim.keymap.set({ "n", "v" }, "<M-;>", ",", { desc = "Repeat latest f, t, F, or T in opposite direction" })
 
 vim.keymap.set("n", "J", join_at_column, { desc = "Join at Column" })
