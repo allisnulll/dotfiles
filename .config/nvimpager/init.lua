@@ -188,12 +188,10 @@ vim.keymap.set("n", "Y", "y$", { desc = "Yank to eol" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+y$', { desc = "Yank eol to clipboard" })
 
+vim.keymap.set("v", "<leader>s", "y/\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
+vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search backwards for current selection" })
+
 vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
--- TODO: <leader>s for visual mode
--- keymap.set("v", "<leader>s", function()
---     local selected_text = vim.fn.getreg('"')
---     vim.cmd(":\b\b\b\b\b%s/" .. selected_text .. "/g<Left><Left>")
--- end, { desc = "Substitute current word" })
 
 vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
 vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
