@@ -2,7 +2,7 @@
 function c() {
     if [[ -n $TMUX_POPUP ]]; then
         clear && fastfetch --config ~/.config/fastfetch/small.jsonc
-    elif [[ $(tmux display-message -p "#S") == "🏠 Home" ]]; then
+    elif [[ -n $TMUX && $(tmux display-message -p "#S") == "🏠 Home" ]]; then
         cd && clear && fastfetch
     else
         clear
