@@ -330,11 +330,10 @@ vim.keymap.set("n", "<C-S-Right>", "<C-w>L")
 
 -- Options
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
-vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>oh", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
 vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
-vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
 vim.keymap.set("n", "<leader>ov", toggle_virtualedit, { desc = "Toggle virtualedit" })
 vim.keymap.set("n", "<leader>oa", toggle_nrformats_alpha, { desc = "Toggle alpha nrformats" })
