@@ -12,7 +12,6 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 vim.opt.linebreak = true
-vim.opt.hlsearch = false
 vim.opt.cursorline = true
 
 vim.opt.ignorecase = true
@@ -204,11 +203,10 @@ vim.keymap.set("n", "<C-S-Left>", "<C-w>H")
 vim.keymap.set("n", "<C-S-Right>", "<C-w>L")
 
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
-vim.keymap.set("n", "<leader>oc", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>oh", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>ol", ":set list!<CR>", { desc = "Toggle listchars" })
 vim.keymap.set("n", "<leader>ot", ":set expandtab!<CR>", { desc = "Toggle expandtab" })
 vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle relativenumber" })
-vim.keymap.set("n", "<leader>oh", ":set hlsearch!<CR>", { desc = "Toggle hlsearch" })
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
 
 vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
@@ -318,6 +316,9 @@ require("tokyonight").setup({
         floats = "transparent",
         comments = { italic = true },
     },
+    on_colors = function(colors)
+        colors.bg_search = "#660606"
+    end,
 })
 
 vim.cmd("colorscheme tokyonight")
