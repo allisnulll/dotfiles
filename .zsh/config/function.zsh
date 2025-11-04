@@ -59,22 +59,6 @@ function ..() {
 #     echo "Successfully swapped $1 and $2"
 # }
 
-# Fzf
-function cdf() {
-    local file=$(fzf --preview "head -500 | nvimpager -c {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
-    cd $(dirname $file)
-}
-
-function vf() {
-    local file=$(fzf --preview "head -500 | nvimpager -c {}" --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up)
-    local dir=$(dirname $file)
-    file=$(basename $file)
-    if [ -n $dir ] && [ -n $file ]; then
-        cd $dir
-        v $file
-    fi
-}
-
 # Sesh Alt-S
 function sesh-sessions() {
     exec </dev/tty

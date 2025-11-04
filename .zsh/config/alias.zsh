@@ -32,6 +32,10 @@ alias copy="wl-copy"
 alias paste="wl-paste"
 alias imvp="wl-paste > /tmp/clip.png && imv /tmp/clip.png"
 
+# Fzf
+alias vf='file=$(fzf && exit) && [[ -n $file ]] && v "$file"'
+alias cdf='file=$(fzf && exit) && [[ -n $file ]] && cd $(dirname "$file")'
+
 # Paru
 alias p="paru"
 
