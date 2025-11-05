@@ -355,7 +355,7 @@ vim.keymap.set("n", "<leader>zc", ":Lazy clean<CR>", { desc = "Lazy Clean Plugin
 
 -- Fix keys lost by Tmux
 vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
-vim.keymap.set("n", "<F19>", "<C-PageUp>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<F20>", "<C-PageDown>", { desc = "Next Tab" })
 vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
 vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
+vim.keymap.set("n", "<F18>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<F19>", "<C-PageDown>", { desc = "Next Tab" })
