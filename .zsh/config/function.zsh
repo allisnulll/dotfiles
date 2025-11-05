@@ -64,7 +64,25 @@ function sesh-sessions() {
     exec </dev/tty
     exec <&1
     local session
-    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+
+    session=$(sesh list -d | awk "{
+        esc = sprintf(\"%c\",27)
+        while (getline line > 0) {
+            str = gensub(/#\\[fg=#000000\\]/,esc \"[0m\",\"g\",line)
+            str = gensub(/#\\[fg=(#[0-9a-fa-f]{6})\\]/,esc \"[38;2;\\\\1m\",\"g\",str)
+            if (match(str,/#[0-9a-fa-f]{6}/)) {
+                hex = substr(str,RSTART,RLENGTH)
+                r = strtonum(\"0x\" substr(hex,2,2))
+                g = strtonum(\"0x\" substr(hex,4,2))
+                b = strtonum(\"0x\" substr(hex,6,2))
+                rgb = r \";\" g \";\" b
+                str = substr(str,1,RSTART-1) rgb substr(str,RSTART+RLENGTH)
+            }
+            print str \"@@\" line
+        }
+    }" | fzf --ansi --height 40% --reverse --border-label "  Sesh " --border --prompt "  " --scroll-off=2 \
+                    --delimiter "@@" --with-nth {1} --bind "enter:become(echo {2})")
+
     zle reset-prompt > /dev/null 2>&1 || true
     [[ -z "$session" ]] && return
     sesh connect $session
