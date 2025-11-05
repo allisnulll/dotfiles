@@ -14,23 +14,22 @@ path = "~/.dotfiles"
 startup_command = "c && lsa && gs"
 
 [[session]]
-# TODO: Change Hyprland session to "\e[38;2;35;88;100m\e[0m Hyprland"
-name = " Hyprland"
+name = "#[fg=#56bce1]#[fg=#000000] Hyprland"
 path = "~/.dotfiles/.config/hypr"
 startup_command = "v hyprland.conf;c"
 
 [[session]]
-name = " NeoVim"
+name = "#[fg=#83b06c]#[fg=#000000] NeoVim"
 path = "~/.dotfiles/.config/nvim"
 startup_command = "v . '+Telescope find_files';c"
 
 [[session]]
-name = " NvimPager"
+name = "#[fg=#83b06c]#[fg=#000000] NvimPager"
 path = "~/.dotfiles/.config/nvimpager"
 startup_command = "v init.lua '+lo';c"
 
 [[session]]
-name = " Emacs"
+name = "#[fg=#7c65b4]#[fg=#000000] Emacs"
 path = "~/.dotfiles/.emacs.legacy"
 startup_command = "v init.el;c"
 
@@ -40,8 +39,7 @@ path = "~/.dotfiles/kanata"
 startup_command = "v kanata.kbd;c"
 
 [[session]]
-# TODO: Change Waybar session to "\e[38;2;255;190;8m\e[0m Waybar"
-name = " Waybar"
+name = "#[fg=#f6be41]#[fg=#000000] Waybar"
 path = "~/.dotfiles/.config/waybar"
 startup_command = "v config.jsonc;c"
 
@@ -102,7 +100,7 @@ path = "~/Documents/Library"
 startup_command = "y;c"
 
 [[session]]
-name = " Documentation"
+name = "#[fg=#4000c0]#[fg=#000000] Documentation"
 path = "/usr/share/doc"
 startup_command = "y;c"
 
@@ -118,7 +116,7 @@ startup_command = "y;c"
 
 # Projects
 [[session]]
-name = "󰕍 Zsh-Undo-Dir"
+name = "#[fg=#660606]󰕍#[fg=#000000] Zsh-Undo-Dir"
 path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
 startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
