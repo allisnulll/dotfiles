@@ -273,7 +273,7 @@ vim.keymap.set("v", "<leader>s", "y/\\V<C-r>=substitute(escape(@\", '\\/'), '\\n
 vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
 
 vim.keymap.set({ "n", "v" }, "<C-s>", swap_words, { desc = "Swap words" })
-vim.keymap.set({ "n", "v" }, "<C-S-s>", reuse_text, { desc = "Multiline reuse text" })
+vim.keymap.set({ "n", "v" }, "<C-S>", reuse_text, { desc = "Multiline reuse text" })
 
 vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
 
