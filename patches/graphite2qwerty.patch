@@ -8,6 +8,8 @@ index 252a8d6..a645b8d 100644
  # Conditional Keymaps:
 -bind = $mainMod ALT, E, workspace, e+1
 -bind = $mainMod ALT, Y, workspace, e-1
+-bind = $mainMod ALT, SHIFT E, workspace, +1
+-bind = $mainMod ALT, SHIFT Y, workspace, -1
 -bind = $mainMod SHIFT, E, movetoworkspace, +1
 -bind = $mainMod SHIFT, Y, movetoworkspace, -1
 -bind = $mainMod CTRL, Y, resizeactive, -40 0
@@ -24,6 +26,8 @@ index 252a8d6..a645b8d 100644
 -bind = $mainMod ALT CTRL, E, movewindoworgroup, r
 +bind = $mainMod ALT, L,  workspace, e+1
 +bind = $mainMod ALT, H, workspace, e-1
++bind = $mainMod ALT, SHIFT L,  workspace, +1
++bind = $mainMod ALT, SHIFT H, workspace, -1
 +bind = $mainMod SHIFT, L,  movetoworkspace, +1
 +bind = $mainMod SHIFT, H, movetoworkspace, -1
 +bind = $mainMod CTRL, H, resizeactive, -40 0
