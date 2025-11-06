@@ -315,14 +315,14 @@ vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
 vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
 
 -- Switch Windows with Arrow Keys
+vim.keymap.set("n", "<C-Left>", "<C-w>h")
 vim.keymap.set("n", "<C-Down>", "<C-w>j")
 vim.keymap.set("n", "<C-Up>", "<C-w>k")
-vim.keymap.set("n", "<C-Left>", "<C-w>h")
 vim.keymap.set("n", "<C-Right>", "<C-w>l")
-vim.keymap.set("n", "<C-S-Down>", "<C-w>J")
-vim.keymap.set("n", "<C-S-Up>", "<C-w>K")
-vim.keymap.set("n", "<C-S-Left>", "<C-w>H")
-vim.keymap.set("n", "<C-S-Right>", "<C-w>L")
+vim.keymap.set("n", "<C-w><S-Left>", function() swap_win("h") end, { desc = "Move current window left" })
+vim.keymap.set("n", "<C-w><S-Down>", function() swap_win("j") end, { desc = "Move current window down" })
+vim.keymap.set("n", "<C-w><S-Up>", function() swap_win("k") end, { desc = "Move current window up" })
+vim.keymap.set("n", "<C-w><S-Right>", function() swap_win("l") end, { desc = "Move current window right" })
 
 -- Options
 vim.keymap.set("n", "<leader>o", "", { desc = "Options/Outline" })
