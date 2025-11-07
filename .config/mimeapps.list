@@ -1,0 +1,23 @@
+[Default Applications]
+x-scheme-handler/discord=vesktop.desktop
+application/zip=unzip-3.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
+inode/directory=thunar.desktop
+application/x-nes-rom=nestopia.desktop
+x-scheme-handler/mailto=chromium.desktop
+image/svg+xml=org.inkscape.Inkscape.desktop
+image/png=imv.desktop
+image/jpeg=imv.desktop
+text/plain=org.gnome.gedit.desktop
+
+[Added Associations]
+application/zip=unzip-3.desktop;
+text/plain=org.gnome.gedit.desktop;
+application/x-nes-rom=nestopia.desktop;
+image/svg+xml=chromium.desktop;org.inkscape.Inkscape.desktop;
+image/png=imv.desktop;
+image/jpeg=imv.desktop;
