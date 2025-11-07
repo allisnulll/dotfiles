@@ -19,6 +19,7 @@ return {
 
             on_open = function(_)
                 -- TODO: Figure out alternative to unloading which-key to disable it on zen-mode https://github.com/folke/which-key.nvim/discussions/510
+                vim.opt.hlsearch = false
                 vim.fn.system("tmux set status off")
                 vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
                 vim.fn.system("kitten @ set-font-size +2")
@@ -28,6 +29,7 @@ return {
                 vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
             end,
             on_close = function(_)
+                vim.opt.hlsearch = true
                 vim.fn.system("tmux set status on")
                 vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z && tmux resize-pane -Z')
                 vim.fn.system("kitten @ set-font-size 0")
