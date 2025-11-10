@@ -26,7 +26,7 @@ startup_command = "v . '+Telescope find_files';c"
 [[session]]
 name = "#[fg=#83b06c]#[fg=#000000] NvimPager"
 path = "~/.dotfiles/.config/nvimpager"
-startup_command = "v init.lua '+lo';c"
+startup_command = "v init.lua '+AutoSession restore';c"
 
 [[session]]
 name = "#[fg=#7c65b4]#[fg=#000000] Emacs"
@@ -112,7 +112,7 @@ startup_command = "v .;c"
 [[session]]
 name = "🔧 Settings"
 path = "~/Documents/Settings"
-startup_command = "y;c"
+startup_command = "c && lsa"
 
 # Projects
 [[session]]
@@ -132,5 +132,5 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
 name = "🧑🏽‍🌾 TheFarmerWasReplaced"
-path = "~/.steam/steam/steamapps/compatdata/431960/pfx/dosdevices/z:/proc/7625/cwd/.steam/root/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
+path = "~/.steam/steam/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
 startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope find_files';c"
