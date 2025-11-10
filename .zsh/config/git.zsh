@@ -11,14 +11,14 @@ alias gcm="git commit -m"
 alias gcma="git commit -am"
 alias gcmp="git commit -m $@ && git push"
 alias gca='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty'
-alias gcaa='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty'
-alias gcam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend -m --date="$(git log -n 1 --format=%aD)" --allow-empty'
-alias gcaam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend -m --date="$(git log -n 1 --format=%aD)" --allow-empty'
-alias grn='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" --allow-empty'
-alias gcap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
-alias gcaap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
-alias gcamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
-alias gcaamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --date="$(git log -n 1 --format=%aD)" --allow-empty && git push --force'
+alias gcaa='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)"'
+alias gcam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" -m'
+alias gcaam='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --date="$(git log -n 1 --format=%aD)" -m'
+alias grn='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)"'
+alias gcap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --no-edit --date="$(git log -n 1 --format=%aD)" && git push --force'
+alias gcaap='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --no-edit --date="$(git log -n 1 --format=%aD)" && git push --force'
+alias gcamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit --amend --date="$(git log -n 1 --format=%aD)" -m && git push --force'
+alias gcaamp='export GIT_COMMITTER_DATE="$(git log -n 1 --format=%aD)" && git commit -a --amend --date="$(git log -n 1 --format=%aD)" -m && git push --force'
 alias gch="git checkout"
 alias gchf="git checkout --force"
 alias gcho="git checkout --orphan"
