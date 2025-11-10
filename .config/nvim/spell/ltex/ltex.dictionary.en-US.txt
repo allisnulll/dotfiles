@@ -1,2 +1,15 @@
 cond
 recurse
+dotfiles
+Kanata
+TilingWM
+ThePrimeagen
+Numrow
+numpad
+PgUp
+PgDn
+Qwerty
+keymap
+keybind
+sicp
+sicp
