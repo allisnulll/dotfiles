@@ -1,3 +1,6 @@
+-- local function ai_search(ai_type)
+-- end
+
 local function ai_line(ai_type)
     local lnum = vim.fn.line(".")
     local line = vim.fn.getline(lnum)
@@ -40,6 +43,7 @@ return {
         return {
             n_lines = 500,
             custom_textobjects = {
+                -- ["/"] = ai_search,
                 g = ai_buffer,
                 l = ai_line,
                 F = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
