@@ -265,7 +265,7 @@ vim.keymap.set("n", "<leader>S", ":%s/\\v<<C-r><C-a>>//g<Left><Left>", { desc = 
 vim.keymap.set("n", "<leader>g", ":g/\\v<<C-r><C-w>>/norm! ", { desc = "Global current word" })
 vim.keymap.set("n", "<leader>G", ":g/\\v<<C-r><C-a>>/norm! ", { desc = "Global current WORD" })
 
-vim.keymap.set("n", "<C-b>", "@:", { desc = "Repeat last command" })
+vim.keymap.set({ "n", "v" }, "<C-b>", "@:", { desc = "Repeat last command" })
 vim.keymap.set("n", "<M-b>", ":.w !sh<CR>", { desc = "Run line as external command" })
 
 vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
