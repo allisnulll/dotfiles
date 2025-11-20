@@ -24,11 +24,6 @@ case $1 in
         hyprctl dispatch workspace $(head -n 1 $LWS_FILE)
         ;;
 
-    start)
-        touch $BWS_FILE
-        echo 1 > $LWS_FILE
-        ;;
-
     off)
         rm $BWS_FILE $LWS_FILE
         ;;
