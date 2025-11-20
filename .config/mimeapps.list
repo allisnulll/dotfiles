@@ -21,3 +21,4 @@ application/x-nes-rom=nestopia.desktop;
 image/svg+xml=chromium.desktop;org.inkscape.Inkscape.desktop;
 image/png=imv.desktop;
 image/jpeg=imv.desktop;
+video/mp4=vlc.desktop;mpv.desktop;
