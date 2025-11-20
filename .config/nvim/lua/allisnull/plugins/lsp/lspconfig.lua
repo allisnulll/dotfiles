@@ -114,7 +114,7 @@ return {
                 ltex = {
                     language = "en-US",
                     enabledRules = { "grammar", "spell" },
-                    additionalRules = { languageModel = "/Documents/ngrams" },
+                    additionalRules = { languageModel = vim.fn.expand("~") .. "/Documents/ngrams" },
                 },
             },
         })
