@@ -27,6 +27,7 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.swapfile = false
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
+vim.opt.undolevels = 5000
 
 vim.opt.updatetime = 500
 
