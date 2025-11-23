@@ -98,18 +98,37 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
-        vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
-        vim.keymap.set("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "Obsidian New Note" })
-        vim.keymap.set("n", "<localleader>w", function()
+        vim.api.nvim_create_augroup("AutoWrite", { clear = true })
+        vim.api.nvim_create_autocmd("TextChanged", {
+            group = "AutoWrite",
+            pattern = "*.md",
+            callback = function()
+                vim.cmd("silent noautocmd write")
+            end,
+        })
+        vim.api.nvim_create_autocmd("TextChangedI", {
+            group = "AutoWrite",
+            pattern = "*.md",
+            callback = function()
+                vim.bo.undofile = false
+                vim.cmd("silent noautocmd write")
+                vim.bo.undofile = true
+            end,
+        })
+
+        local from_template = function()
             title = vim.fn.input("Enter title or path: ")
             if title ~= "" then
                 vim.cmd("ObsidianNewFromTemplate " .. vim.fn.shellescape(title))
             else
                 vim.notify("No title provided. Note creation canceled.")
             end
-        end, { desc = "Obsidian New Note From Template" })
+        end
+        vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
         vim.keymap.set("n", "<localleader><localleader>", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
+        vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
+        vim.keymap.set("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "Obsidian New Note" })
+        vim.keymap.set("n", "<localleader>w", from_template, { desc = "Obsidian New Note From Template" })
         vim.keymap.set("n", "<localleader>b", ":ObsidianBacklinks<CR>", { desc = "Obsidian Backlinks" })
         vim.keymap.set("n", "<localleader>t", ":ObsidianTags<CR>", { desc = "Obsidian Find Tags" })
         vim.keymap.set("n", "<localleader>d", ":ObsidianToday<CR>", { desc = "Obsidian Today" })
