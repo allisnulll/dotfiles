@@ -42,6 +42,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
         vim.keymap.set("n", "<M-j>", "gj", { noremap = true, silent = true, buffer = true })
         vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
+        vim.keymap.set("n", "<M-Down>", "gj", { noremap = true, silent = true, buffer = true })
+        vim.keymap.set("n", "<M-Up>", "gk", { noremap = true, silent = true, buffer = true })
     end,
 })
 
