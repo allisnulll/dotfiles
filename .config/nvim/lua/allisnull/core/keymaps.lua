@@ -272,8 +272,8 @@ vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8
 vim.keymap.set("v", "<leader>s", "y/\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
 vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
 
-vim.keymap.set({ "n", "v" }, "<C-s>", swap_words, { desc = "Swap words" })
-vim.keymap.set({ "n", "v" }, "<C-S>", reuse_text, { desc = "Multiline reuse text" })
+vim.keymap.set({ "n", "v" }, "<C-s>", reuse_text, { desc = "Multiline reuse text" })
+vim.keymap.set({ "n", "v" }, "<M-s>", swap_words, { desc = "Swap words" })
 
 vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
 
@@ -311,6 +311,8 @@ vim.keymap.set("n", "<leader>t", "", { desc = "To" })
 vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
 
 -- Tabs
+vim.keymap.set("n", "<C-S-PageUp>", ":tabm +<CR>", { desc = "Move tab left" })
+vim.keymap.set("n", "<C-S-PageDown>", ":tabm -<CR>", { desc = "Move tab right" })
 vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
 vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
 
@@ -363,3 +365,5 @@ vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
 vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
 vim.keymap.set("n", "<F18>", "<C-PageUp>", { desc = "Previous Tab" })
 vim.keymap.set("n", "<F19>", "<C-PageDown>", { desc = "Next Tab" })
+vim.keymap.set("n", "<F20>", ":tabm -<CR>", { desc = "Move Tab Left" })
+vim.keymap.set("n", "<F21>", ":tabm +<CR>", { desc = "Move Tab Right" })

@@ -75,6 +75,7 @@ config.keys = {
         mods = "CTRL",
         action = wezterm.action.SendKey({ key = "F15" }),
     },
+
     {
         key = "PageUp",
         mods = "CTRL",
@@ -86,9 +87,20 @@ config.keys = {
         action = wezterm.action.SendKey({ key = "F17" }),
     },
     {
+        key = "PageUp",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.SendKey({ key = "F18" }),
+    },
+    {
+        key = "PageDown",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.SendKey({ key = "F19" }),
+    },
+
+    {
         key = "Enter",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F18" }),
+        action = wezterm.action.SendKey({ key = "F20" }),
     },
 
     {
