@@ -12,7 +12,7 @@ return {
                     device = true,
                 },
             },
-            flutter_path = "/home/allisnull/flutter/bin/flutter",
+            flutter_path = vim.fn.expand("~") .. "/fvm/default/bin/flutter",
             widget_guides = { enabled = true },
             lsp = {
                 color = {
