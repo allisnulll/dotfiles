@@ -12,10 +12,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # Flutter
-export PATH="$HOME/flutter/bin:$PATH"
-export PATH="$HOME/.pub-cache/bin:$PATH"
-# export ADB_TRACE="all"
+export PATH="/home/allisnull/fvm/default/bin:$PATH"
+[[ -f /home/allisnull/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/allisnull/.config/.dart-cli-completion/zsh-config.zsh || true
+
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+# export ADB_TRACE="all"
 
 # Go
 export GOBIN="$HOME/go/bin"
