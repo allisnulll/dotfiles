@@ -24,6 +24,7 @@ return {
                         "gopls",
                         "jdtls",
                         "tinymist",
+                        "phpactor",
                     },
                 })
             end
