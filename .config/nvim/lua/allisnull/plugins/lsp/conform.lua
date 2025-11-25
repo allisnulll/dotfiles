@@ -17,6 +17,7 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 python = { "isort", "black" },
+                php = { "pint", "php-cs-fixer" },
             },
         })
 
