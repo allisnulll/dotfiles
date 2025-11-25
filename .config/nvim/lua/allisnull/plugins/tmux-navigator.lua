@@ -1,8 +1,22 @@
 return {
     "christoomey/vim-tmux-navigator",
-    event = "VeryLazy",
-    cond = function()
-        local term = os.getenv("TERM")
-        return term and string.find(term, "tmux")
-    end,
+    cmd = {
+        "TmuxNavigateLeft",
+        "TmuxNavigateDown",
+        "TmuxNavigateUp",
+        "TmuxNavigateRight",
+        "TmuxNavigatePrevious",
+        "TmuxNavigatorProcessList",
+    },
+    keys = {
+        { "<C-h>", ":TmuxNavigateLeft<CR>" },
+        { "<C-j>", ":TmuxNavigateDown<CR>" },
+        { "<C-k>", ":TmuxNavigateUp<CR>" },
+        { "<C-l>", ":TmuxNavigateRight<CR>" },
+        { "<C-Left>", ":TmuxNavigateLeft<CR>" },
+        { "<C-Down>", ":TmuxNavigateDown<CR>" },
+        { "<C-Up>", ":TmuxNavigateUp<CR>" },
+        { "<C-Right>", ":TmuxNavigateRight<CR>" },
+        { "<C-\\>", ":TmuxNavigatePrevious<CR>" },
+    },
 }
