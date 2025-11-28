@@ -122,7 +122,7 @@ startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
 name = "🧠 Brain"
-path = "~/Programming/work/flutter/Brain/brain-musik"
+path = "~/Programming/work/flutter/Brain/brainmusik-mobile/"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
