@@ -7,18 +7,16 @@ return {
     config = function()
         require("flutter-tools").setup({
             decorations = {
-                statusline = {
-                    app_version = true,
-                    device = true,
-                },
+                statusline = { app_version = true },
             },
             flutter_path = vim.fn.expand("~") .. "/fvm/default/bin/flutter",
+            default_run_args = { flutter = "--enable-software-rendering" },
             widget_guides = { enabled = true },
             lsp = {
                 color = {
                     enabled = true,
                     background = true,
-                    background_color = { r = 26, g = 27, b = 38},
+                    background_color = { r = 26, g = 27, b = 38 },
                 },
             },
         })
@@ -31,7 +29,7 @@ return {
         -- end
 
         vim.keymap.set("n", "<leader>fl", "", { desc = "Flutter" })
-        vim.keymap.set("n", "<leader>fl<CR>", ":FlutterRun --enable-software-rendering<CR>", { desc = "Flutter Run" })
+        vim.keymap.set("n", "<leader>fl<CR>", ":FlutterRun<CR>", { desc = "Flutter Run" })
         vim.keymap.set("n", "<leader>flr", ":FlutterReload<CR>", { desc = "Flutter Reload" })
         vim.keymap.set("n", "<leader>flR", ":FlutterRestart<CR>", { desc = "Flutter Restart" })
         vim.keymap.set("n", "<leader>flq", ":FlutterQuit<CR>", { desc = "Flutter Quit" })
@@ -41,5 +39,6 @@ return {
         vim.keymap.set("n", "<leader>flo", ":FlutterOutlineToggle<CR>", { desc = "Flutter Outline Toggle" })
         vim.keymap.set("n", "<leader>flp", ":FlutterPubGet<CR>", { desc = "Flutter Pub Get" })
         vim.keymap.set("n", "<leader>fll", ":FlutterLogClear<CR>", { desc = "Flutter Log Clear" })
+        vim.keymap.set("n", "<leader>flv", require("telescope").extensions.flutter.fvm, { desc = "Find Flutter Version" })
     end,
 }
