@@ -150,9 +150,9 @@ local function toggle_nrformats_alpha()
     local nf = vim.opt.nrformats:get()
 
     if vim.tbl_contains(nf, "alpha") then
-        vim.opt.nrformats = "bin,hex"
+        vim.opt.nrformats = "unsigned,bin,hex"
     else
-        vim.opt.nrformats = "bin,hex,alpha"
+        vim.opt.nrformats = "unsigned,bin,hex,alpha"
     end
 end
 
