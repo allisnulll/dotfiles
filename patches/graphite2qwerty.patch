@@ -1,15 +1,15 @@
 diff --git a/.config/hypr/hyprland.conf b/.config/hypr/hyprland.conf
-index 252a8d6..a645b8d 100644
+index f19b894..48df2d2 100644
 --- a/.config/hypr/hyprland.conf
 +++ b/.config/hypr/hyprland.conf
-@@ -271,22 +271,22 @@ bind = $mainMod CTRL, TAB, movegroupwindow
+@@ -282,24 +282,24 @@ bind = $mainMod CTRL, TAB, movegroupwindow
  bind = $mainMod CTRL SHIFT, TAB, movegroupwindow, b
  
  # Conditional Keymaps:
 -bind = $mainMod ALT, E, workspace, e+1
 -bind = $mainMod ALT, Y, workspace, e-1
--bind = $mainMod ALT, SHIFT E, workspace, +1
--bind = $mainMod ALT, SHIFT Y, workspace, -1
+-bind = $mainMod ALT SHIFT, E, workspace, +1
+-bind = $mainMod ALT SHIFT, Y, workspace, -1
 -bind = $mainMod SHIFT, E, movetoworkspace, +1
 -bind = $mainMod SHIFT, Y, movetoworkspace, -1
 -bind = $mainMod CTRL, Y, resizeactive, -40 0
@@ -134,12 +134,12 @@ index 15f9085..2dcef9b 100644
      kb-page-next: "Page_Down,Ctrl+d";
      kb-page-prev: "Page_Up,Ctrl+u";
 diff --git a/.tmux.conf b/.tmux.conf
-index 291ab2d..1fa97b7 100644
+index 2fcf4ba..52a8d61 100644
 --- a/.tmux.conf
 +++ b/.tmux.conf
-@@ -39,20 +39,20 @@ bind -n C-M-Right swap-window -t +1 \; next-window
- bind -n M-Down switch-client -n
- bind -n M-Up switch-client -p
+@@ -40,20 +40,20 @@ bind -n C-M-Right swap-window -t +1 \; next-window
+ bind -n M-S-Down switch-client -n
+ bind -n M-S-Up switch-client -p
  
 -unbind -n M-L
 -unbind -n C-M-h
