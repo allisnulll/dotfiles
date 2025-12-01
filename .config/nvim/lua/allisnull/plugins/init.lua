@@ -4,4 +4,5 @@ return {
     "tpope/vim-abolish",
     "seandewar/actually-doom.nvim",
     { "stevearc/dressing.nvim", event = "VeryLazy" },
+    { "HiPhish/info.vim" },
 }
