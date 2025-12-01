@@ -24,6 +24,8 @@ vim.opt.splitbelow = true
 
 vim.opt.backspace = "indent,eol,start"
 
+vim.opt.nrformats = "unsigned,bin,hex"
+
 vim.opt.swapfile = false
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
