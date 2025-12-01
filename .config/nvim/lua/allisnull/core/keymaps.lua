@@ -203,6 +203,8 @@ end
 local function swap_words()
     local w1 = vim.fn.input({ prompt = "Word #1: " })
     local w2 = vim.fn.input({ prompt = "Word #2: " })
+    if w1 == w2 then return end
+
     local w1_e = vim.fn.escape(w1, '"')
     local w2_e = vim.fn.escape(w2, '"')
 
