@@ -22,17 +22,17 @@ return {
                 lualine_c = {
                     "filename",
                     maximize_status,
+                    {
+                        flutter_app_version,
+                        cond = flutter_app_version_exists,
+                        color = { fg = "#5c5c5c" },
+                    },
                 },
                 lualine_x = {
                     {
                         lazy_status.updates,
                         cond = lazy_status.has_updates,
                         color = { fg = "#FF9e64" },
-                    },
-                    {
-                        flutter_app_version,
-                        cond = flutter_app_version_exists,
-                        color = { fg = "#5c5c5c" },
                     },
                     "encoding",
                     "fileformat",
