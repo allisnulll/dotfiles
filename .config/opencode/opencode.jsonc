@@ -4,7 +4,6 @@
     "keybinds": {
         "messages_half_page_up": "ctrl+u",
         "messages_half_page_down": "ctrl+d",
-        "input_forward_delete": "ctrl+alt+d",
         "session_child_cycle": "alt+right",
         "session_child_cycle_reverse": "alt+left"
     }
