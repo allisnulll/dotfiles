@@ -6,6 +6,8 @@ return {
 
         conform.setup({
             formatters_by_ft = {
+                lua = { "stylua" },
+                python = { "ruff" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 javascriptreact = { "prettier" },
@@ -15,19 +17,13 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
-                lua = { "stylua" },
-                python = { "isort", "black" },
-                php = { "pint", "php-cs-fixer" },
+                php = { "pint" },
             },
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>l", "", { desc = "Lint/Format" })
         vim.keymap.set({ "n", "v" }, "<leader>lf", function()
-            conform.format({
-                lsp_fallback = true,
-                async = false,
-                timout_ms = 1000,
-            })
+            conform.format({ lsp_format = "fallback" })
         end, { desc = "Format file or Range (visual mode)" })
     end,
 }
