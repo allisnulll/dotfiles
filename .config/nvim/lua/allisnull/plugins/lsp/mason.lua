@@ -17,14 +17,15 @@ return {
                         "lua_ls",
                         "html",
                         "cssls",
-                        "basedpyright",
+                        "pylsp",
                         "clangd",
                         "bashls",
                         "jsonls",
                         "gopls",
                         "jdtls",
                         "tinymist",
-                        "phpactor",
+                        "intelephense",
+                        "laravel_ls",
                     },
                 })
             end
@@ -32,12 +33,11 @@ return {
 
         require("mason-tool-installer").setup({
             ensure_installed = {
-                "prettier",
                 "stylua",
-                "isort",
-                "black",
-                "pylint",
+                "ruff",
+                "prettier",
                 "eslint_d",
+                "pint",
             },
         })
     end,

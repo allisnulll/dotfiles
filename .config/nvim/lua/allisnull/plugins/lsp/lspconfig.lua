@@ -130,15 +130,5 @@ return {
                 exportPdf = "never",
             },
         })
-
-        vim.lsp.config("basedpyright", {
-            capabilities = capabilities,
-            settings = {
-                analysis = {
-                    autoSearchPaths = true,
-                    useLibraryCodeForTypes = true,
-                },
-            },
-        })
     end,
 }
