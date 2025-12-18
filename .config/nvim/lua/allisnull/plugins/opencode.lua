@@ -4,7 +4,10 @@ return {
     config = function()
         ---@type opencode.Opts
         vim.g.opencode_opts = {
-            provider = { cmd = "opencode --agent plan" }
+            provider = {
+                cmd = "opencode --agent plan",
+                enabled = "tmux",
+            }
         }
 
         vim.o.autoread = true
