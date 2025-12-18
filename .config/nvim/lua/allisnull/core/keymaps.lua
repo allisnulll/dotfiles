@@ -211,6 +211,21 @@ local function swap_words()
     vim.fn.feedkeys(":s/\\v" .. w1 .. "|" .. w2 .. '\\C/\\=submatch(0)=="' .. w1_e .. '"?"' .. w2_e .. '":"' .. w1_e .. '\"/g\r')
 end
 
+local function visual_macro(letter)
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+
+    if start_line == 0 or end_line == 0 then
+        vim.notify("No visual selection found", vim.log.levels.WARN)
+        return
+    end
+
+    vim.opt.lazyredraw = true
+    vim.cmd(string.format("%d,%dg/.*/noautocmd norm! @%s", start_line, end_line, letter))
+    vim.opt.lazyredraw = false
+    vim.cmd("nohl")
+end
+
 -- Preferences
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
@@ -281,32 +296,32 @@ vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
 
 -- Macro
 vim.keymap.set("v", "<leader>q", "", { desc = "Macro" })
-vim.keymap.set("v", "<leader>qa", ":norm @a<CR>", { desc = "@a" })
-vim.keymap.set("v", "<leader>qb", ":norm @b<CR>", { desc = "@b" })
-vim.keymap.set("v", "<leader>qc", ":norm @c<CR>", { desc = "@c" })
-vim.keymap.set("v", "<leader>qd", ":norm @d<CR>", { desc = "@d" })
-vim.keymap.set("v", "<leader>qe", ":norm @e<CR>", { desc = "@e" })
-vim.keymap.set("v", "<leader>qf", ":norm @f<CR>", { desc = "@f" })
-vim.keymap.set("v", "<leader>qg", ":norm @g<CR>", { desc = "@g" })
-vim.keymap.set("v", "<leader>qh", ":norm @h<CR>", { desc = "@h" })
-vim.keymap.set("v", "<leader>qi", ":norm @i<CR>", { desc = "@i" })
-vim.keymap.set("v", "<leader>qj", ":norm @j<CR>", { desc = "@j" })
-vim.keymap.set("v", "<leader>qk", ":norm @k<CR>", { desc = "@k" })
-vim.keymap.set("v", "<leader>ql", ":norm @l<CR>", { desc = "@l" })
-vim.keymap.set("v", "<leader>qm", ":norm @m<CR>", { desc = "@m" })
-vim.keymap.set("v", "<leader>qn", ":norm @n<CR>", { desc = "@n" })
-vim.keymap.set("v", "<leader>qo", ":norm @o<CR>", { desc = "@o" })
-vim.keymap.set("v", "<leader>qp", ":norm @p<CR>", { desc = "@p" })
-vim.keymap.set("v", "<leader>qq", ":norm @q<CR>", { desc = "@q" })
-vim.keymap.set("v", "<leader>qr", ":norm @r<CR>", { desc = "@r" })
-vim.keymap.set("v", "<leader>qs", ":norm @s<CR>", { desc = "@s" })
-vim.keymap.set("v", "<leader>qt", ":norm @t<CR>", { desc = "@t" })
-vim.keymap.set("v", "<leader>qu", ":norm @u<CR>", { desc = "@u" })
-vim.keymap.set("v", "<leader>qv", ":norm @v<CR>", { desc = "@v" })
-vim.keymap.set("v", "<leader>qw", ":norm @w<CR>", { desc = "@w" })
-vim.keymap.set("v", "<leader>qx", ":norm @x<CR>", { desc = "@x" })
-vim.keymap.set("v", "<leader>qy", ":norm @y<CR>", { desc = "@y" })
-vim.keymap.set("v", "<leader>qz", ":norm @z<CR>", { desc = "@z" })
+vim.keymap.set("v", "<leader>qa", function() visual_macro("a") end, { desc = "@a" })
+vim.keymap.set("v", "<leader>qb", function() visual_macro("b") end, { desc = "@b" })
+vim.keymap.set("v", "<leader>qc", function() visual_macro("c") end, { desc = "@c" })
+vim.keymap.set("v", "<leader>qd", function() visual_macro("d") end, { desc = "@d" })
+vim.keymap.set("v", "<leader>qe", function() visual_macro("e") end, { desc = "@e" })
+vim.keymap.set("v", "<leader>qf", function() visual_macro("f") end, { desc = "@f" })
+vim.keymap.set("v", "<leader>qg", function() visual_macro("g") end, { desc = "@g" })
+vim.keymap.set("v", "<leader>qh", function() visual_macro("h") end, { desc = "@h" })
+vim.keymap.set("v", "<leader>qi", function() visual_macro("i") end, { desc = "@i" })
+vim.keymap.set("v", "<leader>qj", function() visual_macro("j") end, { desc = "@j" })
+vim.keymap.set("v", "<leader>qk", function() visual_macro("k") end, { desc = "@k" })
+vim.keymap.set("v", "<leader>ql", function() visual_macro("l") end, { desc = "@l" })
+vim.keymap.set("v", "<leader>qm", function() visual_macro("m") end, { desc = "@m" })
+vim.keymap.set("v", "<leader>qn", function() visual_macro("n") end, { desc = "@n" })
+vim.keymap.set("v", "<leader>qo", function() visual_macro("o") end, { desc = "@o" })
+vim.keymap.set("v", "<leader>qp", function() visual_macro("p") end, { desc = "@p" })
+vim.keymap.set("v", "<leader>qq", function() visual_macro("q") end, { desc = "@q" })
+vim.keymap.set("v", "<leader>qr", function() visual_macro("r") end, { desc = "@r" })
+vim.keymap.set("v", "<leader>qs", function() visual_macro("s") end, { desc = "@s" })
+vim.keymap.set("v", "<leader>qt", function() visual_macro("t") end, { desc = "@t" })
+vim.keymap.set("v", "<leader>qu", function() visual_macro("u") end, { desc = "@u" })
+vim.keymap.set("v", "<leader>qv", function() visual_macro("v") end, { desc = "@v" })
+vim.keymap.set("v", "<leader>qw", function() visual_macro("w") end, { desc = "@w" })
+vim.keymap.set("v", "<leader>qx", function() visual_macro("x") end, { desc = "@x" })
+vim.keymap.set("v", "<leader>qy", function() visual_macro("y") end, { desc = "@y" })
+vim.keymap.set("v", "<leader>qz", function() visual_macro("z") end, { desc = "@z" })
 
 -- To
 vim.keymap.set("n", "<leader>t", "", { desc = "To" })
