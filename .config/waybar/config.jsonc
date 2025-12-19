@@ -44,7 +44,9 @@
     "custom/wifi",          // wi-fi
     "bluetooth",            // bluetooth
     "custom/update",        // system update
-    "custom/right5"
+    // "custom/right5"
+    "custom/right5",
+    "tray"
   ],
 
   "modules-right": [
