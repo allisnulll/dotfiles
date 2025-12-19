@@ -36,6 +36,7 @@ return {
                 "stylua",
                 "ruff",
                 "prettier",
+                "mdformat",
                 "eslint_d",
                 "pint",
             },
