@@ -65,6 +65,11 @@ path = "~/Vault"
 startup_command = "vault;c"
 
 [[session]]
+name = " Trading"
+path = "~/Programming/Trading"
+startup_command = "conda activate quant && c && lsa"
+
+[[session]]
 name = "📓 Notes"
 path = "~/Vault/notes"
 startup_command = "c && lst"
