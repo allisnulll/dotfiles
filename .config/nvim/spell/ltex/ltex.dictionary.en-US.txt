@@ -13,3 +13,4 @@ keymap
 keybind
 sicp
 sicp
+minorly
