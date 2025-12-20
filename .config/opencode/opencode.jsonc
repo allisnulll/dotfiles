@@ -1,10 +1,18 @@
 {
     "$schema": "https://opencode.ai/config.json",
-    // "theme": "transparent",
     "keybinds": {
+        "leader": "alt+a",
+        "session_list": "<leader>s",
+        "session_child_cycle": "alt+right",
+        "session_child_cycle_reverse": "alt+left",
+        "session_timeline": "<leader>t",
+        "status_view": "<leader>l",
         "messages_half_page_up": "ctrl+u",
         "messages_half_page_down": "ctrl+d",
-        "session_child_cycle": "alt+right",
-        "session_child_cycle_reverse": "alt+left"
+        "messages_last_user": "<leader>p",
+        "command_list": "alt+p",
+        "input_undo": "ctrl+z",
+        "input_redo": "ctrl+y,ctrl+shift+z",
+        "terminal_suspend": "none"
     }
 }
