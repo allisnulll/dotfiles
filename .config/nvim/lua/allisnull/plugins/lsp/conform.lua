@@ -18,6 +18,7 @@ return {
                 yaml = { "prettier" },
                 markdown = { "mdformat" },
                 php = { "pint" },
+                zsh = { "beautysh" },
             },
         })
 
