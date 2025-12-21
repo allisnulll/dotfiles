@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if [[ $1 ]]; then
     hyprctl hyprpaper reload ,"$HOME/Pictures/wallpapers/alucard.png"

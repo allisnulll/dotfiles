@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 REPO_DIR="$HOME/.dotfiles"
 TARGET_FILE="$REPO_DIR/.config/nvim/lazy-lock.json"
@@ -6,7 +6,7 @@ SPELL_DIR="$REPO_DIR/.config/nvim/spell"
 
 sleep 10
 
-if [ ! -d "$REPO_DIR/.git" ]; then
+if [[ ! -d "$REPO_DIR/.git" ]]; then
     echo "Error: Not a git repository: $REPO_DIR"
     exit 1
 fi
