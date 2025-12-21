@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 cd ~
 clear
@@ -24,22 +24,22 @@ function neovim_install() {
 
 if [[ -d ~/src/neovim ]]; then
     echo "\e[38;5;52mWould you like to re-install NeoVim? (y/n)\e[0m "
-    vared -c answer
-    if [[ "${answer:l}" == "y" ]]; then
+    read -e answer
+    if [[ "${answer,,}" == "y" ]]; then
         if [[ -d ~/src/neovim.bck ]]; then
             unset answer
-            echo "\e[38;5;52mWould you like to overwrite neovim.bck? (y/n)\e[0m "
-            vared -c answer
-            if [[ "${answer:l}" == "y" ]]; then
+    echo "\e[38;5;52mWould you like to overwrite neovim.bck? (y/n)\e[0m "
+    read -e answer
+            if [[ "${answer,,}" == "y" ]]; then
                 rm ~/src/neovim.bck -rf
                 mv ~/src/neovim ~/src/neovim.bck
-                nvim_bck_created = 1
+                nvim_bck_created=1
             else
                 echo "\e[38;5;52mWill not overwrite neovim.bck.\e[0m"
             fi
         else
             mv ~/src/neovim ~/src/neovim.bck
-            nvim_bck_created = 1
+            nvim_bck_created=1
         fi
         sudo rm ~/src/neovim -rf
         mkdir ~/src/neovim
@@ -63,16 +63,16 @@ cd ~
 if [[ -d ~/src/nvimpager ]]; then
     unset answer
     echo "\e[38;5;52mWould you like to re-install NvimPager? (y/n)\e[0m "
-    vared -c answer
-    if [[ "${answer:l}" == "y" ]]; then
+    read -e answer
+    if [[ "${answer,,}" == "y" ]]; then
         if [[ -d ~/src/nvimpager.bck ]]; then
             unset answer
-            echo "\e[38;5;52mWould you like to overwrite nvimpager.bck? (y/n):\e[0m "
-            vared -c answer
-            if [[ "${answer:l}" == "y" ]]; then
+    echo "\e[38;5;52mWould you like to overwrite nvimpager.bck? (y/n):\e[0m "
+    read -e answer
+            if [[ "${answer,,}" == "y" ]]; then
                 rm ~/src/nvimpager.bck -rf
                 mv ~/src/nvimpager ~/src/nvimpager.bck
-                vimpager_bck_created = 1
+                nvimpager_bck_created=1
             else
                 echo "\e[38;5;52mWill not overwrite nvimpager.bck.\e[0m"
             fi
