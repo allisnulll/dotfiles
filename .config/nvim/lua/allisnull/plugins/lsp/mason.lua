@@ -34,6 +34,8 @@ return {
         require("mason-tool-installer").setup({
             ensure_installed = {
                 "stylua",
+                "shellcheck",
+                "beautysh",
                 "ruff",
                 "prettier",
                 "mdformat",
