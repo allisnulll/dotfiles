@@ -1,10 +1,23 @@
 #!/usr/bin/env bash
 
-cd ~
+mkdir ~/src
+mkdir ~/.config
+mkdir ~/.local
+mkdir -p ~/.zsh/plugins
+
 clear
-paru -S --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 python python-pynvim python-pip xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
+
+cd ~/.dotfiles || exit
+stow .
+
+cd ~ || exit
+
+sudo ln -sf ~/.dotfiles/pacman.conf /etc
+paru -Sy --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git
 
 xdg-user-dirs-update
+
+rustup default stable
 cargo install tree-sitter-cli
 
 sudo usermod -c "AllIsNull" allisnull
@@ -14,7 +27,7 @@ nvimpager_bck_created=0
 
 # Neovim
 function neovim_install() {
-    cd ~/src/neovim
+    cd ~/src/neovim || exit
     git clone --depth=1 https://github.com/neovim/neovim.git .
     git apply ~/.dotfiles/patches/nvim-ufo.patch
 
@@ -23,22 +36,22 @@ function neovim_install() {
 }
 
 if [[ -d ~/src/neovim ]]; then
-    echo "\e[38;5;52mWould you like to re-install NeoVim? (y/n)\e[0m "
-    read -e answer
+    printf "\e[38;5;52mWould you like to re-install NeoVim? (y/n)\e[0m "
+    read -re answer
     if [[ "${answer,,}" == "y" ]]; then
-        if [[ -d ~/src/neovim.bck ]]; then
+        if [[ -d ~/src/neovim.backup ]]; then
             unset answer
-    echo "\e[38;5;52mWould you like to overwrite neovim.bck? (y/n)\e[0m "
-    read -e answer
+            printf "\e[38;5;52mWould you like to overwrite neovim.backup? (y/n)\e[0m "
+            read -re answer
             if [[ "${answer,,}" == "y" ]]; then
-                rm ~/src/neovim.bck -rf
-                mv ~/src/neovim ~/src/neovim.bck
+                rm ~/src/neovim.backup -rf
+                mv ~/src/neovim ~/src/neovim.backup
                 nvim_bck_created=1
             else
-                echo "\e[38;5;52mWill not overwrite neovim.bck.\e[0m"
+                printf "\e[38;5;52mWill not overwrite neovim.backup.\e[0m\n"
             fi
         else
-            mv ~/src/neovim ~/src/neovim.bck
+            mv ~/src/neovim ~/src/neovim.backup
             nvim_bck_created=1
         fi
         sudo rm ~/src/neovim -rf
@@ -52,32 +65,32 @@ fi
 
 # NvimPager
 function nvimpager_install() {
-    cd ~/src/nvimpager
+    cd ~/src/nvimpager || exit
     git clone --depth=1 https://github.com/lucc/nvimpager.git .
     git apply ~/.dotfiles/patches/nvimpager.patch
 
-    make PREFIX=$HOME/.local install
+    make PREFIX="$HOME"/.local install
 }
 
-cd ~
+cd ~ || exit
 if [[ -d ~/src/nvimpager ]]; then
     unset answer
-    echo "\e[38;5;52mWould you like to re-install NvimPager? (y/n)\e[0m "
-    read -e answer
+    printf "\e[38;5;52mWould you like to re-install NvimPager? (y/n)\e[0m "
+    read -re answer
     if [[ "${answer,,}" == "y" ]]; then
-        if [[ -d ~/src/nvimpager.bck ]]; then
+        if [[ -d ~/src/nvimpager.backup ]]; then
             unset answer
-    echo "\e[38;5;52mWould you like to overwrite nvimpager.bck? (y/n):\e[0m "
-    read -e answer
+            printf "\e[38;5;52mWould you like to overwrite nvimpager.backup? (y/n):\e[0m "
+            read -re answer
             if [[ "${answer,,}" == "y" ]]; then
-                rm ~/src/nvimpager.bck -rf
-                mv ~/src/nvimpager ~/src/nvimpager.bck
+                rm ~/src/nvimpager.backup -rf
+                mv ~/src/nvimpager ~/src/nvimpager.backup
                 nvimpager_bck_created=1
             else
-                echo "\e[38;5;52mWill not overwrite nvimpager.bck.\e[0m"
+                printf "\e[38;5;52mWill not overwrite nvimpager.backup.\e[0m\n"
             fi
         else
-            mv ~/src/nvimpager ~/src/nvimpager.bck
+            mv ~/src/nvimpager ~/src/nvimpager.backup
         fi
         rm ~/src/nvimpager -rf
         mkdir ~/src/nvimpager
@@ -112,5 +125,5 @@ git clone https://github.com/allisnulll/zsh-undo-dir ~/.dotfiles/.zsh/plugins/zs
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-GTK-Theme ~/.dotfiles/.themes
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-Icon-Set ~/.dotfiles/.icons
 
-[[ nvim_bck_created == 1 ]] && echo "\e[38;5;52mCreated backup of old neovim: ~/src/neovim.bck\e[0m"
-[[ nvimpager_bck_created == 1 ]] && echo "\e[38;5;52mCreated backup of old nvimpager: ~/src/nvimpager.bck\e[0m"
+[[ $nvim_bck_created == 1 ]] && printf "\e[38;5;52mCreated backup of old neovim: ~/src/neovim.backup\e[0m\n"
+[[ $nvimpager_bck_created == 1 ]] && printf "\e[38;5;52mCreated backup of old nvimpager: ~/src/nvimpager.backup\e[0m\n"
