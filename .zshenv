@@ -43,9 +43,6 @@ export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export GOBIN="$HOME/go/bin"
 export PATH="$GOBIN:$PATH"
 
-# Rust Cargo
-source $HOME/.cargo/env
-
 # Qt
 QT_QPA_PLATFORM="wayland"
 
