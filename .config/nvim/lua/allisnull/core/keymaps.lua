@@ -369,10 +369,7 @@ vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level"
 -- Lazy
 vim.keymap.set("n", "<leader>z", "", { desc = "Lazy/Zen" })
 vim.keymap.set("n", "<leader>zz", ":Lazy<CR>", { desc = "Lazy" })
-vim.keymap.set("n", "<leader>zu", function()
-    vim.cmd("Lazy update")
-    vim.fn.jobstart("~/.dotfiles/scripts/lazy_update_commit.sh", { detach = true })
-end, { desc = "Lazy Update Plugins" })
+vim.keymap.set("n", "<leader>zu", ":Lazy update<CR>", { desc = "Lazy Update Plugins" })
 vim.keymap.set("n", "<leader>zr", ":Lazy reload ", { desc = "Lazy Reload Plugin" })
 vim.keymap.set("n", "<leader>zc", ":Lazy clean<CR>", { desc = "Lazy Clean Plugins" })
 
