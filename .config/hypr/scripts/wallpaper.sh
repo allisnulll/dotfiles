@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+ACTIVE_MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name')
+
 if [[ $1 ]]; then
-    hyprctl hyprpaper reload ,"$HOME/Pictures/wallpapers/alucard.png"
-    exit
+    WALLPAPER="$WALLPAPER_DIR/alucard.png"
+else
+    CURRENT_WALL=$(basename "$(hyprctl hyprpaper listloaded)")
+    WALLPAPER=$(fd --type f . "$WALLPAPER_DIR" | rg -v "alucard.png|$CURRENT_WALL" | shuf -n 1)
 fi
 
-WALLPAPER_DIR="$HOME/Pictures/wallpapers/"
-CURRENT_WALL=$(basename $(hyprctl hyprpaper listloaded))
-
-WALLPAPER=$(fd --type f . $WALLPAPER_DIR | rg -v "alucard.png|$CURRENT_WALL" | shuf -n 1)
-
-hyprctl hyprpaper reload ,$WALLPAPER
+hyprctl hyprpaper preload "$WALLPAPER"
+hyprctl hyprpaper wallpaper "$ACTIVE_MONITOR,$WALLPAPER"
