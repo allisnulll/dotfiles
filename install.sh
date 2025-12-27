@@ -8,12 +8,12 @@ mkdir -p ~/.zsh/plugins
 clear
 
 cd ~/.dotfiles || exit
-stow .
+stow --no-folding .
 
 cd ~ || exit
 
 sudo ln -sf ~/.dotfiles/pacman.conf /etc
-paru -Sy --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
+paru -Sy --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
 
 xdg-user-dirs-update
 
