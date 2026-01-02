@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir ~/src
-mkdir ~/.config
-mkdir ~/.local
-mkdir -p ~/.zsh/plugins
-
 clear
 
 cd ~/.dotfiles || exit
@@ -118,6 +113,8 @@ git clone --depth=1 https://github.com/jeffreytse/zsh-vi-mode.git ~/.zsh/plugins
 git clone --depth=1 https://github.com/MichaelAquilina/zsh-you-should-use ~/.zsh/plugins/zsh-you-should-use
 [[ -d ~/.zsh/plugins/powerlevel10k ]] || mkdir -p ~/.zsh/plugins/powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/plugins/powerlevel10k
+[[ -d ~/.zsh/plugins/zsh-nix-shell ]] || mkdir -p ~/.zsh/plugins/zsh-nix-shell
+git clone --depth=1 https://github.com/chisui/zsh-nix-shell.git ~/.zsh/plugins/zsh-nix-shell
 
 # Git Submodules
 git clone https://github.com/allisnulll/keyboard ~/.dotfiles/kanata
