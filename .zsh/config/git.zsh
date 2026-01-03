@@ -1,5 +1,4 @@
 # Git
-alias gi='[[ -e .git ]] || (git init && git commit --allow-empty -m "init")'
 alias ga="git add"
 alias gaa="git add ."
 alias gau="git add -u"

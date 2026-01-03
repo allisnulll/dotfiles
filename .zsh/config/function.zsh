@@ -93,6 +93,17 @@ bindkey -M vicmd "\es" sesh-sessions
 bindkey -M viins "\es" sesh-sessions
 
 # Git
+function ginit() {
+    if [[ ! -d .git ]]; then
+        git init
+        git commit --allow-empty -m "init"
+        git reset
+        echo "ai-training: false" > .optout;
+        git add .optout;
+        git commit -m 'Opt out of AI Training'
+    fi
+}
+
 function ghistory() {
     git log --reverse --format="%H %s" $1 $2 | while read commit_hash commit_message; do
         echo "--------------------------------------------------------------------------------"
