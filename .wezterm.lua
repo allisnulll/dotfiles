@@ -20,6 +20,7 @@ config.window_decorations = "NONE"
 config.window_background_opacity = .75
 config.window_close_confirmation = "NeverPrompt"
 config.font = wezterm.font("Maple Mono NF")
+config.force_reverse_video_cursor = true
 
 config.keys = {
     {
