@@ -11,6 +11,7 @@ return {
             bang_expansion = true,
         }
 
-        vim.keymap.set("n", "<F5>", ":5Compile<CR>", { desc = "Compile Mode" })
+        vim.keymap.set("n", "<F5>", ":vert Compile<CR>", { desc = "Compile Mode" })
+        vim.keymap.set("n", "<F6>", ":vert Recompile<CR>", { desc = "Recompile Mode" })
     end
 }
