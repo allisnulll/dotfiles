@@ -1,10 +1,7 @@
 return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
-    cond = function()
-        local output = vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")
-        return #output ~= 0
-    end,
+    cond = #(vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")) ~= 0,
     keys = {
         { "<leader>h", "", desc = "Git/Hunks", mode = { "n", "v" }},
         { "<leader>hq", function()
