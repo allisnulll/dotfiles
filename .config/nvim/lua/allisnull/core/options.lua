@@ -43,6 +43,19 @@ vim.opt.listchars = {
     eol = "⏎",
 }
 
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = {
+    eob = " ",
+    fold = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = "",
+    foldinner = " ",
+}
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_winsize = 25
 
