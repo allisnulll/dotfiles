@@ -39,6 +39,19 @@ vim.opt.listchars = {
     eol = "⏎",
 }
 
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = {
+    eob = " ",
+    fold = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = "",
+    foldinner = " ",
+}
+
 vim.g.mapleader = " "
 
 -- Keymaps
@@ -363,6 +376,18 @@ require("zen-mode").setup({
 
     on_open = function(_)
         -- NOTE: Figure out how to toggle which-key https://github.com/folke/which-key.nvim/discussions/510
+        vim.opt.foldcolumn = "1"
+        vim.opt.foldlevel = 99
+        vim.opt.foldlevelstart = 99
+        vim.opt.foldenable = true
+        vim.opt.fillchars = {
+            eob = " ",
+            fold = " ",
+            foldopen = "",
+            foldsep = " ",
+            foldclose = "",
+            foldinner = " ",
+        }
         vim.fn.system("tmux set status off")
         vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
         vim.fn.system("kitten @ set-font-size +6")
