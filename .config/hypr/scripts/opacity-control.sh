@@ -17,7 +17,7 @@ touch "$MEMORY_FILE"
 
 DIRECTION="$1"
 
-ADDR=$(hyprctl activewindow -j | jq -r '.address')
+ADDR=$(hyprctl activewindow -j | jq -r ".address")
 [[ -z "$ADDR" || "$ADDR" == "null" ]] && notify-send "$NOTIFY_TITLE" "No active window found" && exit 1
 
 CURRENT_OPACITY=$(cat "$MEMORY_FILE" | jq -r --arg addr "$ADDR" '.[$addr] // 1.0')
@@ -35,7 +35,7 @@ case "$DIRECTION" in
         NEW_OPACITY=$DEFAULT_OPACITY
         ;;
     *)
-        notify-send "$NOTIFY_TITLE" "Usage: $0 --increase | --decrease | --reset"
+        notify-send "$NOTIFY_TITLE" "Usage: $0 increase | decrease | reset"
         exit 1
         ;;
 esac
@@ -44,17 +44,15 @@ echo "NEW_OPACITY: $NEW_OPACITY" >> $LOG_FILE
 echo "ADDR: $ADDR" >> $LOG_FILE
 
 BATCH=""
-for PROP in alpha alphainactive alphafullscreen alphaoverride; do
-    BATCH="$BATCH ; dispatch setprop address:$ADDR $PROP $NEW_OPACITY"
-done
+BATCH="$BATCH; dispatch setprop address:$ADDR opacity $NEW_OPACITY override"
 
 if [ "$(echo "$NEW_OPACITY != 1.0" | bc)" -eq 1 ]; then
-    BATCH="$BATCH ; dispatch setprop address:$ADDR noblur true"
+    BATCH="$BATCH; dispatch setprop address:$ADDR noblur true"
 else
-    BATCH="$BATCH ; dispatch setprop address:$ADDR noblur false"
+    BATCH="$BATCH; dispatch setprop address:$ADDR noblur false"
 fi
 
-BATCH="$BATCH ; dispatch focuswindow address:$ADDR"
+BATCH="$BATCH; dispatch focuswindow address:$ADDR"
 
 BATCH="${BATCH:2}"
 
