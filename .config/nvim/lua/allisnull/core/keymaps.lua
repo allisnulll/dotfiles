@@ -276,7 +276,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+y$', { desc = "Yank eol to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete to void" })
 vim.keymap.set("n", "<leader>D", '"_D', { desc = "Delete eol to void" })
-vim.keymap.set("v", "<leader>p", '"_dp', { desc = "Put to void" })
+vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Put to void" })
 
 vim.keymap.set("n", "<leader>s", ":%s/\\v<<C-r><C-w>>//g<Left><Left>", { desc = "Substitute current word" })
 vim.keymap.set("n", "<leader>S", ":%s/\\v<<C-r><C-a>>//g<Left><Left>", { desc = "Substitute current WORD" })
