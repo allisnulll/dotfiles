@@ -14,6 +14,10 @@ return {
             { "cru", desc = "Coerce to UPPER_SNAKE_CASE" },
             { "cr-", desc = "Coerce to dash-case" },
             { "cr.", desc = "Coerce to dot.case" },
+            { "<M-d><M-d>", desc = "DapViewToggle" },
+            { "<M-d>b", desc = "DapToggleBreakpoint" },
+            { "<M-d>c", desc = "DapContinue" },
+            { "<M-d>w", desc = "DapViewWatch" },
         }
         for i = 2, 9 do
             table.insert(mappings, {"<leader>" .. i, hidden = true })
