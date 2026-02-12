@@ -24,5 +24,5 @@ return {
             ["~/Vault"] = { dir_path = "assets/images" },
         },
     },
-    keys = {{ "<leader>p", ":PasteImage<CR>", desc = "Paste image from system clipboard" }},
+    keys = {{ "<M-p>", ":PasteImage<CR>", desc = "Paste image from system clipboard" }},
 }
