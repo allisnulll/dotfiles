@@ -256,7 +256,7 @@ vim.pack.add({
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/folke/todo-comments.nvim" },
-    { src = "https://github.com/norcalli/nvim-colorizer.lua" }, -- NOTE: run `git fetch pull/115/head:pr-115 && git checkout 260bc9d2f56ad5333df53938835c69639ef0f452`
+    { src = "https://github.com/norcalli/nvim-colorizer.lua" }, -- NOTE: run `git fetch origin pull/115/head:pr-115 && git checkout 260bc9d2f56ad5333df53938835c69639ef0f452`
     { src = "https://github.com/chentoast/marks.nvim" },
     { src = "https://github.com/echasnovski/mini.ai" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
