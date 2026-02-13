@@ -22,13 +22,13 @@ return {
             vim.ui.input({ prompt = "Compile command: " }, function(command)
                 if command and command ~= "" then
                     vim.cmd("vert Compile " .. command)
-                    vim.defer_fn(compile_mode.send_to_qflist, 100)
+                    vim.defer_fn(compile_mode.send_to_qflist, 300)
                 end
             end)
         end, { desc = "Compile Mode" })
         vim.keymap.set("n", "<F6>", function()
             vim.cmd("vert Recompile")
-            vim.defer_fn(compile_mode.send_to_qflist, 100)
+            vim.defer_fn(compile_mode.send_to_qflist, 300)
         end, { desc = "Recompile Mode" })
     end
 }
