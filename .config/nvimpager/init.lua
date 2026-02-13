@@ -171,6 +171,9 @@ end
 
 vim.keymap.set({ "n", "i", "v" }, "<C-z>", "")
 
+vim.keymap.set("n", "<M-j>", "gj", { desc = "gj" })
+vim.keymap.set("n", "<M-k>", "gk", { desc = "gk" })
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Repeat the latest "/" or "?"' })
@@ -303,12 +306,6 @@ require("nvim-treesitter.config").setup({
 -- Ufo
 local ufo = require("ufo")
 
-vim.opt.foldcolumn = "1"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
 vim.keymap.set("n", "zR", ufo.openAllFolds)
 vim.keymap.set("n", "zM", ufo.closeAllFolds)
 vim.keymap.set("n", "<C-f>", function()
@@ -363,53 +360,31 @@ require("zen-mode").setup({
         options = {
             signcolumn = "no",
             colorcolumn = "0",
-            laststatus = 0,
             wrap = true,
+            foldcolumn = "1",
+            foldlevel = 99,
+            foldlevelstart = 99,
+            foldenable = true,
+            fillchars = "foldopen:,foldclose:,eob: ,fold: ,foldsep: ,foldinner: ",
         },
     },
-    plugins = {
-        enable = true,
-        rules = false,
-        showcmd = false,
-    },
-    gitsigns = { enabled = false },
 
     on_open = function(_)
         -- NOTE: Figure out how to toggle which-key https://github.com/folke/which-key.nvim/discussions/510
-        vim.opt.foldcolumn = "1"
-        vim.opt.foldlevel = 99
-        vim.opt.foldlevelstart = 99
-        vim.opt.foldenable = true
-        vim.opt.fillchars = {
-            eob = " ",
-            fold = " ",
-            foldopen = "",
-            foldsep = " ",
-            foldclose = "",
-            foldinner = " ",
-        }
         vim.fn.system("tmux set status off")
         vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z || tmux resize-pane -Z')
         vim.fn.system("kitten @ set-font-size +6")
         vim.diagnostic.enable(false)
-
-        vim.keymap.set("n", "<M-j>", "gj", { noremap = true, silent = true, buffer = true })
-        vim.keymap.set("n", "<M-k>", "gk", { noremap = true, silent = true, buffer = true })
     end,
     on_close = function(_)
         vim.fn.system("tmux set status on")
         vim.fn.system('tmux list-panes -F "\\#F" | grep -q Z && tmux resize-pane -Z')
         vim.fn.system("kitten @ set-font-size 0")
         vim.diagnostic.enable()
-
-        if not vim.fn.getcwd():match("/home/allisnull/Vault") then
-            vim.api.nvim_buf_del_keymap(0, "n", "<M-j>")
-            vim.api.nvim_buf_del_keymap(0, "n", "<M-k>")
-        end
     end,
 })
 
-vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { desc = "ZenMode" })
+vim.keymap.set("n", "<M-z>", ":ZenMode<CR>", { desc = "ZenMode" })
 
 -- TodoComments
 local todo_comments = require("todo-comments")
