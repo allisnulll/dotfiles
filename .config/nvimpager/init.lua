@@ -251,8 +251,8 @@ vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
 
 -- Plugins
 vim.pack.add({
-    { src = "https://github.com/christoomey/vim-tmux-navigator" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/christoomey/vim-tmux-navigator" },
     { src = "https://github.com/kevinhwang91/nvim-ufo" },
     { src = "https://github.com/kevinhwang91/promise-async" },
     { src = "https://github.com/folke/tokyonight.nvim" },
@@ -302,6 +302,17 @@ require("nvim-treesitter.config").setup({
         },
     },
 })
+
+-- Tmux Navigator
+vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-Left>", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-Down>", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-Up>", ":TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-Right>", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-\\>", ":TmuxNavigatePrevious<CR>")
 
 -- Ufo
 local ufo = require("ufo")
