@@ -35,7 +35,7 @@ startup_command = "v init.el;c"
 
 [[session]]
 name = "⌨️ Kanata"
-path = "~/.dotfiles/kanata"
+path = "~/.dotfiles/.config/kanata"
 startup_command = "v kanata.kbd;c"
 
 [[session]]
@@ -77,12 +77,12 @@ startup_command = "c && lst"
 [[session]]
 name = "📥 Downloads"
 path = "~/Downloads"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "📄 Documents"
 path = "~/Documents"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "📹 Videos"
@@ -92,7 +92,7 @@ startup_command = "y;c"
 [[session]]
 name = "🎵 Music"
 path = "~/Music"
-startup_command = "c && lsa"
+startup_command = "y;c"
 
 [[session]]
 name = "📸 Pictures"
