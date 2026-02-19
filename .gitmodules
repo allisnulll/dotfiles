@@ -1,3 +1,6 @@
 [submodule "kanata"]
 	path = .config/kanata
 	url = https://github.com/allisnulll/kanata-config
+[submodule "zsh-undo-dir"]
+    path = .zsh/plugins/zsh-undo-dir
+    url = https://github.com/allisnulll/zsh-undo-dir
