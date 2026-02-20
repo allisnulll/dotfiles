@@ -117,7 +117,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/plugins/
 git clone --depth=1 https://github.com/chisui/zsh-nix-shell.git ~/.zsh/plugins/zsh-nix-shell
 
 # Git Submodules
-git clone https://github.com/allisnulll/keyboard ~/.dotfiles/kanata
+git clone https://github.com/allisnulll/keyboard ~/.dotfiles/.config/kanata
 git clone https://github.com/allisnulll/zsh-undo-dir ~/.dotfiles/.zsh/plugins/zsh-undo-dir
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-GTK-Theme ~/.dotfiles/.themes
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-Icon-Set ~/.dotfiles/.icons
