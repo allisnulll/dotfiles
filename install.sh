@@ -12,8 +12,8 @@ paru -Sy --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin 
 
 xdg-user-dirs-update
 
+pyenv install 3
 rustup default stable
-cargo install tree-sitter-cli
 
 sudo usermod -c "AllIsNull" allisnull
 
