@@ -8,7 +8,7 @@ stow --no-folding .
 cd ~ || exit
 
 sudo ln -sf ~/.dotfiles/pacman.conf /etc
-paru -Sy --needed fastfetch eza zoxide btop htop powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
+paru -Sy --needed fastfetch eza zoxide btop htop yazi powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
 
 xdg-user-dirs-update
 
@@ -16,6 +16,7 @@ pyenv install 3
 rustup default stable
 
 sudo usermod -c "AllIsNull" allisnull
+sudo usermod -a -G networkmanager audio input uinput dialout allisnull
 
 nvim_bck_created=0
 nvimpager_bck_created=0
@@ -24,7 +25,6 @@ nvimpager_bck_created=0
 function neovim_install() {
     cd ~/src/neovim || exit
     git clone --depth=1 https://github.com/neovim/neovim.git .
-    git apply ~/.dotfiles/patches/nvim-ufo.patch
 
     sudo make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
@@ -50,11 +50,11 @@ if [[ -d ~/src/neovim ]]; then
             nvim_bck_created=1
         fi
         sudo rm ~/src/neovim -rf
-        mkdir ~/src/neovim
+        mkdir -p ~/src/neovim
         neovim_install
     fi
 else
-    mkdir ~/src/neovim
+    mkdir -p ~/src/neovim
     neovim_install
 fi
 
@@ -88,11 +88,11 @@ if [[ -d ~/src/nvimpager ]]; then
             mv ~/src/nvimpager ~/src/nvimpager.backup
         fi
         rm ~/src/nvimpager -rf
-        mkdir ~/src/nvimpager
+        mkdir -p ~/src/nvimpager
         nvimpager_install
     fi
 else
-    mkdir ~/src/nvimpager
+    mkdir -p ~/src/nvimpager
     nvimpager_install
 fi
 
@@ -121,6 +121,8 @@ git clone https://github.com/allisnulll/keyboard ~/.dotfiles/.config/kanata
 git clone https://github.com/allisnulll/zsh-undo-dir ~/.dotfiles/.zsh/plugins/zsh-undo-dir
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-GTK-Theme ~/.dotfiles/.themes
 git clone --depth=1 https://github.com/Kiaryy/Milk-Outside-a-Bag-Icon-Set ~/.dotfiles/.icons
+
+stow --no-folding .
 
 [[ $nvim_bck_created == 1 ]] && printf "\e[38;5;52mCreated backup of old neovim: ~/src/neovim.backup\e[0m\n"
 [[ $nvimpager_bck_created == 1 ]] && printf "\e[38;5;52mCreated backup of old nvimpager: ~/src/nvimpager.backup\e[0m\n"
