@@ -98,9 +98,9 @@ function ginit() {
         git init
         git commit --allow-empty -m "init"
         git reset
-        echo "ai-training: false" > .optout;
-        git add .optout;
-        git commit -m 'Opt out of AI Training'
+        cp ~/.dotfiles/LICENSE .
+        git add LICENSE
+        git commit -m "Opt out of AI Training"
     fi
 }
 
