@@ -8,12 +8,14 @@ stow --no-folding .
 cd ~ || exit
 
 sudo ln -sf ~/.dotfiles/pacman.conf /etc
-paru -Sy --needed fastfetch eza zoxide btop htop yazi powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
+paru -Sy --needed fastfetch eza zoxide btop htop yazi powertop tree tmux go sesh-bin fzf ripgrep fd jq wget cmake clang gdb nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
 
 xdg-user-dirs-update
 
 pyenv install 3
 rustup default stable
+
+ya pkg add BennyOe/tokyo-night
 
 sudo usermod -c "AllIsNull" allisnull
 sudo usermod -a -G networkmanager audio input uinput dialout allisnull
