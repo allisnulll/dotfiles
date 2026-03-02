@@ -8,7 +8,11 @@ return {
         { "<M-d><M-d>", ":DapViewToggle<CR>", { desc = "DapViewToggle" }},
         { "<M-d>b", ":DapToggleBreakpoint<CR>", { desc = "DapToggleBreakpoint" }},
         { "<M-d>c", ":DapContinue<CR>", { desc = "DapContinue" }},
-        { "<M-d>w", ":DapViewWatch<CR>", { desc = "DapViewWatch" }},
+        { "<M-d>w", function()
+            vim.ui.input({ prompt = "DapViewWatch: " }, function(command)
+                vim.fn.feedkeys(":DapViewWatch " .. command .. "\r")
+            end)
+        end, { desc = "DapViewWatch" }},
         { "<M-d>s", ":DapStepOver<CR>", { desc = "DapStepOver" }},
         { "<M-d>i", ":DapStepInto<CR>", { desc = "DapStepInto" }},
         { "<M-d>o", ":DapStepOut<CR>", { desc = "DapStepOut" }},
@@ -19,6 +23,13 @@ return {
         require("nvim-dap-virtual-text").setup()
 
         local dap = require("dap")
+
+        vim.keymap.set("n", "<M-d>r", dap.restart, { desc = "DapRestart" });
+        vim.keymap.set("n", "<M-d>f", function()
+            vim.ui.input({ prompt = "DapBreakpoint Condition: " }, function(condition)
+                dap.set_breakpoint(condition)
+            end)
+        end, { desc = "DapSetConditionalBreakpoint" });
 
         dap.adapters.gdb = {
             type = "executable",
