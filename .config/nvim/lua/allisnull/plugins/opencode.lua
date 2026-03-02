@@ -2,16 +2,18 @@ return {
     "NickvanDyke/opencode.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
+        vim.g.opencode_opts = {
+            server = {
+                start = function()
+                    vim.system({"tmux", "split-window", "-h", "-l", "40%", "bash -c 'opencode --agent plan --port'"})
+                    vim.system({"tmux", "select-pane", "-l"})
+                end,
+            }
+        }
+
         vim.o.autoread = true
 
         local opencode = require("opencode")
-
-        vim.g.opencode_opts = {
-            provider = {
-                enabled = "tmux",
-                cmd = "opencode --agent plan",
-            }
-        }
 
         vim.keymap.set({ "n", "x" }, "<M-a><M-a>", function() opencode.ask("@this: ", { submit = true }) end, { desc = "Ask opencode" })
         vim.keymap.set({ "n", "x" }, "<M-a>b", function() opencode.ask("@buffer: ", { submit = true }) end, { desc = "Ask opencode about buffer" })
