@@ -1,5 +1,6 @@
 return {
     "folke/zen-mode.nvim",
+    commit = "38aae7e15b25e8a0a106912dab7c93b513b6adf4",
     config = function()
         require("zen-mode").setup({
             window = {
@@ -8,10 +9,6 @@ return {
                     signcolumn = "no",
                     colorcolumn = "0",
                     wrap = true,
-                    foldcolumn = "1",
-                    foldlevel = 99,
-                    foldlevelstart = 99,
-                    foldenable = true,
                     fillchars = "foldopen:,foldclose:,eob: ,fold: ,foldsep: ,foldinner: ",
                 },
             },
