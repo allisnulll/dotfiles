@@ -64,15 +64,20 @@ if ! command -v nmcli &>/dev/null; then
   exit 1
 fi
 
+if ! nmcli -t general &>/dev/null 2>&1; then
+  echo "{\"text\": \"󰤮\", \"tooltip\": \"NetworkManager unavailable\"}"
+  exit 0
+fi
+
 # Check if Wi-Fi is enabled
-wifi_status=$(nmcli radio wifi)
+wifi_status=$(nmcli -t radio wifi 2>/dev/null)
 
 if [ "$wifi_status" = "disabled" ]; then
   echo "{\"text\": \"󰤮\", \"tooltip\": \"Wi-Fi Disabled\"}"
   exit 0
 fi
 
-wifi_info=$(nmcli -t -f active,ssid,signal,security dev wifi | grep "^yes")
+wifi_info=$(nmcli -t -f active,ssid,signal,security dev wifi 2>/dev/null | grep "^yes")
 
 # If no ESSID is found, set a default value
 if [ -z "$wifi_info" ]; then
@@ -93,19 +98,19 @@ else
   # phy_mode=""
   signal=$(echo "$wifi_info" | awk -F: '{print $3}')
 
-  active_device=$(nmcli -t -f DEVICE,STATE device status |
+  active_device=$(nmcli -t -f DEVICE,STATE device status 2>/dev/null |
     grep -w "connected" |
     grep -v -E "^(dummy|lo:)" |
     awk -F: '{print $1}')
 
   if [ -n "$active_device" ]; then
-    output=$(nmcli -e no -g ip4.address,ip4.gateway,general.hwaddr device show "$active_device")
+    output=$(nmcli -e no -g ip4.address,ip4.gateway,general.hwaddr device show "$active_device" 2>/dev/null)
 
     ip_address=$(echo "$output" | sed -n '1p')
     # gateway=$(echo "$output" | sed -n '2p')
     # mac_address=$(echo "$output" | sed -n '3p')
 
-    line=$(nmcli -e no -t -f active,bssid,chan,freq device wifi | grep "^yes")
+    line=$(nmcli -e no -t -f active,bssid,chan,freq device wifi 2>/dev/null | grep "^yes")
 
     # bssid=$(echo "$line" | awk -F':' '{print $2":"$3":"$4":"$5":"$6":"$7}')
     chan=$(echo "$line" | awk -F':' '{print $8}')

@@ -53,12 +53,12 @@ fi
 # Check for official repository updates
 official_updates=$(
   (while pgrep -x checkupdates >/dev/null; do sleep 1; done)
-  checkupdates | grep -c '^'
+  checkupdates 2>/dev/null | grep -c '^'
 )
 
 # Check for Flatpak updates
 if pkg_installed flatpak; then
-  flatpak_updates=$(flatpak remote-ls --updates | grep -c '^')
+  flatpak_updates=$(flatpak remote-ls --updates 2>/dev/null | grep -c '^' || echo 0)
 else
   flatpak_updates=0
 fi
