@@ -32,6 +32,8 @@ alias copy="wl-copy"
 alias paste="wl-paste"
 alias imvp="wl-paste > /tmp/clip.png && imv /tmp/clip.png"
 
+alias autologin="sudo sed -i 's/\(^ExecStart=\).*/\\1\\/sbin\\/agetty -a allisnull - \${TERM}/' /usr/lib/systemd/system/getty@.service"
+
 # Fzf
 alias vf='file=$(fzf && exit) && [[ -n $file ]] && v "$file"'
 alias cdf='file=$(fzf && exit) && [[ -n $file ]] && cd $(dirname "$file")'
