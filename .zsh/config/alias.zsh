@@ -43,6 +43,7 @@ alias p="paru"
 
 # NeoVim
 alias v="nvim"
+alias info="nvim -c 'Info $@' -c 'only'"
 
 # NvimPager
 alias vp="nvimpager"
