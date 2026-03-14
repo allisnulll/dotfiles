@@ -126,6 +126,11 @@ path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
 startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
+name = "🧑🏽‍🌾 TheFarmerWasReplaced"
+path = "~/.steam/steam/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
+startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope find_files';c"
+
+[[session]]
 name = "🧠 Brain"
 path = "~/Programming/work/Brain/brainmusik-mobile/"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
@@ -136,6 +141,6 @@ path = "~/Programming/work/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
-name = "🧑🏽‍🌾 TheFarmerWasReplaced"
-path = "~/.steam/steam/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
-startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope find_files';c"
+name = "🏅 JuegazoPR"
+path = "~/Programming/work/juegazopr"
+startup_command = "~/.config/sesh/scripts/next-js.sh"
