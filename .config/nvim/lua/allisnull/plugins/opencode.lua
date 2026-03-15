@@ -5,11 +5,29 @@ return {
         vim.g.opencode_opts = {
             server = {
                 start = function()
-                    vim.system({"tmux", "split-window", "-h", "-l", "40%", "bash -c 'opencode --agent plan --port'"})
+                    vim.system({"tmux", "split-window", "-h", "-l", "40%", "opencode", "--agent", "plan", "--port"}):wait()
                     vim.system({"tmux", "select-pane", "-l"})
+                end,
+                stop = function()
+                    local pane_id, pane_pid = vim.fn.system("tmux list-panes -F '#{pane_id} #{pane_pid} #{pane_current_command}' -t . | grep opencode"):match("(%S+)%s+(%S+)")
+
+                    vim.system({"kill", "-9", pane_pid})
+                    vim.system({"tmux", "kill-pane", "-t", pane_id})
+                end,
+                toggle = function()
+                    local output = vim.fn.system("tmux list-panes -F '#{pane_current_command}' -t . | grep opencode")
+                    if output == "" then
+                        vim.g.opencode_opts.server.start()
+                    else
+                        vim.g.opencode_opts.server.stop()
+                    end
                 end,
             }
         }
+
+        vim.api.nvim_create_autocmd("VimLeave", {
+            callback = vim.g.opencode_opts.server.stop,
+        })
 
         vim.o.autoread = true
 
@@ -28,7 +46,7 @@ return {
         vim.keymap.set({ "n", "x" }, "gA", function() opencode.prompt("@this") end, { desc = "Add to opencode" })
         vim.keymap.set({ "n", "t" }, "<M-.>", opencode.toggle, { desc = "Toggle opencode" })
 
-        vim.keymap.set("n", "<M-PageUp>", function() opencode.command("session.page.up") end, { desc = "opencode page up" })
-        vim.keymap.set("n", "<M-PageDown>", function() opencode.command("session.page.down") end, { desc = "opencode page down" })
+        vim.keymap.set({ "n", "i" }, "<M-PageUp>", function() opencode.command("session.page.up") end, { desc = "opencode page up" })
+        vim.keymap.set({ "n", "i" }, "<M-PageDown>", function() opencode.command("session.page.down") end, { desc = "opencode page down" })
     end,
 }
