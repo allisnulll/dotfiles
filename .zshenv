@@ -1,5 +1,6 @@
 # Source
 export PATH="$HOME/src/nvimpager:$PATH"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 
 # Environment Variables
 export EDITOR="nvim"
