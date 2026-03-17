@@ -50,7 +50,7 @@ startup_command = "v config.rasi;c"
 
 [[session]]
 # TODO: Fix  not working
-name = "🪟 Sesh"
+name = "󰕮 Sesh"
 path = "~/.dotfiles/.config/sesh"
 startup_command = "v sesh.toml;c"
 
@@ -142,5 +142,10 @@ startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
 name = "🏅 JuegazoPR"
-path = "~/Programming/work/juegazopr"
+path = "~/Programming/Work/JuegazoPR/juegazo-pr"
+startup_command = "~/.config/sesh/scripts/next-js.sh"
+
+[[session]]
+name = " JuegazoPR Admin"
+path = "~/Programming/Work/JuegazoPR/juegazo-pr-admin"
 startup_command = "~/.config/sesh/scripts/next-js.sh"
