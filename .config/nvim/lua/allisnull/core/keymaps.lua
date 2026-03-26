@@ -212,18 +212,15 @@ local function swap_words()
 end
 
 local function visual_macro(letter)
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-
-    if start_line == 0 or end_line == 0 then
-        vim.notify("No visual selection found", vim.log.levels.WARN)
-        return
-    end
-
     vim.opt.lazyredraw = true
-    vim.cmd(string.format("%d,%dg/.*/noautocmd norm! @%s", start_line, end_line, letter))
+    vim.opt.eventignore = "all"
+    vim.bo.undofile = false
+
+    vim.fn.feedkeys(":norm @" .. letter .. "\r")
+
     vim.opt.lazyredraw = false
-    vim.cmd("nohl")
+    vim.opt.eventignore = ""
+    vim.bo.undofile = true
 end
 
 -- Preferences
