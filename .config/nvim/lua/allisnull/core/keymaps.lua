@@ -360,6 +360,10 @@ vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
 vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix List Window" })
 vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
 
+-- CTags
+vim.keymap.set({ "n", "v" }, "<leader>c", "", { desc = "LSP/CTags" })
+vim.keymap.set({ "n", "v" }, "<leader>cc", ":!ctags -R .<CR>", { desc = "CTags" })
+
 -- Markup
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })

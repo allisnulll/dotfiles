@@ -12,6 +12,6 @@ return {
         vim.g["undotree_TreeSplitShape"] = "╱"
         vim.g["undotree_TreeReturnShape"] = "╲"
 
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
     end,
 }
