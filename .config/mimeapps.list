@@ -13,6 +13,8 @@ image/svg+xml=org.inkscape.Inkscape.desktop
 image/png=imv.desktop
 image/jpeg=imv.desktop
 text/plain=org.gnome.gedit.desktop
+application/x-info=neovide-info.desktop
+application/x-texinfo=neovide-info.desktop
 
 [Added Associations]
 application/zip=unzip-3.desktop;
@@ -22,3 +24,5 @@ image/svg+xml=chromium.desktop;org.inkscape.Inkscape.desktop;
 image/png=imv.desktop;
 image/jpeg=imv.desktop;
 video/mp4=vlc.desktop;mpv.desktop;
+application/x-info=neovide-info.desktop;
+application/x-texinfo=neovide-info.desktop
