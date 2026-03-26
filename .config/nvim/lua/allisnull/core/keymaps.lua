@@ -156,6 +156,18 @@ local function toggle_nrformats_alpha()
     end
 end
 
+local function toggle_tab_size()
+    if vim.opt.tabstop:get() == 4 then
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
+    else
+        vim.opt.tabstop = 4
+        vim.opt.shiftwidth = 4
+        vim.opt.softtabstop = 4
+    end
+end
+
 local function toggle_fold()
     local line = vim.fn.line(".")
     local foldlevel = vim.fn.foldlevel(line)
@@ -354,6 +366,7 @@ vim.keymap.set("n", "<leader>or", ":set relativenumber!<CR>", { desc = "Toggle r
 vim.keymap.set("n", "<leader>ow", ":set wrap!<CR>", { desc = "Toggle wrap" })
 vim.keymap.set("n", "<leader>ov", toggle_virtualedit, { desc = "Toggle virtualedit" })
 vim.keymap.set("n", "<leader>oa", toggle_nrformats_alpha, { desc = "Toggle alpha nrformats" })
+vim.keymap.set("n", "<leader>os", toggle_tab_size, { desc = "Toggle tab size" })
 
 -- QuickFix/Location List
 vim.keymap.set("n", "<leader>q", "", { desc = "QuickFix/Location List" })
