@@ -1,6 +1,3 @@
--- local function ai_search(ai_type)
--- end
-
 local function ai_line(ai_type)
     local lnum = vim.fn.line(".")
     local line = vim.fn.getline(lnum)
@@ -34,6 +31,10 @@ local function ai_buffer(ai_type)
     }
 end
 
+-- TODO: ai_search
+-- local function ai_search(ai_type)
+-- end
+
 return {
     "echasnovski/mini.ai",
     event = "VeryLazy",
@@ -46,6 +47,8 @@ return {
                 -- ["/"] = ai_search,
                 g = ai_buffer,
                 l = ai_line,
+
+                -- TODO: Figure out ai objects
                 F = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
                 o = spec_treesitter({
                     a = { "@block.outer", "@conditional.outer", "@loop.outer" },
