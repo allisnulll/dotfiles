@@ -7,12 +7,20 @@ return {
                 start = function()
                     vim.system({"tmux", "split-window", "-h", "-l", "40%", "opencode", "--agent", "plan", "--port"}):wait()
                     vim.system({"tmux", "select-pane", "-l"})
+
+                    vim.defer_fn(function()
+                        vim.cmd("horizontal wincmd =")
+                    end, 100)
                 end,
                 stop = function()
                     local pane_id, pane_pid = vim.fn.system("tmux list-panes -F '#{pane_id} #{pane_pid} #{pane_current_command}' -t . | grep opencode"):match("(%S+)%s+(%S+)")
 
                     vim.system({"kill", "-9", pane_pid})
                     vim.system({"tmux", "kill-pane", "-t", pane_id})
+
+                    vim.defer_fn(function()
+                        vim.cmd("horizontal wincmd =")
+                    end, 100)
                 end,
                 toggle = function()
                     local output = vim.fn.system("tmux list-panes -F '#{pane_current_command}' -t . | grep opencode")
