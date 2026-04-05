@@ -19,7 +19,10 @@ return {
         local compile_mode = require("compile-mode")
 
         vim.keymap.set("n", "<F5>", function()
-            vim.ui.input({ prompt = "Compile command: " }, function(command)
+            vim.ui.input({
+                prompt = "Compile command: ",
+                default = "./build.sh && build/" .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t:r")
+            }, function(command)
                 if command and command ~= "" then
                     vim.cmd("vert Compile " .. command)
                     vim.defer_fn(compile_mode.send_to_qflist, 300)
