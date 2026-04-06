@@ -7,6 +7,7 @@ return {
             { "<leader>1", group = "Harpoon to file (1-9)" },
             { "<C-z>", hidden = true },
             { "dS", desc = "Delete Surround Inverse" },
+            { "gC", desc = "C style multiline comment" },
             { "cr", desc = "Coerce" },
             { "crs", desc = "Coerce to snake_case" },
             { "crm", desc = "Coerce to MixedCase" },
