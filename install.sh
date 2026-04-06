@@ -40,7 +40,7 @@ if [[ -d ~/src/neovim ]]; then
             printf "\e[38;5;52mWould you like to overwrite neovim.backup? (y/n)\e[0m "
             read -re answer
             if [[ "${answer,,}" == "y" ]]; then
-                rm ~/src/neovim.backup -rf
+                sudo rm ~/src/neovim.backup -rf
                 mv ~/src/neovim ~/src/neovim.backup
                 nvim_bck_created=1
             else
@@ -79,7 +79,7 @@ if [[ -d ~/src/nvimpager ]]; then
             printf "\e[38;5;52mWould you like to overwrite nvimpager.backup? (y/n):\e[0m "
             read -re answer
             if [[ "${answer,,}" == "y" ]]; then
-                rm ~/src/nvimpager.backup -rf
+                sudo rm ~/src/nvimpager.backup -rf
                 mv ~/src/nvimpager ~/src/nvimpager.backup
                 nvimpager_bck_created=1
             else
