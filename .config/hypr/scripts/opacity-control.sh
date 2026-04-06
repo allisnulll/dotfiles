@@ -24,12 +24,12 @@ CURRENT_OPACITY=$(cat "$MEMORY_FILE" | jq -r --arg addr "$ADDR" '.[$addr] // 1.0
 
 case "$DIRECTION" in
     increase)
-        NEW_OPACITY=$(echo "$CURRENT_OPACITY + $OPACITY_STEP" | bc)
-        (( $(echo "$NEW_OPACITY > $MAX_OPACITY" | bc -l) )) && NEW_OPACITY=$MAX_OPACITY
+        NEW_OPACITY=$(awk "BEGIN {print $CURRENT_OPACITY + $OPACITY_STEP}")
+        NEW_OPACITY=$(awk "BEGIN {print ($NEW_OPACITY > $MAX_OPACITY) ? $MAX_OPACITY : $NEW_OPACITY}")
         ;;
     decrease)
-        NEW_OPACITY=$(echo "$CURRENT_OPACITY - $OPACITY_STEP" | bc)
-        (( $(echo "$NEW_OPACITY < $MIN_OPACITY" | bc -l) )) && NEW_OPACITY=$MIN_OPACITY
+        NEW_OPACITY=$(awk "BEGIN {print $CURRENT_OPACITY - $OPACITY_STEP}")
+        NEW_OPACITY=$(awk "BEGIN {print ($NEW_OPACITY < $MIN_OPACITY) ? $MIN_OPACITY : $NEW_OPACITY}")
         ;;
     reset)
         NEW_OPACITY=$DEFAULT_OPACITY
@@ -46,7 +46,7 @@ echo "ADDR: $ADDR" >> $LOG_FILE
 BATCH=""
 BATCH="$BATCH; dispatch setprop address:$ADDR opacity $NEW_OPACITY override"
 
-if [ "$(echo "$NEW_OPACITY != 1.0" | bc)" -eq 1 ]; then
+if [ "$(awk "BEGIN {print ($NEW_OPACITY != 1.0) ? 1 : 0}")" -eq 1 ]; then
     BATCH="$BATCH; dispatch setprop address:$ADDR noblur true"
 else
     BATCH="$BATCH; dispatch setprop address:$ADDR noblur false"
