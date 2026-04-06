@@ -15,14 +15,15 @@ if [[ ("$gaps_in_current" == "null" && "$gaps_out_current" == "null") ||
       ("$gaps_in_current" == "$gaps_in_default" && "$gaps_out_current" == "$gaps_out_default") ]]; then
     hyprctl keyword workspace "$rid" f[1], gapsin:0, gapsout:0
     hyprctl keyword workspace "$rid" w[tv1], gapsin:0, gapsout:0
-    hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:$id"
-    hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:$id"
+    for win in $(hyprctl -j clients | jq -r --argjson wid "$id" '.[] | select(.workspace.id == $wid) | .address'); do
+        hyprctl dispatch setprop "address:$win" border_size 0
+        hyprctl dispatch setprop "address:$win" rounding 0
+    done
 else
     hyprctl keyword workspace "$rid" f[1], gapsin:"$gaps_in_default", gapsout:"$gaps_out_default"
     hyprctl keyword workspace "$rid" w[tv1], gapsin:"$gaps_in_default", gapsout:"$gaps_out_default"
-    hyprctl keyword windowrulev2 "bordersize $border_size, floating:0, onworkspace:$id"
-    hyprctl keyword windowrulev2 "rounding $rounding, floating:0, onworkspace:$id"
+    for win in $(hyprctl -j clients | jq -r --argjson wid "$id" '.[] | select(.workspace.id == $wid) | .address'); do
+        hyprctl dispatch setprop "address:$win" border_size "$border_size"
+        hyprctl dispatch setprop "address:$win" rounding "$rounding"
+    done
 fi
-
-hyprctl dispatch workspace 10
-hyprctl dispatch workspace "$id"
