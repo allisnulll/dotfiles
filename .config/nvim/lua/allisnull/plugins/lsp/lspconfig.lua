@@ -67,17 +67,14 @@ return {
                 opts.desc = "Smart rename"
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-                opts.desc = "Restart LSP"
-                vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-
                 opts.desc = "LSP Info"
-                vim.keymap.set("n", "<leader>ri", ":LspInfo<CR>", opts)
-
-                opts.desc = "LSP Log"
-                vim.keymap.set("n", "<leader>rl", ":LspLog<CR>", opts)
+                vim.keymap.set("n", "<leader>ri", ":checkhealth vim.lsp<CR>", opts)
 
                 opts.desc = "LSP Restart"
-                vim.keymap.set("n", "<leader>rr", ":LspRestart<CR>", opts)
+                vim.keymap.set("n", "<leader>rs", ":lsp restart<CR>", opts)
+
+                opts.desc = "LSP Stop"
+                vim.keymap.set("n", "<leader>rk", ":lsp stop<CR>", opts)
 
                 opts.desc = "Show documentation for what is under cursor"
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
