@@ -129,8 +129,8 @@ alias open="xdg-open"
 alias lock="~/.config/gtklock/lock.sh"
 
 # Obsidian
-alias ob="~/.dotfiles/scripts/obsidian_commit.sh"
 alias vault="v ~/Vault/main-hub.md '+ObsidianQuickSwitch'"
+alias vault_update="~/.dotfiles/scripts/obsidian_commit.sh"
 
 # Screensavers
 alias pipes="tmux set status off && pipes-rs; tmux set status on"
