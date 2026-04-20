@@ -18,13 +18,18 @@ case "$selected_option" in
   ;;
 *Shutdown)
   ~/.config/hypr/scripts/hyprhook.sh off
-  systemctl poweroff
+  sudo sed -i "s/\(^ExecStart=\).*/\\1\\/sbin\\/agetty -a allisnull - \${TERM}/" /usr/lib/systemd/system/getty@.service
+  echo s2idle | sudo tee /sys/power/mem_sleep
+  hyprshutdown -t "Shutting down..." --post-cmd "systemctl poweroff"
   ;;
 *Restart)
   ~/.config/hypr/scripts/hyprhook.sh off
-  systemctl reboot
+  sudo sed -i "s/\(^ExecStart=\).*/\\1\\/sbin\\/agetty -a allisnull - \${TERM}/" /usr/lib/systemd/system/getty@.service
+  echo s2idle | sudo tee /sys/power/mem_sleep
+  hyprshutdown -t "Restarting..." --post-cmd "systemctl reboot"
   ;;
 *Sleep)
+  echo s2idle | sudo tee /sys/power/mem_sleep
   systemctl suspend
   ;;
 *Logout)
