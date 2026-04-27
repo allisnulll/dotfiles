@@ -98,6 +98,14 @@ return {
             end,
         })
 
+        vim.api.nvim_create_augroup("ObsidianNoLsp", { clear = true })
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = "ObsidianNoLsp",
+            callback = function(args)
+                vim.lsp.buf_detach_client(args.buf, args.data.client_id)
+            end,
+        })
+
         vim.api.nvim_create_augroup("AutoWrite", { clear = true })
         vim.api.nvim_create_autocmd("TextChanged", {
             group = "AutoWrite",
@@ -116,7 +124,7 @@ return {
             end,
         })
 
-        local from_template = function()
+        local function from_template()
             title = vim.fn.input("Enter title or path: ")
             if title ~= "" then
                 vim.cmd("ObsidianNewFromTemplate " .. vim.fn.shellescape(title))
@@ -124,6 +132,7 @@ return {
                 vim.notify("No title provided. Note creation canceled.")
             end
         end
+
         vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
         vim.keymap.set("n", "<localleader><localleader>", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
         vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
@@ -142,6 +151,6 @@ return {
         vim.keymap.set("n", "<localleader>fl", ":ObsidianLinks<CR>", { desc = "Obsidian Find Links" })
         vim.keymap.set("v", "<localleader>e", ":ObsidianExtractNote<CR>", { desc = "Obsidian Extract Note" })
         vim.keymap.set("n", "<localleader>r", ":ObsidianRename<CR>", { desc = "Obsidian Rename" })
-        vim.keymap.set("n", "<localleader>c", ":ObsidianToc<CR>", { desc = "Obsidian ToC" })
+        vim.keymap.set("n", "<localleader>c", ":ObsidianTOC<CR>", { desc = "Obsidian ToC" })
     end,
 }
