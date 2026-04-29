@@ -116,7 +116,7 @@ return {
             end,
         })
 
-        local from_template = function()
+        local function from_template()
             title = vim.fn.input("Enter title or path: ")
             if title ~= "" then
                 vim.cmd("ObsidianNewFromTemplate " .. vim.fn.shellescape(title))
@@ -124,9 +124,10 @@ return {
                 vim.notify("No title provided. Note creation canceled.")
             end
         end
+
         vim.keymap.set("n", "<localleader>", "", { desc = "Notes/Obsidian" })
         vim.keymap.set("n", "<localleader><localleader>", ":ObsidianQuickSwitch<CR>", { desc = "Obsidian Quick Switch" })
-        vim.keymap.set("n", "<localleader>h", ":36vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
+        vim.keymap.set("n", "<localleader>h", ":42vs +set\\ nowrap ~/Vault/main-hub.md<CR>", { desc = "Obsidian Main Hub" })
         vim.keymap.set("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "Obsidian New Note" })
         vim.keymap.set("n", "<localleader>w", from_template, { desc = "Obsidian New Note From Template" })
         vim.keymap.set("n", "<localleader>b", ":ObsidianBacklinks<CR>", { desc = "Obsidian Backlinks" })
@@ -142,6 +143,6 @@ return {
         vim.keymap.set("n", "<localleader>fl", ":ObsidianLinks<CR>", { desc = "Obsidian Find Links" })
         vim.keymap.set("v", "<localleader>e", ":ObsidianExtractNote<CR>", { desc = "Obsidian Extract Note" })
         vim.keymap.set("n", "<localleader>r", ":ObsidianRename<CR>", { desc = "Obsidian Rename" })
-        vim.keymap.set("n", "<localleader>c", ":ObsidianToc<CR>", { desc = "Obsidian ToC" })
+        vim.keymap.set("n", "<localleader>c", ":ObsidianTOC<CR>", { desc = "Obsidian ToC" })
     end,
 }
