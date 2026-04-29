@@ -95,6 +95,7 @@ alias unzipa="for f in *.zip; do unzip '$f' -d '${f%.zip}'; done"
 # Devices
 alias bl="bluetoothctl"
 alias pc-sam="wol AC:82:47:C6:DF:13; tvd"
+alias rdp="rdesktop -g 1920x1080 -u Brain 192.168.1.176:3389"
 
 # TeamViewer
 alias tv="sudo teamviewer --daemon start"
