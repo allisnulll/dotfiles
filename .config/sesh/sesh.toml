@@ -126,6 +126,11 @@ path = "~/.dotfiles/.zsh/plugins/zsh-undo-dir"
 startup_command = "v zsh-undo-dir.plugin.zsh;c"
 
 [[session]]
+name = "🚀 HandmadeHero"
+path = "~/Programming/LearningCS/HandmadeHero/"
+startup_command = "v code/main.c '+vert Compile build/handmade';c"
+
+[[session]]
 name = "🧑🏽‍🌾 TheFarmerWasReplaced"
 path = "~/.steam/steam/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/TheFarmerWasReplaced"
 startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope find_files';c"
