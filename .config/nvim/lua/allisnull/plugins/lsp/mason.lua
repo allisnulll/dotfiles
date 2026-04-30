@@ -21,6 +21,7 @@ return {
                         "clangd",
                         "bashls",
                         "jsonls",
+                        "taplo",
                         "gopls",
                         "jdtls",
                         "tinymist",
