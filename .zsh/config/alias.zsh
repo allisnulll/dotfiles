@@ -142,4 +142,4 @@ alias matrix="tmux set status off && cmatrix -su 3 -C red; tmux set status on"
 alias bonsai="tmux set status off && cbonsai -iS --live; tmux set status on"
 
 # OpenCode
-alias oc="opencode --agent plan"
+alias ai="opencode --agent plan"
