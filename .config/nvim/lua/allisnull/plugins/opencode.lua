@@ -19,8 +19,8 @@ return {
                     end
                 end,
                 stop = function()
-                    vim.g.opencode.server.get()
                     if started then
+                        started = false
                         local pane_id, pane_pid = vim.fn.system("tmux list-panes -F '#{pane_id} #{pane_pid} #{pane_current_command}' -t . | grep opencode"):match("(%S+)%s+(%S+)")
 
                         vim.system({"kill", "-9", pane_pid})
