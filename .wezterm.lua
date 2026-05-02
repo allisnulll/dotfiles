@@ -39,16 +39,16 @@ config.keys = {
         action = wezterm.action.DisableDefaultAssignment,
     },
 
-	{
-		key = "v",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.DisableDefaultAssignment,
-	},
-	{
-		key = "p",
-		mods = "CTRL",
-		action = wezterm.action.PasteFrom("Clipboard"),
-	},
+    {
+        key = "v",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "p",
+        mods = "CTRL",
+        action = wezterm.action.PasteFrom("Clipboard"),
+    },
 
     {
         key = "Tab",
@@ -64,44 +64,50 @@ config.keys = {
     {
         key = "i",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F13" }),  -- NOTE: For some reason sends f+2
+        action = wezterm.action.SendString("\x1b[1;2P"),
     },
     {
         key = "9",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F14" }),
+        action = wezterm.action.SendString("\x1b[1;2Q"),
     },
     {
         key = "0",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F15" }),
+        action = wezterm.action.SendString("\x1b[1;2R"),
     },
 
     {
         key = "PageUp",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F16" }),
+        action = wezterm.action.SendString("\x1b[1;2S"),
     },
     {
         key = "PageDown",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F17" }),
+        action = wezterm.action.SendString("\x1b[15;2~"),
     },
     {
         key = "PageUp",
         mods = "CTRL|SHIFT",
-        action = wezterm.action.SendKey({ key = "F18" }),
+        action = wezterm.action.SendString("\x1b[17;2~"),
     },
     {
         key = "PageDown",
         mods = "CTRL|SHIFT",
-        action = wezterm.action.SendKey({ key = "F19" }),
+        action = wezterm.action.SendString("\x1b[18;2~"),
     },
 
     {
         key = "Enter",
         mods = "CTRL",
-        action = wezterm.action.SendKey({ key = "F20" }),
+        action = wezterm.action.SendString("\x1b[19;2~"),
+    },
+
+    {
+        key = "Tab",
+        mods = "SHIFT|ALT",
+        action = wezterm.action.SendString("\x1b[20;2~"),
     },
 
     {

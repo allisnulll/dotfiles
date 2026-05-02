@@ -389,10 +389,10 @@ vim.keymap.set("n", "<leader>zr", ":Lazy reload ", { desc = "Lazy Reload Plugin"
 vim.keymap.set("n", "<leader>zc", ":Lazy clean<CR>", { desc = "Lazy Clean Plugins" })
 
 -- Fix keys lost by Tmux
-vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
-vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
-vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
-vim.keymap.set("n", "<F18>", "<C-PageUp>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<F19>", "<C-PageDown>", { desc = "Next Tab" })
-vim.keymap.set("n", "<F20>", ":tabm -<CR>", { desc = "Move Tab Left" })
-vim.keymap.set("n", "<F21>", ":tabm +<CR>", { desc = "Move Tab Right" })
+vim.keymap.set("n", "<F13>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
+vim.keymap.set("n", "<F14>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F15>", "zr", { desc = "- Fold level" })
+vim.keymap.set("n", "<F16>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<F17>", "<C-PageDown>", { desc = "Next Tab" })
+vim.keymap.set("n", "<F18>", ":tabm -<CR>", { desc = "Move Tab Left" })
+vim.keymap.set("n", "<F19>", ":tabm +<CR>", { desc = "Move Tab Right" })

@@ -26,7 +26,7 @@ return {
                 luasnip.expand_or_jump()
             end
         end, { desc = "Snippet next interactable", silent = true })
-        vim.keymap.set({ "i", "s" }, "<F23>", function()
+        vim.keymap.set({ "i", "s" }, "<F21>", function()
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             end

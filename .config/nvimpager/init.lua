@@ -243,11 +243,11 @@ vim.keymap.set("n", "<leader><C-Up>", ":lprev<CR>zz", { desc = "Current Window L
 vim.keymap.set("n", "<leader>m", "", { desc = "Markup" })
 vim.keymap.set("n", "<leader>mh", to_heading_level, { desc = "Fold Header Level" })
 
-vim.keymap.set("n", "<F15>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
-vim.keymap.set("n", "<F19>", "<C-PageUp>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<F20>", "<C-PageDown>", { desc = "Next Tab" })
-vim.keymap.set("n", "<F16>", fold_more, { desc = "+ Fold level"})
-vim.keymap.set("n", "<F17>", "zr", { desc = "- Fold level" })
+vim.keymap.set("n", "<F13>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
+vim.keymap.set("n", "<F14>", fold_more, { desc = "+ Fold level"})
+vim.keymap.set("n", "<F15>", "zr", { desc = "- Fold level" })
+vim.keymap.set("n", "<F17>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<F18>", "<C-PageDown>", { desc = "Next Tab" })
 
 -- Plugins
 vim.pack.add({
