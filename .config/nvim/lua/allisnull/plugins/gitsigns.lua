@@ -6,8 +6,6 @@ return {
         { "<leader>h", "", desc = "Git/Hunks", mode = { "n", "v" }},
         { "<leader>hq", function()
             require("gitsigns").setqflist("all")
-            vim.cmd("sleep 1")
-            vim.cmd("resize 20")
         end, desc = "Add Repository Hunks to Quickfix List" },
     },
     opts = {
