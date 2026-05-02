@@ -1,0 +1,1 @@
+../scripts/unlock-keyring.sh

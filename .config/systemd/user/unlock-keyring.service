@@ -1,0 +1,13 @@
+[Unit]
+Description=Unlock GNOME Keyring
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/unlock-keyring.sh
+RemainAfterExit=true
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target
