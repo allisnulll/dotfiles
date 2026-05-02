@@ -19,6 +19,23 @@ return {
         local lspkind = require("lspkind")
 
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_lua").lazy_load({ paths = vim.api.nvim_call_function("stdpath", { "config" }) .. "/snippets" })
+
+        vim.keymap.set({ "i", "s" }, "<M-Tab>", function()
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            end
+        end, { desc = "Snippet next interactable", silent = true })
+        vim.keymap.set({ "i", "s" }, "<F23>", function()
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            end
+        end, { desc = "Snippet last interactable", silent = true })
+        -- vim.keymap.set({ "i", "s" }, "", function()
+        --     if luasnip.choice_active() then
+        --         luasnip.change_choice(1)
+        --     end
+        -- end, { desc = "Snippet change choice node" })
 
         cmp.setup({
             snippet = {

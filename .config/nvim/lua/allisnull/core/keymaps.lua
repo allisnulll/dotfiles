@@ -304,6 +304,10 @@ vim.keymap.set({ "n", "v" }, "<M-s>", swap_words, { desc = "Swap words" })
 
 vim.keymap.set("v", "<leader>n", ":norm ", { desc = "Normal on selection" })
 
+-- To
+vim.keymap.set("n", "<leader>t", "", { desc = "To" })
+vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
+
 -- Macro
 vim.keymap.set("v", "<leader>q", "", { desc = "Macro" })
 vim.keymap.set("v", "<leader>qa", function() visual_macro("a") end, { desc = "@a" })
@@ -332,10 +336,6 @@ vim.keymap.set("v", "<leader>qw", function() visual_macro("w") end, { desc = "@w
 vim.keymap.set("v", "<leader>qx", function() visual_macro("x") end, { desc = "@x" })
 vim.keymap.set("v", "<leader>qy", function() visual_macro("y") end, { desc = "@y" })
 vim.keymap.set("v", "<leader>qz", function() visual_macro("z") end, { desc = "@z" })
-
--- To
-vim.keymap.set("n", "<leader>t", "", { desc = "To" })
-vim.keymap.set("n", "<leader>tc", to_column, { desc = "Move chars at cursor to column" })
 
 -- Tabs
 vim.keymap.set("n", "<C-S-PageUp>", ":tabm +<CR>", { desc = "Move tab left" })
