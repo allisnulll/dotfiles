@@ -319,17 +319,24 @@ tooltip label {
   background: @backlight;
   padding-left: 2px;
 }
-#battery {
+#battery,
+#custom-battery {
   color: @module-fg;
   background: @battery;
 }
-#battery.warning {
+#battery.warning,
+#custom-battery.warning {
   color: @warning;
 }
-#battery.critical {
+#battery.critical,
+#custom-battery.critical {
   color: @critical;
 }
-#battery.charging {
+#battery.charging,
+#custom-battery.charging {
+  color: @charging;
+}
+#custom-battery.power {
   color: @charging;
 }
 

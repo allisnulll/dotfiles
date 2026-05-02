@@ -59,7 +59,7 @@
     "backlight",            // brightness
 
     "custom/left8",
-    "battery",              // battery
+    "custom/battery",       // battery / power
 
     "custom/leftin2",
     "custom/power"          // power button
@@ -68,10 +68,9 @@
   // <<--< Modules >-->>
 
   "custom/ws": {
-    "exec": "~/.config/waybar/scripts/current-theme.sh",
     "return-type": "json",
     "format": " 󰍜 ",
-    "on-click": "~/.config/waybar/scripts/theme-switcher.sh",
+    "on-click": "pgrep -x rofi > /dev/null && pkill -x rofi; rofi -drun-exclude-categories Game -show-icons -show combi -modi combi -combi-modi 'websearch:~/.dotfiles/scripts/rofi-web-search.sh,drun' -combi-display-format '{text}' -no-sidebar-mode",
     "min-length": 3,
     "max-length": 3
   },
@@ -351,21 +350,12 @@
     "max-length": 6
   },
 
-  "battery": {
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": " {capacity}%",
-
-    "tooltip-format": "Discharging: {time}",
-    "tooltip-format-charging": "Charging: {time}",
-    "interval": 30,
-    "min-length": 6,
-    "max-length": 6
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery-power.sh",
+    "return-type": "json",
+    "interval": 5,
+    "min-length": 7,
+    "max-length": 7
   },
 
   "custom/power": {
