@@ -8,13 +8,13 @@ current_theme_name="Default"
 
 # Get the theme name
 if [[ -n "$current_theme" ]]; then
-  current_theme_name=$(basename "$current_theme" .css)
+    current_theme_name=$(basename "$current_theme" .css)
 
   # Convert "theme-name" to "Theme Name"
   formatted_theme_name="${current_theme_name//-/ }"
   formatted_theme_name=$(echo "$formatted_theme_name" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
 else
-  formatted_theme_name="Default"
+    formatted_theme_name="Default"
 fi
 
 tooltip="Theme: $formatted_theme_name"
