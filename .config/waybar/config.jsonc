@@ -35,7 +35,7 @@
         "custom/right2",
 
         "custom/rightin1",
-        "clock#time",           // time
+        "custom/time",          // time
         "custom/right3",
 
         "clock#date",           // date
@@ -222,10 +222,11 @@
         "tooltip": false
     },
 
-    "clock#time": {
-        "format": " {:%H:%M}",
+"custom/time": {
+        "exec": "~/.config/waybar/scripts/clock-time.sh",
+        "return-type": "json",
         "tooltip": false,
-        // "tooltip-format": "Standard Time: {:%I:%M %p}",
+        "interval": 60,
         "min-length": 9,
         "max-length": 9
     },

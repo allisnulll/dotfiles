@@ -221,7 +221,7 @@ tooltip label {
 #idle_inhibitor:hover {
     color: @hover-fg;
 }
-#clock.time {
+#custom-time {
     background: @time;
     margin-left: -2px;
     padding: 0 3px 0 0;
