@@ -76,7 +76,7 @@ tooltip label {
 #custom-update,
 #mpris,
 #pulseaudio,
-#backlight,
+#custom-backlight,
 #battery,
 #custom-power {
     opacity: 1;
@@ -308,7 +308,7 @@ tooltip label {
     background: @pulseaudio;
     padding-left: 2px;
 }
-#backlight {
+#custom-backlight {
     background: @backlight;
 }
 

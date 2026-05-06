@@ -3,14 +3,16 @@
 step="5%+"
 [ "$1" = down ] && step="5%-"
 
-has_ddcci5=false
-has_ddcci6=false
-[ -d /sys/class/backlight/ddcci5 ] && has_ddcci5=true
-[ -d /sys/class/backlight/ddcci6 ] && has_ddcci6=true
+ddcci_devices=()
+for dev in /sys/class/backlight/ddcci*/; do
+    [ -d "$dev" ] && ddcci_devices+=("$(basename "$dev")")
+done
 
-if $has_ddcci5 || $has_ddcci6; then
-    $has_ddcci5 && brightnessctl -d ddcci5 set "$step"
-    $has_ddcci6 && brightnessctl -d ddcci6 set "$step"
+if [ ${#ddcci_devices[@]} -gt 0 ]; then
+    for dev in "${ddcci_devices[@]}"; do
+        brightnessctl -d "$dev" set "$step"
+    done
 else
+    ./ddcci-bind.sh
     brightnessctl set "$step"
 fi

@@ -56,7 +56,7 @@
         "pulseaudio",           // output device
 
         "custom/left7",
-        "backlight",            // brightness
+        "custom/backlight",            // brightness
 
         "custom/left8",
         "custom/battery",       // battery / power
@@ -341,12 +341,12 @@
         "max-length": 6
     },
 
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "tooltip": false,
+    "custom/backlight": {
+        "exec": "~/.config/waybar/scripts/backlight.sh",
+        "return-type": "json",
         "on-scroll-up": "~/.config/waybar/scripts/brightness-control.sh -o i",
         "on-scroll-down": "~/.config/waybar/scripts/brightness-control.sh -o d",
+        "interval": 2,
         "min-length": 6,
         "max-length": 6
     },
