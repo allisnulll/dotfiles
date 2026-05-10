@@ -1,5 +1,5 @@
 # .dotfiles
-These are the dotfiles stowed on my *Thinkpad T480s* laptop.
+These are the dotfiles stowed on my Desktop & *Thinkpad T480s* Laptop
 
 ---
 I am running **Arch Linux** with the following technologies:
