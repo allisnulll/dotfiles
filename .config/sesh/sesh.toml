@@ -137,12 +137,12 @@ startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope fin
 
 [[session]]
 name = "🧠 Brain"
-path = "~/Programming/work/Brain/brainmusik-mobile/"
+path = "~/Programming/Work/Brain/brainmusik-mobile/"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
 name = "🪹 Birds Nest"
-path = "~/Programming/work/BirdsNest/birds_nest"
+path = "~/Programming/Work/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
 
 [[session]]
