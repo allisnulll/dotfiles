@@ -1,0 +1,10 @@
+[Unit]
+Description=PowerJoular
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=%h/.dotfiles/scripts/powerjoular.sh
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = powerjoular
+
+[Action]
+Description = Restoring powerjoular capabilities for RAPL access
+When = PostTransaction
+Exec = /usr/bin/setcap cap_sys_admin+ep /usr/bin/powerjoular

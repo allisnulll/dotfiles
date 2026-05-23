@@ -355,8 +355,8 @@
         "exec": "~/.config/waybar/scripts/battery-power.sh",
         "return-type": "json",
         "interval": 5,
-        "min-length": 7,
-        "max-length": 7
+        "min-length": 8,
+        "max-length": 8
     },
 
     "custom/power": {

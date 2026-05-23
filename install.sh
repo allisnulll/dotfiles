@@ -8,7 +8,7 @@ stow --no-folding .
 cd ~ || exit
 
 sudo ln -sf ~/.dotfiles/pacman.conf /etc
-paru -Sy --needed fastfetch eza zoxide btop htop yazi powertop tree tmux go sesh-bin fzf ripgrep fd jq wget tealdeer cmake clang gdb valgrind nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode
+paru -Sy --needed fastfetch eza zoxide btop htop yazi powertop tree tmux go sesh-bin fzf ripgrep fd jq wget tealdeer cmake clang gdb valgrind nodejs npm lua51 rustup pyenv python-pynvim python-pip php composer tree-sitter-cli xdg-user-dirs noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra kanata-git opencode powerjoular
 
 xdg-user-dirs-update
 
@@ -18,6 +18,18 @@ ya pkg add BennyOe/tokyo-night
 
 sudo usermod -c "AllIsNull" allisnull
 sudo usermod -a -G networkmanager audio input uinput dialout allisnull
+
+# PowerJoular
+sudo setcap cap_sys_admin+ep /usr/bin/powerjoular
+sudo mkdir -p /etc/pacman.d/hooks
+sudo cp ~/.dotfiles/.config/pacman/hooks/powerjoular.hook /etc/pacman.d/hooks/powerjoular.hook
+sudo rm -f /etc/tmpfiles.d/powerjoular.conf
+sudo rm -f /etc/sudoers.d/powerjoular
+sudo systemctl disable --now powerjoular.service 2>/dev/null || true
+sudo rm -f /etc/systemd/system/powerjoular.service
+sudo systemctl daemon-reload 2>/dev/null || true
+systemctl --user daemon-reload
+systemctl --user enable --now powerjoular.service
 
 nvim_bck_created=0
 nvimpager_bck_created=0

@@ -51,6 +51,6 @@ else
 
         printf '{"text":" %sW %s ","tooltip":"Power Consumption: %sW","class":"power","markup":true}' "$WATTS" "$ARROW" "$WATTS"
     else
-        printf '{"text":" --W ","tooltip":"Enable powerjoular: sudo systemctl enable --now powerjoular","class":"power"}'
+        printf '{"text":" ---W → ","tooltip":"Enable powerjoular: systemctl --user enable --now powerjoular","class":"power"}'
     fi
 fi
