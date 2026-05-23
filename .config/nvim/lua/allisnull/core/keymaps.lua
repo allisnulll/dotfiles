@@ -297,7 +297,7 @@ vim.keymap.set("n", "<M-b>", ":.w !sh<CR>", { desc = "Run line as external comma
 
 vim.keymap.set({ "n", "v" }, "g/", "/\\v^((.**)@!.)*$" .. string.rep("<Left>", 8), { desc = "Inverse Search" })
 vim.keymap.set("v", "<leader>s", "y/\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
-vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection" })
+vim.keymap.set("v", "<leader>S", "y?\\V<C-r>=substitute(escape(@\", '\\/'), '\\n', '\\\\n', 'g')<CR><CR><CR>", { desc = "Search for current selection backwards" })
 
 vim.keymap.set({ "n", "v" }, "<C-s>", reuse_text, { desc = "Multiline reuse text" })
 vim.keymap.set({ "n", "v" }, "<M-s>", swap_words, { desc = "Swap words" })
@@ -374,7 +374,7 @@ vim.keymap.set("n", "<leader>qq", toggle_quickfix, { desc = "Toggle QuickFix Lis
 vim.keymap.set("n", "<leader>ql", toggle_location, { desc = "Toggle Location List Window" })
 
 -- CTags
-vim.keymap.set({ "n", "v" }, "<leader>c", "", { desc = "LSP/CTags" })
+vim.keymap.set({ "n", "v" }, "<leader>c", "", { desc = "Change/LSP/CTags" })
 vim.keymap.set({ "n", "v" }, "<leader>cc", ":!ctags -R .<CR>", { desc = "CTags" })
 
 -- Markup
