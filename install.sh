@@ -31,6 +31,10 @@ sudo systemctl daemon-reload 2>/dev/null || true
 systemctl --user daemon-reload
 systemctl --user enable --now powerjoular.service
 
+# Auto-login & suspend
+sudo cp ~/.dotfiles/.config/pacman/hooks/getty-autologin.hook /etc/pacman.d/hooks/getty-autologin.hook
+sudo sed -i 's|^ExecStart=.*|ExecStart=/sbin/agetty -a allisnull - ${TERM}|' /usr/lib/systemd/system/getty@.service
+
 nvim_bck_created=0
 nvimpager_bck_created=0
 
