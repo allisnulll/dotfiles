@@ -16,7 +16,7 @@ startup_command = "c && lsa && gs"
 [[session]]
 name = "#[fg=#56bce1]#[fg=#000000] Hyprland"
 path = "~/.dotfiles/.config/hypr"
-startup_command = "v hyprland.conf;c"
+startup_command = "v hyprland.lua;c"
 
 [[session]]
 name = "#[fg=#83b06c]#[fg=#000000] NeoVim"
