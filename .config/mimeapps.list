@@ -18,7 +18,7 @@ application/x-info=neovide-info.desktop
 application/x-texinfo=neovide-info.desktop
 
 [Added Associations]
-application/zip=unzip-3.desktop;
+application/zip=xarchiver.desktop;unzip-3.desktop;
 text/plain=org.gnome.gedit.desktop;
 application/x-nes-rom=nestopia.desktop;
 image/svg+xml=chromium.desktop;org.inkscape.Inkscape.desktop;
