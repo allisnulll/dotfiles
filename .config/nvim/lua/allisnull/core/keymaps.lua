@@ -338,10 +338,10 @@ vim.keymap.set("v", "<leader>qy", function() visual_macro("y") end, { desc = "@y
 vim.keymap.set("v", "<leader>qz", function() visual_macro("z") end, { desc = "@z" })
 
 -- Tabs
-vim.keymap.set("n", "<C-S-PageUp>", ":tabm +<CR>", { desc = "Move tab left" })
-vim.keymap.set("n", "<C-S-PageDown>", ":tabm -<CR>", { desc = "Move tab right" })
+vim.keymap.set({ "n", "i" }, "<C-S-PageUp>", function() vim.cmd("tabm +") end, { desc = "Move tab left" })
+vim.keymap.set({ "n", "i" }, "<C-S-PageDown>", function() vim.cmd("tabm -") end, { desc = "Move tab right" })
 vim.keymap.set("n", "<C-w><C-x>", ":tabc<CR>", { desc = "Close current tab" })
-vim.keymap.set("n", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
+vim.keymap.set("v", "<C-w><C-o>", ":tabo<CR>", { desc = "Close all other tabs" })
 
 -- Switch Windows with Arrow Keys
 vim.keymap.set("n", "<C-Left>", "<C-w>h")
@@ -392,7 +392,7 @@ vim.keymap.set("n", "<leader>zc", ":Lazy clean<CR>", { desc = "Lazy Clean Plugin
 vim.keymap.set("n", "<F13>", "<C-i>", { desc = "Goto [count] newer cursor position in the jump list" })
 vim.keymap.set("n", "<F14>", fold_more, { desc = "+ Fold level"})
 vim.keymap.set("n", "<F15>", "zr", { desc = "- Fold level" })
-vim.keymap.set("n", "<F16>", "<C-PageUp>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<F17>", "<C-PageDown>", { desc = "Next Tab" })
-vim.keymap.set("n", "<F18>", ":tabm -<CR>", { desc = "Move Tab Left" })
-vim.keymap.set("n", "<F19>", ":tabm +<CR>", { desc = "Move Tab Right" })
+vim.keymap.set({ "n", "i" }, "<F16>", "<C-PageUp>", { desc = "Previous Tab" })
+vim.keymap.set({ "n", "i" }, "<F17>", "<C-PageDown>", { desc = "Next Tab" })
+vim.keymap.set({ "n", "i" }, "<F18>", function() vim.cmd("tabm -") end, { desc = "Move Tab Left" })
+vim.keymap.set({ "n", "i" }, "<F19>", function() vim.cmd("tabm +") end, { desc = "Move Tab Right" })
