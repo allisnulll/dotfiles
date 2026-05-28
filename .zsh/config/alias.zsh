@@ -38,6 +38,7 @@ alias set-sleep="echo s2idle | sudo tee /sys/power/mem_sleep"
 # Fzf
 alias vf='file=$(fzf && exit) && [[ -n $file ]] && v "$file"'
 alias cdf='file=$(fzf && exit) && [[ -n $file ]] && cd $(dirname "$file")'
+alias manf='page=$(man -k . | fzf --preview "man {1}" | awk "{print \$1}") && [[ -n $page ]] && man "$page"'
 
 # Paru
 alias p="paru"
