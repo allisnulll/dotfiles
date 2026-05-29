@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local function adjust_transparency(window, delta)
     local overrides = window:get_config_overrides() or {}
-    overrides.window_background_opacity = overrides.window_background_opacity or .75
+    overrides.window_background_opacity = overrides.window_background_opacity or .65
     overrides.window_background_opacity = overrides.window_background_opacity + delta
 
     overrides.window_background_opacity = math.max(0, math.min(1, overrides.window_background_opacity))
@@ -17,7 +17,7 @@ config.default_prog = { "zsh", "-i", "-c", "sesh connect 🏠 Home; exec zsh" }
 
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
-config.window_background_opacity = .75
+config.window_background_opacity = .65
 config.window_close_confirmation = "NeverPrompt"
 config.font = wezterm.font("Maple Mono NF")
 config.force_reverse_video_cursor = true
