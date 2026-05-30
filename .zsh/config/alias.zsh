@@ -20,7 +20,7 @@ alias .....="cd ../../../.."
 alias so="source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh"
 alias soa="source ~/.zsh/config/plugins.zsh && source ~/.zsh/config/p10k.zsh && source ~/.zsh/config/alias.zsh && source ~/.zsh/config/git.zsh && source ~/.zsh/config/function.zsh && source ~/.zsh/config/history.zsh && source ~/.zshenv && source ~/.zprofile"
 
-alias glob="setopt | rg extendedglob > /dev/null && unsetopt extended_glob || setopt extended_glob"
+alias glob="setopt | rg extendedglob >/dev/null && unsetopt extended_glob || setopt extended_glob"
 alias nocolor="sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g'"
 alias fonts="fc-list --brief | rg 'fullname: \"' | rg -v 'Noto' | sed -r 's/\s+(Bold|Italic|Light|Medium|Thin|ExtraBold|Condensed|Regular|Oblique).*//' | sed 's/fullname: //' | sed 's/\"(s)//' | sed 's/\"//' | sed 's/\t//' | sort | uniq | nocolor"
 alias colors='for i in {0..255}; do echo -e "\e[38;5;${i}mcolor $i"; done'
@@ -38,7 +38,7 @@ alias set-sleep="echo s2idle | sudo tee /sys/power/mem_sleep"
 # Fzf
 alias vf='file=$(fzf && exit) && [[ -n $file ]] && v "$file"'
 alias cdf='file=$(fzf && exit) && [[ -n $file ]] && cd $(dirname "$file")'
-alias manf='page=$(man -k . | fzf --preview "man {1}" | awk "{print \$1}") && [[ -n $page ]] && man "$page"'
+alias manf='page=$(man -k . | awk "{print \$1, \$2}" | fzf --ansi --preview "unbuffer man {1}" | awk "{gsub(/[()]/, \"\", \$2); print \$2, \$1}") && [[ -n $page ]] && man ${=page}'
 
 # Paru
 alias p="paru"
