@@ -60,7 +60,7 @@ return {
         vim.keymap.set({ "n", "x" }, "<M-a>q", function() opencode.ask("@quickfix: ", { submit = true }) end, { desc = "Ask opencode about quickfix list" })
         vim.keymap.set({ "n", "x" }, "<M-a>d", function() opencode.ask("@diff: ", { submit = true }) end, { desc = "Ask opencode about diff" })
 
-        vim.keymap.set({ "n", "x" }, "<M-a>t", opencode.toggle, { desc = "Toggle opencode" })
+        vim.keymap.set({ "n", "x" }, "<M-a>t", vim.g.opencode_opts.server.toggle, { desc = "Toggle opencode" })
 
         vim.keymap.set({ "n", "i" }, "<M-PageUp>", function() opencode.command("session.page.up") end, { desc = "opencode page up" })
         vim.keymap.set({ "n", "i" }, "<M-PageDown>", function() opencode.command("session.page.down") end, { desc = "opencode page down" })
