@@ -137,8 +137,8 @@ startup_command = "v main.py '+lua vim.diagnostic.enable(false)' '+Telescope fin
 
 [[session]]
 name = "🧠 Brain"
-path = "~/Programming/Work/Brain/brainmusik-mobile/"
-startup_command = "~/.config/sesh/scripts/flutter.sh"
+path = "~/Programming/Work/Brain"
+startup_command = "c && lsa"
 
 [[session]]
 name = "🪹 Birds Nest"
