@@ -141,6 +141,11 @@ path = "~/Programming/Work/Brain"
 startup_command = "c && lsa"
 
 [[session]]
+name = "🧠 Brain Mobile"
+path = "~/Programming/Work/Brain/brainmusik-mobile"
+startup_command = "~/.config/sesh/scripts/flutter.sh"
+
+[[session]]
 name = "🪹 Birds Nest"
 path = "~/Programming/Work/BirdsNest/birds_nest"
 startup_command = "~/.config/sesh/scripts/flutter.sh"
