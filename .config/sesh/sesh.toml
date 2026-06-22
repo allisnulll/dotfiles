@@ -111,7 +111,7 @@ startup_command = "y;c"
 
 [[session]]
 name = "📖 Dictionary"
-path = "/home/allisnull/.config/nvim/spell"
+path = "~/.config/nvim/spell"
 startup_command = "v .;c"
 
 [[session]]

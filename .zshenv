@@ -33,14 +33,14 @@ eval "$(pyenv init - zsh)"
 if [[ "$(pyenv version-name 2>/dev/null)" == "miniconda3-latest" ]]; then
     # >>> conda initialize >>>
     # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/home/allisnull/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    __conda_setup="$(\"$HOME/.pyenv/versions/miniconda3-latest/bin/conda\" 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
-        if [ -f "/home/allisnull/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
-            . "/home/allisnull/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+        if [ -f "$HOME/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+            . "$HOME/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
         else
-            export PATH="/home/allisnull/.pyenv/versions/miniconda3-latest/bin:$PATH"
+            export PATH="$HOME/.pyenv/versions/miniconda3-latest/bin:$PATH"
         fi
     fi
     unset __conda_setup
@@ -50,8 +50,13 @@ else
 fi
 
 # Flutter
-export PATH="/home/allisnull/fvm/default/bin:$PATH"
-[[ -f /home/allisnull/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/allisnull/.config/.dart-cli-completion/zsh-config.zsh || true
+export PATH="$HOME/fvm/default/bin:$PATH"
+[[ -f $HOME/.config/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.config/.dart-cli-completion/zsh-config.zsh || true
+
+# Android
+export PATH="$HOME/Android/Sdk/emulator/:$PATH"
+export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+export ANDROID_AVD_HOME="$HOME/.config/.android/avd"
 
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 # export ADB_TRACE="all"

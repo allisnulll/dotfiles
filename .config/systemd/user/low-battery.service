@@ -2,4 +2,4 @@
 Description=Low Battery Warning
 
 [Service]
-ExecStart=/home/allisnull/.dotfiles/scripts/low_battery.sh
+ExecStart=$HOME/.dotfiles/scripts/low_battery.sh
