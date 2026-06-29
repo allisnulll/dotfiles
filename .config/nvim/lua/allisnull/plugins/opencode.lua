@@ -10,7 +10,7 @@ return {
                     if not started then
                         started = true
 
-                        vim.system({"tmux", "split-window", "-h", "-l", "40%", "opencode", "--agent", "plan", "--port"}):wait()
+                        vim.system({"tmux", "split-window", "-h", "-l", "40%", "opencode", "--port"}):wait()
                         vim.system({"tmux", "select-pane", "-l"})
 
                         vim.defer_fn(function()
@@ -51,14 +51,14 @@ return {
         local opencode = require("opencode")
 
         vim.keymap.set({ "n", "x" }, "<M-a><M-a>", function() opencode.select() end, { desc = "Execute opencode action…" })
-        vim.keymap.set({ "n", "x" }, "<M-a>a", function() opencode.ask("@this: ", { submit = true }) end, { desc = "Ask opencode" })
-        vim.keymap.set({ "n", "x" }, "<M-a>A", function() opencode.prompt("@this") end, { desc = "Add to opencode" })
-        vim.keymap.set({ "n", "x" }, "<M-a>b", function() opencode.ask("@buffer: ", { submit = true }) end, { desc = "Ask opencode about buffer" })
-        vim.keymap.set({ "n", "x" }, "<M-a>B", function() opencode.ask("@buffers: ", { submit = true }) end, { desc = "Ask opencode about all buffers" })
-        vim.keymap.set({ "n", "x" }, "<M-a>v", function() opencode.ask("@visible: ", { submit = true }) end, { desc = "Ask opencode about visible text" })
-        vim.keymap.set({ "n", "x" }, "<M-a>e", function() opencode.ask("@diagnostics: ", { submit = true }) end, { desc = "Ask opencode about diagnostics" })
-        vim.keymap.set({ "n", "x" }, "<M-a>q", function() opencode.ask("@quickfix: ", { submit = true }) end, { desc = "Ask opencode about quickfix list" })
-        vim.keymap.set({ "n", "x" }, "<M-a>d", function() opencode.ask("@diff: ", { submit = true }) end, { desc = "Ask opencode about diff" })
+        vim.keymap.set({ "n", "x" }, "<M-a>a", function() opencode.ask("@this: ") end, { desc = "Ask opencode" })
+        vim.keymap.set({ "n", "x" }, "<M-a>A", function() opencode.prompt("@this") end, { desc = "Add line to opencode" })
+        vim.keymap.set({ "n", "x" }, "<M-a>b", function() opencode.ask("@buffer: ") end, { desc = "Ask opencode about buffer" })
+        vim.keymap.set({ "n", "x" }, "<M-a>B", function() opencode.prompt("@buffer: ") end, { desc = "Add buffer to opencode" })
+        vim.keymap.set({ "n", "x" }, "<M-a>v", function() opencode.ask("@visible: ") end, { desc = "Ask opencode about visible text" })
+        vim.keymap.set({ "n", "x" }, "<M-a>e", function() opencode.ask("@diagnostics: ") end, { desc = "Ask opencode about diagnostics" })
+        vim.keymap.set({ "n", "x" }, "<M-a>q", function() opencode.ask("@quickfix: ") end, { desc = "Ask opencode about quickfix list" })
+        vim.keymap.set({ "n", "x" }, "<M-a>d", function() opencode.ask("@diff: ") end, { desc = "Ask opencode about diff" })
 
         vim.keymap.set({ "n", "x" }, "<M-a>t", vim.g.opencode_opts.server.toggle, { desc = "Toggle opencode" })
 
